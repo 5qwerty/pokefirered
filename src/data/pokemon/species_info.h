@@ -242,10 +242,10 @@ const struct SpeciesInfo gSpeciesInfo[] =
     {
         .baseHP = 59,
         .baseAttack = 58,
-        .baseDefense = 70,
+        .baseDefense = 65,
         .baseSpeed = 58,
         .baseSpAttack = 75,
-        .baseSpDefense = 85,
+        .baseSpDefense = 90,
         .types = {TYPE_WATER, TYPE_ICE},
         .catchRate = 45,
         .expYield = 143,
@@ -4649,8 +4649,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_FERALIGATR] =
     {
         .baseHP = 90,
-        .baseAttack = 115,
-        .baseDefense = 110,
+        .baseAttack = 111,
+        .baseDefense = 109,
         .baseSpeed = 78,
         .baseSpAttack = 69,
         .baseSpDefense = 73,

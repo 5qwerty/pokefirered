@@ -80,3 +80,23 @@ Common_Movement_WalkUp2::
 	walk_up
 	walk_up
 	step_end
+
+Common_Movement_ExclamDown::
+	emote_exclamation_mark
+	face_down
+	step_end
+
+Common_Movement_ExclamUp::
+	emote_exclamation_mark
+	face_up
+	step_end
+
+Common_Movement_ExclamLeft::
+	emote_exclamation_mark
+	face_left
+	step_end
+
+Common_Movement_ExclamRight::
+	emote_exclamation_mark
+	face_right
+	step_end

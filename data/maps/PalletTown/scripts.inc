@@ -1,5 +1,6 @@
-.equ LOCALID_SIGN_LADY, 1
+.equ LOCALID_AIDE, 1
 .equ LOCALID_PROF_OAK,  3
+.equ LOCALID_SIGN_LADY, 9
 
 .equ SIGN_LADY_READY, VAR_TEMP_2
 
@@ -319,12 +320,6 @@ PalletTown_Movement_PlayerWalkToLabRight::
 	walk_to_lab
 	step_end
 
-PalletTown_Movement_PlayerEnterLab::
-	walk_right
-	walk_up
-	set_invisible
-	step_end
-
 PalletTown_EventScript_SignLady::
 	lock
 	goto_if_eq VAR_MAP_SCENE_PALLET_TOWN_SIGN_LADY, 2, PalletTown_EventScript_SignLadyDone
@@ -450,3 +445,91 @@ PalletTown_EventScript_SignLadyStartShowSign::
 	call PalletTown_EventScript_SignLadyShowSign
 	release
 	end
+
+PalletTown_EventScript_AideTriggerLeft::
+	lockall
+	setvar VAR_TEMP_1, 0
+	goto PalletTown_EventScript_AideIntro
+	end
+
+
+PalletTown_EventScript_AideTriggerRight::
+	lockall
+	setvar VAR_TEMP_1, 1
+	goto PalletTown_EventScript_AideIntro
+	end
+
+
+PalletTown_EventScript_AideIntro::
+	playse SE_PIN
+	applymovement LOCALID_AIDE, Common_Movement_ExclamDown
+	waitmovement 0
+	textcolor NPC_TEXT_COLOR_MALE
+	msgbox PalletTown_Text_AideTalk
+	closemessage
+	call_if_eq VAR_TEMP_1, 0, PalletTown_EventScript_PlayerWalkingToAideLeft
+	call_if_eq VAR_TEMP_1, 1, PalletTown_EventScript_PlayerWalkingToAideRight
+	applymovement LOCALID_AIDE PalletTown_Movement_AideToLab
+	applymovement OBJ_EVENT_ID_PLAYER PalletTown_Movement_PlayerToLab
+	waitmovement 0
+	opendoor 17, 7
+	waitdooranim
+	applymovement LOCALID_AIDE, PalletTown_Movement_AideEnterLab
+	applymovement OBJ_EVENT_ID_PLAYER, PalletTown_Movement_PlayerEnterLab
+	waitmovement 0
+	closedoor 17, 7
+	waitdooranim
+	warp MAP_PALLET_TOWN_PROFESSOR_OAKS_LAB, 6, 12
+	waitstate
+	releaseall
+	return
+
+
+PalletTown_EventScript_PlayerWalkingToAideLeft::
+	applymovement OBJ_EVENT_ID_PLAYER PalletTown_Movement_PlayerWalkToAideLeft
+	waitmovement 0
+	return
+
+
+PalletTown_EventScript_PlayerWalkingToAideRight::
+	applymovement OBJ_EVENT_ID_PLAYER PalletTown_Movement_PlayerWalkToAideRight
+	waitmovement 0
+	return
+
+
+PalletTown_Movement_PlayerWalkToAideLeft:
+	walk_up
+	walk_up
+	step_end
+
+PalletTown_Movement_PlayerWalkToAideRight:
+	walk_up
+	walk_left
+	walk_up
+	step_end
+
+PalletTown_Movement_AideToLab:
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+PalletTown_Movement_PlayerToLab:
+	walk_up
+	walk_left
+	walk_left
+	step_end
+
+PalletTown_Movement_AideEnterLab:
+	walk_up
+	set_invisible
+	step_end
+
+PalletTown_Movement_PlayerEnterLab:
+	walk_left
+	walk_up
+	set_invisible
+	step_end
+
+PalletTown_Text_AideTalk::
+	.string "Blah Blah Blah!$"
