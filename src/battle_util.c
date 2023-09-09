@@ -830,7 +830,11 @@ u8 DoBattlerEndTurnEffects(void)
             case ENDTURN_BURN:  // burn
                 if ((gBattleMons[gActiveBattler].status1 & STATUS1_BURN) && gBattleMons[gActiveBattler].hp != 0)
                 {
-                    gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 8;
+                    if(gBattleMons[gActiveBattler].ability == ABILITY_FIREPROOF) {
+                        gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 24;
+                    } else {
+                        gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 8;
+                    }
                     if (gBattleMoveDamage == 0)
                         gBattleMoveDamage = 1;
                     BattleScriptExecute(BattleScript_BurnTurnDmg);
@@ -1906,6 +1910,17 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     break;
                 case ABILITY_WATER_ABSORB:
                     if (moveType == TYPE_WATER && gBattleMoves[move].power != 0)
+                    {
+                        if (gProtectStructs[gBattlerAttacker].notFirstStrike)
+                            gBattlescriptCurrInstr = BattleScript_MoveHPDrain;
+                        else
+                            gBattlescriptCurrInstr = BattleScript_MoveHPDrain_PPLoss;
+
+                        effect = 1;
+                    }
+                    break;
+                case ABILITY_PYRO_ABSORB:
+                    if (moveType == TYPE_FIRE && gBattleMoves[move].power != 0)
                     {
                         if (gProtectStructs[gBattlerAttacker].notFirstStrike)
                             gBattlescriptCurrInstr = BattleScript_MoveHPDrain;

@@ -469,8 +469,8 @@ PalletTown_EventScript_AideIntro::
 	closemessage
 	call_if_eq VAR_TEMP_1, 0, PalletTown_EventScript_PlayerWalkingToAideLeft
 	call_if_eq VAR_TEMP_1, 1, PalletTown_EventScript_PlayerWalkingToAideRight
-	applymovement LOCALID_AIDE PalletTown_Movement_AideToLab
-	applymovement OBJ_EVENT_ID_PLAYER PalletTown_Movement_PlayerToLab
+	applymovement LOCALID_AIDE, PalletTown_Movement_AideToLab
+	applymovement OBJ_EVENT_ID_PLAYER, PalletTown_Movement_PlayerToLab
 	waitmovement 0
 	opendoor 17, 7
 	waitdooranim
@@ -479,6 +479,9 @@ PalletTown_EventScript_AideIntro::
 	waitmovement 0
 	closedoor 17, 7
 	waitdooranim
+	setflag FLAG_0x200
+	setvar VAR_0x4029, 1
+	setvar VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 1
 	warp MAP_PALLET_TOWN_PROFESSOR_OAKS_LAB, 6, 12
 	waitstate
 	releaseall
@@ -486,13 +489,13 @@ PalletTown_EventScript_AideIntro::
 
 
 PalletTown_EventScript_PlayerWalkingToAideLeft::
-	applymovement OBJ_EVENT_ID_PLAYER PalletTown_Movement_PlayerWalkToAideLeft
+	applymovement OBJ_EVENT_ID_PLAYER, PalletTown_Movement_PlayerWalkToAideLeft
 	waitmovement 0
 	return
 
 
 PalletTown_EventScript_PlayerWalkingToAideRight::
-	applymovement OBJ_EVENT_ID_PLAYER PalletTown_Movement_PlayerWalkToAideRight
+	applymovement OBJ_EVENT_ID_PLAYER, PalletTown_Movement_PlayerWalkToAideRight
 	waitmovement 0
 	return
 
@@ -512,6 +515,7 @@ PalletTown_Movement_AideToLab:
 	walk_left
 	walk_left
 	walk_left
+	walk_in_place_faster_up
 	step_end
 
 PalletTown_Movement_PlayerToLab:
