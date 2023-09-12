@@ -21,7 +21,7 @@
     },
     {
       "map": "MAP_VIRIDIAN_CITY",
-      "offset": -12,
+      "offset": -16,
       "direction": "down"
     }
   ],
@@ -191,7 +191,9 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "sign",

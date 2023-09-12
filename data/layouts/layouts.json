@@ -4384,7 +4384,7 @@
     {
       "id": "LAYOUT_TEMP_MAP",
       "name": "TempMap_Layout",
-      "width": 24,
+      "width": 48,
       "height": 40,
       "border_width": 2,
       "border_height": 2,
