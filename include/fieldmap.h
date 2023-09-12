@@ -10,6 +10,7 @@
 #define NUM_PALS_IN_PRIMARY 7
 #define NUM_PALS_TOTAL 13
 #define MAX_MAP_DATA_SIZE 0x2800
+#define NUM_TILES_PER_METATILE 12
 #define VIRTUAL_MAP_SIZE (MAX_MAP_DATA_SIZE)
 
 // Map coordinates are offset by 7 when using the map

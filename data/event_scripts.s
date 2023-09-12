@@ -1361,5 +1361,5 @@ Text_TestMsg::
 	.include "data/text/new_game_intro.inc"
 	.include "data/text/pokedude.inc"
 
-	.include "data/maps/TempMap/scripts.inc"
-	.include "data/maps/TempMap/text.inc"
+	.include "data/maps/ObsidianCity/scripts.inc"
+	.include "data/maps/ObsidianCity/text.inc"
