@@ -1,7 +1,7 @@
 {
-  "id": "MAP_TEMP_MAP",
-  "name": "TempMap",
-  "layout": "LAYOUT_TEMP_MAP",
+  "id": "MAP_OBSIDIAN_CITY",
+  "name": "ObsidianCity",
+  "layout": "LAYOUT_OBSIDIAN_CITY",
   "music": "MUS_BERRY_PICK",
   "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
   "requires_flash": false,
@@ -13,7 +13,13 @@
   "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": [
+    {
+      "map": "MAP_ROUTE22",
+      "offset": 28,
+      "direction": "down"
+    }
+  ],
   "object_events": [
 
   ],

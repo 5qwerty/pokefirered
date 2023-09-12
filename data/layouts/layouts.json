@@ -1108,12 +1108,12 @@
     {
       "id": "LAYOUT_ROUTE22",
       "name": "Route22_Layout",
-      "width": 48,
-      "height": 24,
+      "width": 64,
+      "height": 32,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_ViridianCity",
+      "secondary_tileset": "gTileset_SeviiIslands67",
       "border_filepath": "data/layouts/Route22/border.bin",
       "blockdata_filepath": "data/layouts/Route22/map.bin"
     },
@@ -4382,16 +4382,16 @@
       "blockdata_filepath": "data/layouts/OneIsland_KindleRoad_EmberSpa/map.bin"
     },
     {
-      "id": "LAYOUT_TEMP_MAP",
-      "name": "TempMap_Layout",
-      "width": 48,
+      "id": "LAYOUT_OBSIDIAN_CITY",
+      "name": "ObsidianCity_Layout",
+      "width": 52,
       "height": 40,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_PalletTown",
-      "border_filepath": "data/layouts/TempMap/border.bin",
-      "blockdata_filepath": "data/layouts/TempMap/map.bin"
+      "secondary_tileset": "gTileset_SeviiIslands67",
+      "border_filepath": "data/layouts/ObsidianCity/border.bin",
+      "blockdata_filepath": "data/layouts/ObsidianCity/map.bin"
     }
   ]
 }
