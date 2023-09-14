@@ -310,7 +310,7 @@ static void DrawMetatile(s32 metatileLayerType, const u16 *tiles, u16 offset)
 */
 static void DrawMetatile(s32 metatileLayerType, const u16 *tiles, u16 offset)
 {
-    /*if (metatileLayerType == 0xFF)
+    if (metatileLayerType == 0xFF)
     {
         // A door metatile shall be drawn, we use covered behavior
         // Draw metatile's bottom layer to the bottom background layer.
@@ -333,7 +333,7 @@ static void DrawMetatile(s32 metatileLayerType, const u16 *tiles, u16 offset)
 
     }
     else
-    {*/
+    {
         // Draw metatile's bottom layer to the bottom background layer.
         gBGTilemapBuffers3[offset] = tiles[0];
         gBGTilemapBuffers3[offset + 1] = tiles[1];
@@ -353,7 +353,7 @@ static void DrawMetatile(s32 metatileLayerType, const u16 *tiles, u16 offset)
         gBGTilemapBuffers2[offset + 0x21] = tiles[11];
 
 
-    //}
+    }
     
     ScheduleBgCopyTilemapToVram(1);
     ScheduleBgCopyTilemapToVram(2);

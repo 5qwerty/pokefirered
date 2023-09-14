@@ -1363,3 +1363,36 @@ Text_TestMsg::
 
 	.include "data/maps/ObsidianCity/scripts.inc"
 	.include "data/maps/ObsidianCity/text.inc"
+
+	.include "data/maps/ObsidianCity_PokemonCenter_1F/scripts.inc"
+	.include "data/maps/ObsidianCity_PokemonCenter_1F/text.inc"
+
+	.include "data/maps/ObsidianCity_PokemonCenter_2F/scripts.inc"
+	.include "data/maps/ObsidianCity_PokemonCenter_2F/text.inc"
+
+	.include "data/maps/ObsidianCity_Gym/scripts.inc"
+	.include "data/maps/ObsidianCity_Gym/text.inc"
+
+	.include "data/maps/ObsidianCity_Mart/scripts.inc"
+	.include "data/maps/ObsidianCity_Mart/text.inc"
+
+	.include "data/maps/ObsidianCity_House1/scripts.inc"
+	.include "data/maps/ObsidianCity_House1/text.inc"
+
+	.include "data/maps/ObsidianCity_House2/scripts.inc"
+	.include "data/maps/ObsidianCity_House2/text.inc"
+
+	.include "data/maps/ObsidianCity_House3/scripts.inc"
+	.include "data/maps/ObsidianCity_House3/text.inc"
+
+	.include "data/maps/ObsidianCity_House4/scripts.inc"
+	.include "data/maps/ObsidianCity_House4/text.inc"
+
+	.include "data/maps/RuinsOfOmeg_Room1/scripts.inc"
+	.include "data/maps/RuinsOfOmeg_Room1/text.inc"
+
+	.include "data/maps/RuinsOfOmeg_Room2/scripts.inc"
+	.include "data/maps/RuinsOfOmeg_Room2/text.inc"
+
+	.include "data/maps/RuinsOfOmeg_Room3/scripts.inc"
+	.include "data/maps/RuinsOfOmeg_Room3/text.inc"

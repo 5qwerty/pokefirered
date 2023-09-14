@@ -89,6 +89,14 @@
       "height": 1
     },
     {
+      "map_section": "MAPSEC_OBSIDIAN_CITY",
+      "name": "OBSIDIAN CITY",
+      "x": 6,
+      "y": 11,
+      "width": 1,
+      "height": 1
+    },
+    {
       "map_section": "MAPSEC_ROUTE_4_POKECENTER",
       "name": "ROUTE 4",
       "x": 8,

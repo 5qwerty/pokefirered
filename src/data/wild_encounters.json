@@ -20912,7 +20912,7 @@
           "map": "MAP_ROUTE22",
           "base_label": "sRoute22_FireRed",
           "land_mons": {
-            "encounter_rate": 21,
+            "encounter_rate": 0,
             "mons": [
               {
                 "min_level": 3,
@@ -21220,7 +21220,7 @@
           "map": "MAP_ROUTE23",
           "base_label": "sRoute23_FireRed",
           "land_mons": {
-            "encounter_rate": 21,
+            "encounter_rate": 0,
             "mons": [
               {
                 "min_level": 32,

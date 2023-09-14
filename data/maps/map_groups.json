@@ -15,6 +15,7 @@
     "gMapGroup_IndoorCinnabar",
     "gMapGroup_IndoorIndigoPlateau",
     "gMapGroup_IndoorSaffron",
+    "gMapGroup_IndoorObsidian",
     "gMapGroup_IndoorRoute2",
     "gMapGroup_IndoorRoute4",
     "gMapGroup_IndoorRoute5",
@@ -174,7 +175,10 @@
     "SixIsland_DottedHole_B4F",
     "SixIsland_DottedHole_SapphireRoom",
     "SixIsland_PatternBush",
-    "SixIsland_AlteringCave"
+    "SixIsland_AlteringCave",
+    "RuinsOfOmeg_Room1",
+    "RuinsOfOmeg_Room2",
+    "RuinsOfOmeg_Room3"
   ],
   "gMapGroup_SpecialArea": [
     "NavelRock_Exterior",
@@ -420,6 +424,16 @@
     "SaffronCity_PokemonCenter_2F",
     "SaffronCity_MrPsychicsHouse",
     "SaffronCity_PokemonTrainerFanClub"
+  ],
+  "gMapGroup_IndoorObsidian": [
+    "ObsidianCity_PokemonCenter_1F",
+    "ObsidianCity_PokemonCenter_2F",
+    "ObsidianCity_Gym",
+    "ObsidianCity_Mart",
+    "ObsidianCity_House1",
+    "ObsidianCity_House2",
+    "ObsidianCity_House3",
+    "ObsidianCity_House4"
   ],
   "gMapGroup_IndoorRoute2": [
     "Route2_ViridianForest_SouthEntrance",

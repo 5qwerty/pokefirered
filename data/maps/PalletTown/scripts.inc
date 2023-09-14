@@ -481,6 +481,8 @@ PalletTown_EventScript_AideIntro::
 	waitdooranim
 	setflag FLAG_0x200
 	setvar VAR_0x4029, 1
+	setflag FLAG_BADGE01_GET
+	setflag FLAG_BADGE05_GET
 	setvar VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 1
 	warp MAP_PALLET_TOWN_PROFESSOR_OAKS_LAB, 6, 12
 	waitstate
