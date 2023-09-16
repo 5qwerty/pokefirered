@@ -819,6 +819,14 @@ MUS_ENCOUNTER_DEOXYS      = 57 01
 MUS_TRAINER_TOWER         = 58 01
 MUS_SLOW_PALLET           = 59 01
 MUS_TEACHY_TV_MENU        = 5A 01
+MUS_ABANDONED_SHIP        = 5B 01
+MUS_POKE_MART             = 5C 01
+MUS_MT_PYRE_EXTERIOR      = 5D 01
+MUS_MT_PYRE_INTERIOR      = 5E 01
+MUS_RUSTBORO              = 5F 01
+MUS_ROUTE110              = 60 01
+MUS_ROUTE113              = 61 01
+MUS_VS_REGI               = 62 01
 
 A_BUTTON        = F8 00
 B_BUTTON        = F8 01

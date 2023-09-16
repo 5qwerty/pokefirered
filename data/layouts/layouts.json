@@ -796,8 +796,8 @@
     {
       "id": "LAYOUT_CELADON_CITY",
       "name": "CeladonCity_Layout",
-      "width": 60,
-      "height": 40,
+      "width": 68,
+      "height": 48,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",

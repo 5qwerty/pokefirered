@@ -282,6 +282,30 @@ $(MID_SUBDIR)/mus_victory_trainer.s: %.s: %.mid
 $(MID_SUBDIR)/mus_victory_wild.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G170 -V090
 
+$(MID_SUBDIR)/mus_abandoned_ship.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G030 -V080
+
+$(MID_SUBDIR)/mus_poke_mart.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G050 -V085
+
+$(MID_SUBDIR)/mus_mt_pyre_exterior.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G080 -V080
+
+$(MID_SUBDIR)/mus_mt_pyre.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G078 -V088
+
+$(MID_SUBDIR)/mus_rustboro.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G045 -V085
+
+$(MID_SUBDIR)/mus_route110.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G010 -V080
+
+$(MID_SUBDIR)/mus_route113.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G064 -V084
+
+$(MID_SUBDIR)/mus_vs_regi.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G122 -V080 -P1
+
 $(MID_SUBDIR)/ph_choice_blend.s: %.s: %.mid
 	$(MID) $< $@ -E -G130 -P4
 
@@ -827,3 +851,4 @@ $(MID_SUBDIR)/se_m_leer.s: %.s: %.mid
 
 $(MID_SUBDIR)/se_dex_search.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G127 -v100 -P5
+

@@ -346,6 +346,14 @@ gSongTable::
 	song mus_trainer_tower, 0, 0
 	song mus_slow_pallet, 0, 0
 	song mus_teachy_tv_menu, 0, 0
+	song mus_abandoned_ship, 0, 0
+	song mus_poke_mart, 0, 0
+	song mus_mt_pyre_exterior, 0, 0
+	song mus_mt_pyre, 0, 0
+	song mus_rustboro, 0, 0
+	song mus_route110, 0, 0
+	song mus_route113, 0, 0
+	song mus_vs_regi, 0, 0
 
 dummy_song_header:
 	.byte 0, 0, 0, 0

@@ -2,7 +2,7 @@
   "id": "MAP_PALLET_TOWN_PLAYERS_HOUSE_2F",
   "name": "PalletTown_PlayersHouse_2F",
   "layout": "LAYOUT_PALLET_TOWN_PLAYERS_HOUSE_2F",
-  "music": "MUS_PALLET",
+  "music": "MUS_VS_REGI",
   "region_map_section": "MAPSEC_PALLET_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -13,8 +13,10 @@
   "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
-  "object_events": [],
+  "connections": 0,
+  "object_events": [
+
+  ],
   "warp_events": [
     {
       "x": 10,
@@ -24,7 +26,9 @@
       "dest_warp_id": "2"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "sign",

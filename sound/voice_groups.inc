@@ -1,3 +1,12 @@
+.include "sound/voicegroups/voicegroup030.inc"
+.include "sound/voicegroups/voicegroup031.inc"
+.include "sound/voicegroups/voicegroup045.inc"
+.include "sound/voicegroups/voicegroup050.inc"
+.include "sound/voicegroups/voicegroup064.inc"
+.include "sound/voicegroups/voicegroup078.inc"
+.include "sound/voicegroups/voicegroup080.inc"
+.include "sound/voicegroups/voicegroup122.inc"
+
 	.align 2
 voicegroup000::
 	voice_keysplit_all voicegroup001

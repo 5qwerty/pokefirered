@@ -960,6 +960,14 @@ SECTIONS {
         sound/songs/midi/mus_trainer_tower.o(.rodata);
         sound/songs/midi/mus_slow_pallet.o(.rodata);
         sound/songs/midi/mus_teachy_tv_menu.o(.rodata);
+        sound/songs/midi/mus_abandoned_ship.o(.rodata);
+        sound/songs/midi/mus_poke_mart.o(.rodata);
+        sound/songs/midi/mus_mt_pyre_exterior.o(.rodata);
+        sound/songs/midi/mus_mt_pyre.o(.rodata);
+        sound/songs/midi/mus_rustboro.o(.rodata);
+        sound/songs/midi/mus_route110.o(.rodata);
+        sound/songs/midi/mus_route113.o(.rodata);
+        sound/songs/midi/mus_vs_regi.o(.rodata);
     }
 
     lib_rodata :

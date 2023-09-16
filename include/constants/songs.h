@@ -352,6 +352,14 @@
 #define MUS_TRAINER_TOWER         344 // MUS_RG_T_TOWER
 #define MUS_SLOW_PALLET           345 // MUS_RG_SLOWMASARA
 #define MUS_TEACHY_TV_MENU        346 // MUS_RG_TVNOIZE
+#define MUS_ABANDONED_SHIP        347
+#define MUS_POKE_MART             348
+#define MUS_MT_PYRE_EXTERIOR      349
+#define MUS_MT_PYRE_INTERIOR      350
+#define MUS_RUSTBORO              351
+#define MUS_ROUTE110              352
+#define MUS_ROUTE113              353
+#define MUS_VS_REGI               354
 
 #define MUS_NONE                    0xFFFF
 
