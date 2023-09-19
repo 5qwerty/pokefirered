@@ -240,15 +240,15 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 30,
-      "y": 17,
+      "x": 62,
+      "y": 27,
       "elevation": 0,
       "dest_map": "MAP_CELADON_CITY_DEPARTMENT_STORE_1F",
       "dest_warp_id": "1"
     },
     {
-      "x": 34,
-      "y": 17,
+      "x": 62,
+      "y": 31,
       "elevation": 0,
       "dest_map": "MAP_CELADON_CITY_DEPARTMENT_STORE_1F",
       "dest_warp_id": "4"

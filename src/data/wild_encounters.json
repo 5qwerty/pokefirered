@@ -17296,7 +17296,7 @@
           "map": "MAP_ROUTE6",
           "base_label": "sRoute6_FireRed",
           "land_mons": {
-            "encounter_rate": 21,
+            "encounter_rate": 0,
             "mons": [
               {
                 "min_level": 10,
@@ -17361,7 +17361,7 @@
             ]
           },
           "water_mons": {
-            "encounter_rate": 2,
+            "encounter_rate": 0,
             "mons": [
               {
                 "min_level": 20,
@@ -17604,7 +17604,7 @@
           "map": "MAP_ROUTE7",
           "base_label": "sRoute7_FireRed",
           "land_mons": {
-            "encounter_rate": 21,
+            "encounter_rate": 0,
             "mons": [
               {
                 "min_level": 19,
@@ -22678,7 +22678,7 @@
           "map": "MAP_VERMILION_CITY",
           "base_label": "sVermilionCity_FireRed",
           "water_mons": {
-            "encounter_rate": 1,
+            "encounter_rate": 0,
             "mons": [
               {
                 "min_level": 5,

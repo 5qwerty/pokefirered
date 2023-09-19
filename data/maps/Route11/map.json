@@ -16,7 +16,7 @@
   "connections": [
     {
       "map": "MAP_VERMILION_CITY",
-      "offset": -16,
+      "offset": 0,
       "direction": "left"
     },
     {
@@ -169,8 +169,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 42,
-      "y": 12,
+      "x": 43,
+      "y": 14,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -183,8 +183,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 63,
-      "y": 13,
+      "x": 58,
+      "y": 27,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -197,8 +197,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 13,
-      "y": 3,
+      "x": 6,
+      "y": 22,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -211,22 +211,15 @@
   ],
   "warp_events": [
     {
-      "x": 6,
-      "y": 7,
-      "elevation": 0,
-      "dest_map": "MAP_DIGLETTS_CAVE_SOUTH_ENTRANCE",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 58,
-      "y": 10,
+      "x": 61,
+      "y": 8,
       "elevation": 3,
       "dest_map": "MAP_ROUTE11_EAST_ENTRANCE_1F",
       "dest_warp_id": "0"
     },
     {
-      "x": 65,
-      "y": 10,
+      "x": 68,
+      "y": 8,
       "elevation": 3,
       "dest_map": "MAP_ROUTE11_EAST_ENTRANCE_1F",
       "dest_warp_id": "2"
@@ -236,14 +229,6 @@
 
   ],
   "bg_events": [
-    {
-      "type": "sign",
-      "x": 3,
-      "y": 7,
-      "elevation": 3,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route11_EventScript_DiglettsCaveSign"
-    },
     {
       "type": "hidden_item",
       "x": 58,
