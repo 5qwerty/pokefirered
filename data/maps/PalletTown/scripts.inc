@@ -484,6 +484,8 @@ PalletTown_EventScript_AideIntro::
 	setflag FLAG_BADGE01_GET
 	setflag FLAG_BADGE05_GET
 	setvar VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 1
+	giveitem ITEM_BICYCLE
+	setflag FLAG_GOT_BICYCLE
 	warp MAP_PALLET_TOWN_PROFESSOR_OAKS_LAB, 6, 12
 	waitstate
 	releaseall

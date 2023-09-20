@@ -2481,7 +2481,7 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         spAttack /= 2;
     if (defender->ability == ABILITY_INSULATION && (type == TYPE_FIRE))
         spAttack = spAttack * 2/3;
-    if (defender->ability == ABILITY_FIREPROOF && (type == TYPE_FIRE))
+    if (defender->ability == ABILITY_HEATPROOF && (type == TYPE_FIRE))
         spAttack = spAttack * 1/3;
     if (attacker->ability == ABILITY_HUSTLE)
         attack = (150 * attack) / 100;

@@ -77,7 +77,7 @@ static const u8 sShellArmorDescription[] = _("Blocks critical hits.");
 static const u8 sCacophonyDescription[] = _("Avoids sound-based moves.");
 static const u8 sAirLockDescription[] = _("Negates weather effects.");
 static const u8 sInsulationDescription[] = _("Slight fire defense.");
-static const u8 sFireproofDescription[] = _("Fire and burn protection.");
+static const u8 sHeatproofDescription[] = _("Fire and burn protection.");
 static const u8 sPyroAbsorbDescription[] = _("Turns fire into HP.");
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -161,7 +161,7 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_CACOPHONY] = sCacophonyDescription,
     [ABILITY_AIR_LOCK] = sAirLockDescription,
     [ABILITY_INSULATION] = sInsulationDescription,
-    [ABILITY_FIREPROOF] = sFireproofDescription,
+    [ABILITY_HEATPROOF] = sHeatproofDescription,
     [ABILITY_PYRO_ABSORB] = sPyroAbsorbDescription,
 };
 
@@ -246,6 +246,6 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_CACOPHONY] = _("CACOPHONY"),
     [ABILITY_AIR_LOCK] = _("AIR LOCK"),
     [ABILITY_INSULATION] = _("INSULATION"),
-    [ABILITY_FIREPROOF] = _("FIREPROOF"),
+    [ABILITY_HEATPROOF] = _("HEATPROOF"),
     [ABILITY_PYRO_ABSORB] = _("PYRO ABSORB"),
 };
