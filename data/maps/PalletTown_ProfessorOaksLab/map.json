@@ -17,48 +17,6 @@
   "object_events": [
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST",
-      "x": 3,
-      "y": 11,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "PalletTown_ProfessorOaksLab_EventScript_Aide1",
-      "flag": "0"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_WORKER_F",
-      "x": 2,
-      "y": 10,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 4,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "PalletTown_ProfessorOaksLab_EventScript_Aide3",
-      "flag": "0"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST",
-      "x": 11,
-      "y": 10,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "PalletTown_ProfessorOaksLab_EventScript_Aide2",
-      "flag": "0"
-    },
-    {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PROF_OAK",
       "x": 6,
       "y": 3,
@@ -68,7 +26,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PalletTown_ProfessorOaksLab_EventScript_ProfOak",
+      "script": "NULL",
       "flag": "FLAG_HIDE_OAK_IN_HIS_LAB"
     },
     {
@@ -82,8 +40,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PalletTown_ProfessorOaksLab_EventScript_BulbasaurBall",
-      "flag": "FLAG_HIDE_BULBASAUR_BALL"
+      "script": "PalletTown_SoakLab_EventScript_SquirtleBall",
+      "flag": "FLAG_HIDE_SQUIRTLE_BALL"
     },
     {
       "type": "object",
@@ -96,8 +54,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PalletTown_ProfessorOaksLab_EventScript_SquirtleBall",
-      "flag": "FLAG_HIDE_SQUIRTLE_BALL"
+      "script": "PalletTown_SoakLab_EventScript_TotodileBall",
+      "flag": "FLAG_HIDE_TOTODILE_BALL"
     },
     {
       "type": "object",
@@ -110,8 +68,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PalletTown_ProfessorOaksLab_EventScript_CharmanderBall",
-      "flag": "FLAG_HIDE_CHARMANDER_BALL"
+      "script": "0",
+      "flag": "FLAG_HIDE_MUDKIP_BALL"
     },
     {
       "type": "object",
@@ -124,36 +82,22 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PalletTown_ProfessorOaksLab_EventScript_Rival",
+      "script": "NULL",
       "flag": "FLAG_HIDE_RIVAL_IN_LAB"
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_POKEDEX",
-      "x": 4,
-      "y": 1,
+      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST",
+      "x": 9,
+      "y": 10,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PalletTown_ProfessorOaksLab_EventScript_Pokedex",
-      "flag": "FLAG_HIDE_POKEDEX"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_POKEDEX",
-      "x": 5,
-      "y": 1,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "PalletTown_ProfessorOaksLab_EventScript_Pokedex",
-      "flag": "FLAG_HIDE_POKEDEX"
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -187,7 +131,7 @@
       "elevation": 3,
       "var": "VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB",
       "var_value": "2",
-      "script": "PalletTown_ProfessorOaksLab_EventScript_LeaveStarterSceneTrigger"
+      "script": "PalletTown_SoakLab_Event_LeaveStarterSceneTrigger"
     },
     {
       "type": "trigger",
@@ -196,7 +140,7 @@
       "elevation": 3,
       "var": "VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB",
       "var_value": "2",
-      "script": "PalletTown_ProfessorOaksLab_EventScript_LeaveStarterSceneTrigger"
+      "script": "PalletTown_SoakLab_Event_LeaveStarterSceneTrigger"
     },
     {
       "type": "trigger",
@@ -205,7 +149,7 @@
       "elevation": 3,
       "var": "VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB",
       "var_value": "2",
-      "script": "PalletTown_ProfessorOaksLab_EventScript_LeaveStarterSceneTrigger"
+      "script": "PalletTown_SoakLab_Event_LeaveStarterSceneTrigger"
     },
     {
       "type": "trigger",
@@ -214,7 +158,7 @@
       "elevation": 3,
       "var": "VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB",
       "var_value": "3",
-      "script": "PalletTown_ProfessorOaksLab_EventScript_RivalBattleTriggerLeft"
+      "script": "PalletTown_SoakLab_EventScript_RivalBattleTriggerLeft"
     },
     {
       "type": "trigger",
@@ -223,7 +167,7 @@
       "elevation": 3,
       "var": "VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB",
       "var_value": "3",
-      "script": "PalletTown_ProfessorOaksLab_EventScript_RivalBattleTriggerMid"
+      "script": "PalletTown_SoakLab_EventScript_RivalBattleTriggerMid"
     },
     {
       "type": "trigger",
@@ -232,7 +176,7 @@
       "elevation": 3,
       "var": "VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB",
       "var_value": "3",
-      "script": "PalletTown_ProfessorOaksLab_EventScript_RivalBattleTriggerRight"
+      "script": "PalletTown_SoakLab_EventScript_RivalBattleTriggerRight"
     }
   ],
   "bg_events": [
@@ -242,7 +186,7 @@
       "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PalletTown_ProfessorOaksLab_EventScript_Computer"
+      "script": "NULL"
     },
     {
       "type": "sign",
@@ -250,7 +194,7 @@
       "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PalletTown_ProfessorOaksLab_EventScript_Computer"
+      "script": "NULL"
     },
     {
       "type": "sign",
@@ -258,7 +202,7 @@
       "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PalletTown_ProfessorOaksLab_EventScript_LeftSign"
+      "script": "NULL"
     },
     {
       "type": "sign",
@@ -266,7 +210,7 @@
       "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PalletTown_ProfessorOaksLab_EventScript_RightSign"
+      "script": "NULL"
     }
   ]
 }

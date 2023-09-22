@@ -16,7 +16,7 @@
   "connections": [
     {
       "map": "MAP_ROUTE15",
-      "offset": 40,
+      "offset": 34,
       "direction": "left"
     },
     {
@@ -197,8 +197,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
-      "x": 1,
-      "y": 47,
+      "x": 12,
+      "y": 24,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -254,8 +254,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 9,
-      "y": 20,
+      "x": 15,
+      "y": 40,
       "elevation": 3,
       "item": "ITEM_ZINC",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE14_ZINC",

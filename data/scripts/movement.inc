@@ -45,8 +45,52 @@ Common_Movement_FaceRight::
 	face_right
 	step_end
 
+Common_Movement_FaceLeft::
+	face_left
+	step_end
+
+Common_Movement_FaceUp::
+	face_up
+	step_end
+
 Common_Movement_FaceDown::
 	face_down
+	step_end
+
+Common_Movement_WalkRight::
+	walk_right
+	step_end
+
+Common_Movement_WalkLeft::
+	walk_left
+	step_end
+
+Common_Movement_WalkUp::
+	walk_up
+	step_end
+
+Common_Movement_WalkDown::
+	walk_down
+	step_end
+
+Common_Movement_WalkInPlaceRight::
+	walk_in_place_right
+	walk_in_place_right
+	step_end
+
+Common_Movement_WalkInPlaceLeft::
+	walk_in_place_left
+	walk_in_place_left
+	step_end
+
+Common_Movement_WalkInPlaceUp::
+	walk_in_place_up
+	walk_in_place_up
+	step_end
+
+Common_Movement_WalkInPlaceDown::
+	walk_in_place_down
+	walk_in_place_down
 	step_end
 
 Common_Movement_WalkUp5::
@@ -68,11 +112,6 @@ Common_Movement_WalkUp4::
 Common_Movement_Delay32::
 	delay_16
 	delay_16
-	step_end
-
-@ Unused
-Common_Movement_WalkUp::
-	walk_up
 	step_end
 
 @ Unused
