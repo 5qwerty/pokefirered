@@ -17,16 +17,16 @@
     {
       "map": "MAP_LAVENDER_TOWN",
       "offset": 0,
-      "direction": "up"
+      "direction": "left"
     },
     {
       "map": "MAP_ROUTE13",
-      "offset": -48,
+      "offset": -38,
       "direction": "down"
     },
     {
       "map": "MAP_ROUTE11",
-      "offset": 60,
+      "offset": 94,
       "direction": "left"
     }
   ],
@@ -230,29 +230,29 @@
   ],
   "warp_events": [
     {
-      "x": 12,
-      "y": 86,
+      "x": 26,
+      "y": 83,
       "elevation": 0,
       "dest_map": "MAP_ROUTE12_FISHING_HOUSE",
       "dest_warp_id": "1"
     },
     {
-      "x": 14,
-      "y": 15,
+      "x": 19,
+      "y": 110,
       "elevation": 3,
       "dest_map": "MAP_ROUTE12_NORTH_ENTRANCE_1F",
       "dest_warp_id": "0"
     },
     {
-      "x": 15,
-      "y": 15,
+      "x": 20,
+      "y": 110,
       "elevation": 3,
       "dest_map": "MAP_ROUTE12_NORTH_ENTRANCE_1F",
       "dest_warp_id": "1"
     },
     {
-      "x": 14,
-      "y": 21,
+      "x": 19,
+      "y": 116,
       "elevation": 3,
       "dest_map": "MAP_ROUTE12_NORTH_ENTRANCE_1F",
       "dest_warp_id": "2"
@@ -300,8 +300,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 9,
-      "y": 116,
+      "x": 2,
+      "y": 120,
       "elevation": 3,
       "item": "ITEM_RARE_CANDY",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE12_RARE_CANDY",
