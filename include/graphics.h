@@ -3641,6 +3641,7 @@ extern const u32 gBattleAnimSpritePal_Finger[];
 extern const u32 gBattleAnimSpritePal_PoisonPowder[];
 extern const u32 gBattleAnimSpritePal_BrownTriangle[];
 extern const u32 gBattleAnimSpritePal_SleepPowder[];
+extern const u32 gBattleAnimSpritePal_FlamePowder[];
 extern const u32 gBattleAnimSpritePal_StunSpore[];
 extern const u32 gBattleAnimSpritePal_PoisonPowder[];
 extern const u32 gBattleAnimSpritePal_Sparkle3[];

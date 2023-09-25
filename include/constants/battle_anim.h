@@ -286,7 +286,7 @@
 #define ANIM_TAG_GEM_3                      (ANIM_SPRITES_START + 276) // unused
 #define ANIM_TAG_SLAM_HIT_2                 (ANIM_SPRITES_START + 277)
 #define ANIM_TAG_RECYCLE                    (ANIM_SPRITES_START + 278)
-#define ANIM_TAG_RED_PARTICLES              (ANIM_SPRITES_START + 279) // unused
+#define ANIM_TAG_FLAME_POWDER               (ANIM_SPRITES_START + 279)
 #define ANIM_TAG_PROTECT                    (ANIM_SPRITES_START + 280)
 #define ANIM_TAG_DIRT_MOUND                 (ANIM_SPRITES_START + 281)
 #define ANIM_TAG_SHOCK_3                    (ANIM_SPRITES_START + 282)
@@ -296,6 +296,7 @@
 #define ANIM_TAG_SLASH_2                    (ANIM_SPRITES_START + 286)
 #define ANIM_TAG_WHIP_HIT                   (ANIM_SPRITES_START + 287)
 #define ANIM_TAG_BLUE_RING_2                (ANIM_SPRITES_START + 288)
+#define ANIM_TAG_RED_PARTICLES              (ANIM_SPRITES_START + 289) // unused
 
 // battlers
 #define ANIM_ATTACKER    0
