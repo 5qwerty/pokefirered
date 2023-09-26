@@ -185,7 +185,7 @@ PalletTown_SoakLab_EventScript_ChoseStarter::
 	msgbox PalletTown_SoakLab_Text_Energetic
 	call EventScript_RestorePrevTextColor
 	setflag FLAG_SYS_POKEMON_GET
-	givemon VAR_TEMP_2, 5
+	givemon VAR_TEMP_2, 98
 	copyvar VAR_STARTER_MON, VAR_TEMP_1
 	bufferspeciesname STR_VAR_1, VAR_TEMP_2
 	message PalletTown_SoakLab_Text_ReceivedMonFromSoak
@@ -194,8 +194,8 @@ PalletTown_SoakLab_EventScript_ChoseStarter::
 	waitfanfare
 	msgbox Text_GiveNicknameToThisMon, MSGBOX_YESNO
 	closemessage
-	goto_if_eq VAR_RESULT, YES, EventScript_GiveNicknameToStarter
 	setvar VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 3
+	goto_if_eq VAR_RESULT, YES, EventScript_GiveNicknameToStarter
 	end
 
 

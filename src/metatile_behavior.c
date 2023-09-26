@@ -13,7 +13,8 @@ static const bool8 sBehaviorSurfable[NUM_METATILE_BEHAVIORS] = {
     [MB_EASTWARD_CURRENT]   = TRUE,
     [MB_WESTWARD_CURRENT]   = TRUE,
     [MB_NORTHWARD_CURRENT]  = TRUE,
-    [MB_SOUTHWARD_CURRENT]  = TRUE
+    [MB_SOUTHWARD_CURRENT]  = TRUE,
+    [MB_BRIDGE_OVER_OCEAN]  = TRUE
 };
 
 static const u8 sTileBitAttributes[32] = {
@@ -442,6 +443,15 @@ bool8 MetatileBehavior_IsAshGrass(u8 metatileBehavior) { return FALSE; }
 bool8 MetatileBehavior_IsFootprints(u8 metatileBehavior) { return FALSE; }
 bool8 MetatileBehavior_IsBridge(u8 metatileBehavior) { return FALSE; }
 bool8 MetatileBehavior_GetBridgeType(u8 metatileBehavior) { return FALSE; }
+
+bool8 MetatileBehavior_IsBridgeOverWater(u8 metatileBehavior)
+{
+    if ((metatileBehavior == MB_BRIDGE_OVER_OCEAN))
+        return TRUE;
+    else
+        return FALSE;
+}
+
 
 bool8 MetatileBehavior_IsUnused01(u8 metatileBehavior)
 {

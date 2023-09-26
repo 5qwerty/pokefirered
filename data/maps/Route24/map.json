@@ -16,12 +16,12 @@
   "connections": [
     {
       "map": "MAP_CERULEAN_CITY",
-      "offset": -12,
+      "offset": 0,
       "direction": "down"
     },
     {
       "map": "MAP_ROUTE25",
-      "offset": 0,
+      "offset": 4,
       "direction": "right"
     }
   ],

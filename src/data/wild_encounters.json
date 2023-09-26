@@ -20604,7 +20604,7 @@
           "map": "MAP_ROUTE21_SOUTH",
           "base_label": "sRoute21South_FireRed",
           "land_mons": {
-            "encounter_rate": 14,
+            "encounter_rate": 0,
             "mons": [
               {
                 "min_level": 22,
@@ -20669,7 +20669,7 @@
             ]
           },
           "water_mons": {
-            "encounter_rate": 2,
+            "encounter_rate": 0,
             "mons": [
               {
                 "min_level": 5,

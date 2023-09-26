@@ -33,17 +33,23 @@ PalletTown_EventScript_AideIntro::
 	applymovement 1, PalletTown_Movement_AideToLab
 	applymovement OBJ_EVENT_ID_PLAYER, PalletTown_Movement_PlayerToLab
 	waitmovement 0
-	opendoor 17, 7
+	opendoor 19, 7
 	waitdooranim
 	applymovement 1, PalletTown_Movement_AideEnterLab
 	applymovement OBJ_EVENT_ID_PLAYER, PalletTown_Movement_PlayerEnterLab
 	waitmovement 0
-	closedoor 17, 7
+	closedoor 19, 7
 	waitdooranim
 	setflag FLAG_0x200
 	setvar VAR_0x4029, 1
 	setflag FLAG_BADGE01_GET
+	setflag FLAG_BADGE02_GET
+	setflag FLAG_BADGE03_GET
+	setflag FLAG_BADGE04_GET
 	setflag FLAG_BADGE05_GET
+	setflag FLAG_BADGE06_GET
+	setflag FLAG_BADGE07_GET
+	setflag FLAG_BADGE08_GET
 	setvar VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 1
 	giveitem ITEM_BICYCLE
 	setflag FLAG_GOT_BICYCLE

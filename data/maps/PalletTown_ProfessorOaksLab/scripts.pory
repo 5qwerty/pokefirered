@@ -222,7 +222,7 @@ script PalletTown_SoakLab_EventScript_ChoseStarter {
 	msgbox(PalletTown_SoakLab_Text_Energetic)
 	call(EventScript_RestorePrevTextColor)
 	setflag(FLAG_SYS_POKEMON_GET)
-	givemon(PLAYER_STARTER_SPECIES, 5)
+	givemon(PLAYER_STARTER_SPECIES, 98)
 	copyvar(VAR_STARTER_MON, PLAYER_STARTER_NUM)
 	bufferspeciesname(STR_VAR_1, PLAYER_STARTER_SPECIES)
 	message(PalletTown_SoakLab_Text_ReceivedMonFromSoak)
