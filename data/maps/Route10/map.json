@@ -16,7 +16,7 @@
   "connections": [
     {
       "map": "MAP_ROUTE9",
-      "offset": 0,
+      "offset": 24,
       "direction": "left"
     },
     {
@@ -29,8 +29,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
-      "x": 7,
-      "y": 60,
+      "x": 15,
+      "y": 83,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -43,8 +43,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
-      "x": 4,
-      "y": 62,
+      "x": 13,
+      "y": 86,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -57,8 +57,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SUPER_NERD",
-      "x": 15,
-      "y": 70,
+      "x": 19,
+      "y": 83,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
       "movement_range_x": 2,
@@ -71,8 +71,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
-      "x": 4,
-      "y": 68,
+      "x": 5,
+      "y": 89,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
@@ -99,8 +99,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
-      "x": 9,
-      "y": 27,
+      "x": 13,
+      "y": 38,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -113,50 +113,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
-      "x": 10,
-      "y": 20,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_CutTree",
-      "flag": "FLAG_TEMP_12"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
-      "x": 10,
-      "y": 22,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_CutTree",
-      "flag": "FLAG_TEMP_13"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
-      "x": 10,
-      "y": 24,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_CutTree",
-      "flag": "FLAG_TEMP_14"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
-      "x": 10,
-      "y": 26,
+      "x": 31,
+      "y": 34,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -169,36 +127,36 @@
   ],
   "warp_events": [
     {
-      "x": 8,
-      "y": 19,
+      "x": 36,
+      "y": 61,
       "elevation": 3,
       "dest_map": "MAP_ROCK_TUNNEL_1F",
       "dest_warp_id": "0"
     },
     {
-      "x": 8,
-      "y": 57,
+      "x": 24,
+      "y": 79,
       "elevation": 3,
       "dest_map": "MAP_ROCK_TUNNEL_1F",
       "dest_warp_id": "5"
     },
     {
-      "x": 7,
-      "y": 40,
+      "x": 9,
+      "y": 63,
       "elevation": 3,
       "dest_map": "MAP_POWER_PLANT",
       "dest_warp_id": "1"
     },
     {
-      "x": 13,
-      "y": 20,
+      "x": 31,
+      "y": 38,
       "elevation": 0,
       "dest_map": "MAP_ROUTE10_POKEMON_CENTER_1F",
       "dest_warp_id": "1"
     },
     {
-      "x": 2,
-      "y": 37,
+      "x": 4,
+      "y": 60,
       "elevation": 3,
       "dest_map": "MAP_POWER_PLANT",
       "dest_warp_id": "3"
@@ -210,32 +168,32 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 15,
-      "y": 59,
+      "x": 22,
+      "y": 80,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route10_EventScript_SouthRockTunnelSign"
     },
     {
       "type": "sign",
-      "x": 6,
-      "y": 42,
+      "x": 12,
+      "y": 64,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route10_EventScript_PowerPlantSign"
     },
     {
       "type": "sign",
-      "x": 7,
-      "y": 21,
+      "x": 34,
+      "y": 62,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route10_EventScript_NorthRockTunnelSign"
     },
     {
       "type": "hidden_item",
-      "x": 10,
-      "y": 19,
+      "x": 33,
+      "y": 34,
       "elevation": 0,
       "item": "ITEM_SUPER_POTION",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE10_SUPER_POTION",
@@ -244,8 +202,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 12,
-      "y": 40,
+      "x": 29,
+      "y": 34,
       "elevation": 3,
       "item": "ITEM_MAX_ETHER",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE10_MAX_ETHER",
@@ -254,8 +212,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 6,
-      "y": 26,
+      "x": 30,
+      "y": 34,
       "elevation": 3,
       "item": "ITEM_CHERI_BERRY",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE10_CHERI_BERRY",
@@ -264,8 +222,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 17,
-      "y": 29,
+      "x": 31,
+      "y": 35,
       "elevation": 3,
       "item": "ITEM_PERSIM_BERRY",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE10_PERSIM_BERRY",
@@ -274,8 +232,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 20,
-      "y": 57,
+      "x": 32,
+      "y": 34,
       "elevation": 3,
       "item": "ITEM_NANAB_BERRY",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE10_NANAB_BERRY",

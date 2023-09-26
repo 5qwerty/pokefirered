@@ -231,8 +231,8 @@ script PalletTown_SoakLab_EventScript_ChoseStarter {
 	waitfanfare
 	msgbox(Text_GiveNicknameToThisMon, MSGBOX_YESNO)
 	closemessage
-	goto_if_eq(VAR_RESULT, YES, EventScript_GiveNicknameToStarter)
 	setvar(VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 3)
+	goto_if_eq(VAR_RESULT, YES, EventScript_GiveNicknameToStarter)
 	end
 }
 
