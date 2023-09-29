@@ -1073,7 +1073,7 @@
       "id": "LAYOUT_ROUTE19",
       "name": "Route19_Layout",
       "width": 24,
-      "height": 60,
+      "height": 84,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -1084,7 +1084,7 @@
     {
       "id": "LAYOUT_ROUTE20",
       "name": "Route20_Layout",
-      "width": 120,
+      "width": 158,
       "height": 20,
       "border_width": 2,
       "border_height": 2,

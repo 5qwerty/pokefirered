@@ -16,12 +16,12 @@
   "connections": [
     {
       "map": "MAP_CINNABAR_ISLAND",
-      "offset": 0,
+      "offset": -15,
       "direction": "left"
     },
     {
       "map": "MAP_ROUTE19",
-      "offset": -40,
+      "offset": -63,
       "direction": "right"
     }
   ],
