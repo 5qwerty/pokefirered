@@ -82,8 +82,15 @@
       "x": 10,
       "y": 27,
       "elevation": 0,
-      "dest_map": "MAP_OBSIDIAN_CITY",
+      "dest_map": "MAP_RUINS_OF_OMEG_ROOM1",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 17,
+      "y": 28,
+      "elevation": 0,
+      "dest_map": "MAP_RUINS_OF_OMEG_ROOM3",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [

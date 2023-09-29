@@ -18,7 +18,20 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 12,
+      "y": 37,
+      "elevation": 0,
+      "dest_map": "MAP_OBSIDIAN_CITY",
+      "dest_warp_id": "7"
+    },
+    {
+      "x": 22,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_RUINS_OF_OMEG_ROOM3",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 

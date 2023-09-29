@@ -1396,3 +1396,6 @@ Text_TestMsg::
 
 	.include "data/maps/RuinsOfOmeg_Room3/scripts.inc"
 	.include "data/maps/RuinsOfOmeg_Room3/text.inc"
+
+	.include "data/maps/ViridianCity_MaisyHouse/scripts.inc"
+	.include "data/maps/ViridianCity_MaisyHouse/text.inc"

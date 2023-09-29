@@ -748,8 +748,8 @@
     {
       "id": "LAYOUT_PEWTER_CITY",
       "name": "PewterCity_Layout",
-      "width": 48,
-      "height": 40,
+      "width": 60,
+      "height": 44,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -869,7 +869,7 @@
       "id": "LAYOUT_ROUTE2",
       "name": "Route2_Layout",
       "width": 32,
-      "height": 72,
+      "height": 76,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -880,24 +880,24 @@
     {
       "id": "LAYOUT_ROUTE3",
       "name": "Route3_Layout",
-      "width": 84,
-      "height": 20,
+      "width": 104,
+      "height": 28,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_PewterCity",
+      "secondary_tileset": "gTileset_SeviiIslands123",
       "border_filepath": "data/layouts/Route3/border.bin",
       "blockdata_filepath": "data/layouts/Route3/map.bin"
     },
     {
       "id": "LAYOUT_ROUTE4",
       "name": "Route4_Layout",
-      "width": 108,
-      "height": 20,
+      "width": 144,
+      "height": 36,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_CeruleanCity",
+      "secondary_tileset": "gTileset_SeviiIslands123",
       "border_filepath": "data/layouts/Route4/border.bin",
       "blockdata_filepath": "data/layouts/Route4/map.bin"
     },
@@ -1108,7 +1108,7 @@
     {
       "id": "LAYOUT_ROUTE22",
       "name": "Route22_Layout",
-      "width": 64,
+      "width": 72,
       "height": 32,
       "border_width": 2,
       "border_height": 2,
@@ -4492,7 +4492,7 @@
     {
       "id": "LAYOUT_RUINS_OF_OMEG_ROOM1",
       "name": "RuinsOfOmeg_Room1_Layout",
-      "width": 24,
+      "width": 25,
       "height": 40,
       "border_width": 2,
       "border_height": 2,
@@ -4516,14 +4516,26 @@
     {
       "id": "LAYOUT_RUINS_OF_OMEG_ROOM3",
       "name": "RuinsOfOmeg_Room3_Layout",
-      "width": 1,
-      "height": 1,
+      "width": 23,
+      "height": 24,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_NavelRock",
+      "secondary_tileset": "gTileset_Ruins",
       "border_filepath": "data/layouts/RuinsOfOmeg_Room3/border.bin",
       "blockdata_filepath": "data/layouts/RuinsOfOmeg_Room3/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_CITY_MAISY_HOUSE",
+      "name": "ViridianCity_MaisyHouse_Layout",
+      "width": 11,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_SeaCottage",
+      "border_filepath": "data/layouts/ViridianCity_MaisyHouse/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianCity_MaisyHouse/map.bin"
     }
   ]
 }

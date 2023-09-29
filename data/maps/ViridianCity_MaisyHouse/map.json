@@ -1,16 +1,16 @@
 {
-  "id": "MAP_OBSIDIAN_CITY_HOUSE1",
-  "name": "ObsidianCity_House1",
-  "layout": "LAYOUT_OBSIDIAN_CITY_HOUSE1",
-  "music": "MUS_BERRY_PICK",
-  "region_map_section": "MAPSEC_OBSIDIAN_CITY",
+  "id": "MAP_VIRIDIAN_CITY_MAISY_HOUSE",
+  "name": "ViridianCity_MaisyHouse",
+  "layout": "LAYOUT_VIRIDIAN_CITY_MAISY_HOUSE",
+  "music": "MUS_PEWTER",
+  "region_map_section": "MAPSEC_VIRIDIAN_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
   "allow_escaping": false,
   "allow_running": false,
-  "show_map_name": false,
+  "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": 0,
@@ -22,8 +22,8 @@
       "x": 4,
       "y": 7,
       "elevation": 0,
-      "dest_map": "MAP_OBSIDIAN_CITY",
-      "dest_warp_id": "3"
+      "dest_map": "MAP_VIRIDIAN_CITY",
+      "dest_warp_id": "5"
     }
   ],
   "coord_events": [
