@@ -102,7 +102,7 @@ text PalletTown_SoakLab_Text_TiredOfWaiting {
 }
 
 text PalletTown_SoakLab_Text_ChooseThree {
-	format("SOAK: {RIVAL}!\nDon't be mean, little dude!\pI had already decided that {PLAYER} would get to choose first today.\p"
+	format("SOAK: {RIVAL}!\nDon't be mean, little dude!\pWhile both of you would be going\non your adventures today, I had\lalready decided that {PLAYER} would\lget to choose first.\p"
 		   "Now, {PLAYER}, I have three POKéMON in the POKé BALLS here.\pYou can go ahead and have one!\nC'mon, one of these is all yours!")
 }
 

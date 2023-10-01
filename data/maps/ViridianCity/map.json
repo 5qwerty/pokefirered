@@ -33,17 +33,59 @@
   "object_events": [
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 43,
-      "y": 17,
-      "elevation": 3,
+      "graphics_id": "OBJ_EVENT_GFX_DAISY",
+      "x": 38,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_DAISY_VIRIDIAN"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_VAR_0",
+      "x": 14,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ViridianCity_EventScript_OldMan",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_3",
+      "x": 14,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ViridianCity_EventScript_OldWoman",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY",
+      "x": 14,
+      "y": 9,
+      "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ViridianCity_EventScript_ItemPotion",
-      "flag": "FLAG_HIDE_VIRIDIAN_CITY_POTION"
+      "script": "ViridianCity_EventScript_Child",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -91,7 +133,24 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 38,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN",
+      "var_value": "0",
+      "script": "ViridianCity_EventScript_MartTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 41,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN",
+      "var_value": "0",
+      "script": "ViridianCity_EventScript_MaisyTrigger"
+    }
   ],
   "bg_events": [
     {
@@ -106,14 +165,6 @@
       "type": "sign",
       "x": 45,
       "y": 6,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
-    },
-    {
-      "type": "sign",
-      "x": 24,
-      "y": 20,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "NULL"

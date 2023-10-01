@@ -1011,8 +1011,8 @@ Text_MoveCanOnlyBeLearnedOnce::
 	.string "once. Is that okay?$"
 
 EventScript_ResetAllMapFlags::
-	setflag FLAG_HIDE_OAK_IN_HIS_LAB
-	setflag FLAG_HIDE_OAK_IN_PALLET_TOWN
+	setflag FLAG_HIDE_GIO_OBSIDIAN
+	setflag FLAG_HIDE_DAISY_VIRIDIAN
 	setflag FLAG_HIDE_BILL_HUMAN_SEA_COTTAGE
 	setflag FLAG_HIDE_PEWTER_CITY_RUNNING_SHOES_GUY
 	setflag FLAG_HIDE_POKEHOUSE_FUJI

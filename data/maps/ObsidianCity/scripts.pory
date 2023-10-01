@@ -1,9 +1,404 @@
-raw`
-ObsidianCity_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, ObsidianCity_OnTransition
-	.byte 0
+const GIO_ID = 6
+const VOLTORB_ID = 5
+const ROCKET1 = 1
+const ROCKET2 = 2
+const ROCKET3 = 3
+const ROCKET4 = 4
 
-ObsidianCity_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_OBSIDIAN_CITY
+mapscripts ObsidianCity_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setworldmapflag(FLAG_WORLD_MAP_OBSIDIAN_CITY)
+		call_if_eq(VAR_MAP_SCENE_OBSIDIAN_CITY_EVENTS, 1, ObsidianCity_EventScript_MoveGio)
+	}
+	MAP_SCRIPT_ON_LOAD {
+		call_if_ge(VAR_MAP_SCENE_OBSIDIAN_CITY_EVENTS, 1, ObsidianCity_EventScript_OpenHole)
+	}
+}
+
+script ObsidianCity_EventScript_OpenHole {
+	setmetatile(17, 28, 0x0A9, 0)
+}
+
+script ObsidianCity_EventScript_MoveGio {
+	setobjectxyperm(GIO_ID, 21, 22)
+	setobjectmovementtype(GIO_ID, MOVEMENT_TYPE_FACE_DOWN)
+	setobjectxyperm(1, 20, 26)
+	setobjectxyperm(2, 20, 27)
+	setobjectxyperm(4, 20, 28)
+	setobjectxyperm(3, 20, 29)
+}
+
+script ObsidianCity_EventScript_GymTrigger {
+	lockall
+	playse(SE_PIN)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamDown)
+	waitmovement(0)
+	setvar(0x8004, 2)
+	setvar(0x8005, 2)
+	setvar(0x8006, 20)
+	setvar(0x8007, 4)
+	special(ShakeScreen)
+	delay(80)
+	opendoor(6,5)
+	waitdooranim
+	addobject(GIO_ID)
+	clearflag(FLAG_HIDE_GIO_OBSIDIAN)
+	applymovement(GIO_ID, Common_Movement_WalkDown)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft)
+	waitmovement(0)
+	closedoor(6,5)
+	waitdooranim
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox(ObsidianCity_Text_WhatInTarnation)
+	closemessage
+	delay(30)
+	applymovement(GIO_ID, Common_Movement_FaceLeft)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight)
+	waitmovement(0)
+	msgbox(ObsidianCity_Text_YouHeardToo)
+	closemessage
+	playse(SE_PIN)
+	applymovement(GIO_ID, Common_Movement_ExclamDown)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamDown)
+	waitmovement(0)
+	setvar(0x8004, 3)
+	setvar(0x8005, 3)
+	setvar(0x8006, 30)
+	setvar(0x8007, 4)
+	special(ShakeScreen)
+	delay(120)
+	msgbox(ObsidianCity_Text_IGo)
+	closemessage
+	applymovement(GIO_ID, ObsidianCity_Movement_Leave)
+	waitmovement(0)
+	removeobject(GIO_ID)
+	setvar(VAR_MAP_SCENE_OBSIDIAN_CITY_EVENTS, 1)
+	setobjectxyperm(GIO_ID, 21, 22)
+	setobjectmovementtype(GIO_ID, MOVEMENT_TYPE_FACE_DOWN)
+	setmetatile(17, 28, 0x0A9, 0)
+	addobject(GIO_ID)
+	clearflag(FLAG_HIDE_GIO_OBSIDIAN)
+	setobjectxyperm(1, 21, 23)
+	setobjectxyperm(2, 21, 24)
+	setobjectxyperm(3, 21, 25)
+	setobjectxyperm(4, 21, 26)
+	releaseall
 	end
-`
+}
+
+text ObsidianCity_Text_WhatInTarnation {
+	"GEOFFREY: What in tarnation was that?"
+}
+
+text ObsidianCity_Text_YouHeardToo {
+	"Didja hear that too, kid?\nYou musta heard it!"
+}
+
+text ObsidianCity_Text_IGo {
+	"GEOFFREY: Gosh dangit!\nSomethin's def'nitely up!\pI'll bet it's at that place!\nThe RUINS OF OMEG!"
+}
+
+movement ObsidianCity_Movement_Leave {
+	walk_right * 4
+	walk_down
+	walk_right * 5
+}
+
+script ObsidianCity_EventScript_TriggerLeft {
+	lockall
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox(ObsidianCity_Text_OuttaTheWay)
+	closemessage
+	delay(60)
+	applymovement(ROCKET1, ObsidianCity_Movement_Rocket1First)
+	applymovement(ROCKET2, ObsidianCity_Movement_Rocket2First)
+	applymovement(ROCKET3, ObsidianCity_Movement_Rocket3First)
+	applymovement(ROCKET4, ObsidianCity_Movement_Rocket4First)
+	waitmovement(0)
+	applymovement(GIO_ID, ObsidianCity_Movement_GioOuttaWay)
+	applymovement(ROCKET1, ObsidianCity_Movement_Rocket1Second)
+	applymovement(ROCKET2, ObsidianCity_Movement_Rocket2Second)
+	applymovement(ROCKET3, ObsidianCity_Movement_Rocket3Second)
+	applymovement(ROCKET4, ObsidianCity_Movement_Rocket4Second)
+	waitmovement(0)
+	applymovement(GIO_ID, Common_Movement_FaceUp)
+	applymovement(OBJ_EVENT_ID_PLAYER, ObsidianCity_Movement_PlayerLookRocketLeft)
+	applymovement(ROCKET1, ObsidianCity_Movement_Rocket1Third)
+	applymovement(ROCKET2, ObsidianCity_Movement_Rocket2Third)
+	applymovement(ROCKET3, ObsidianCity_Movement_Rocket3Third)
+	applymovement(ROCKET4, ObsidianCity_Movement_Rocket4Third)
+	waitmovement(0)
+	delay(30)
+	msgbox(ObsidianCity_Text_RightThing)
+	closemessage
+	applymovement(ROCKET4, ObsidianCity_Movement_Rocket4Fourth)
+	waitmovement(0)
+	delay(30)
+	removeobject(ROCKET1)
+	removeobject(ROCKET2)
+	removeobject(ROCKET3)
+	removeobject(ROCKET4)
+	removeobject(VOLTORB_ID)
+	applymovement(GIO_ID, ObsidianCity_Movement_GioToPlayerLeftMid)
+	waitmovement(0)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown)
+	waitmovement(0)
+	msgbox(ObsidianCity_Text_SeeThat)
+	closemessage
+	applymovement(GIO_ID, ObsidianCity_Movement_GioToRuinsLeftMid)
+	waitmovement(0)
+	removeobject(GIO_ID)
+	setvar(VAR_MAP_SCENE_OBSIDIAN_CITY_EVENTS, 2)
+	releaseall
+	end
+}
+
+script ObsidianCity_EventScript_TriggerMid {
+	lockall
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox(ObsidianCity_Text_OuttaTheWay)
+	closemessage
+	delay(60)
+	applymovement(ROCKET1, ObsidianCity_Movement_Rocket1First)
+	applymovement(ROCKET2, ObsidianCity_Movement_Rocket2First)
+	applymovement(ROCKET3, ObsidianCity_Movement_Rocket3First)
+	applymovement(ROCKET4, ObsidianCity_Movement_Rocket4First)
+	waitmovement(0)
+	applymovement(GIO_ID, ObsidianCity_Movement_GioOuttaWay)
+	applymovement(ROCKET1, ObsidianCity_Movement_Rocket1Second)
+	applymovement(ROCKET2, ObsidianCity_Movement_Rocket2Second)
+	applymovement(ROCKET3, ObsidianCity_Movement_Rocket3Second)
+	applymovement(ROCKET4, ObsidianCity_Movement_Rocket4Second)
+	waitmovement(0)
+	applymovement(GIO_ID, Common_Movement_FaceUp)
+	applymovement(OBJ_EVENT_ID_PLAYER, ObsidianCity_Movement_PlayerLookRocketMid)
+	applymovement(ROCKET1, ObsidianCity_Movement_Rocket1Third)
+	applymovement(ROCKET2, ObsidianCity_Movement_Rocket2Third)
+	applymovement(ROCKET3, ObsidianCity_Movement_Rocket3Third)
+	applymovement(ROCKET4, ObsidianCity_Movement_Rocket4Third)
+	waitmovement(0)
+	delay(30)
+	msgbox(ObsidianCity_Text_RightThing)
+	closemessage
+	applymovement(ROCKET4, ObsidianCity_Movement_Rocket4Fourth)
+	waitmovement(0)
+	delay(30)
+	removeobject(ROCKET1)
+	removeobject(ROCKET2)
+	removeobject(ROCKET3)
+	removeobject(ROCKET4)
+	removeobject(VOLTORB_ID)
+	applymovement(GIO_ID, ObsidianCity_Movement_GioToPlayerLeftMid)
+	waitmovement(0)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown)
+	waitmovement(0)
+	msgbox(ObsidianCity_Text_SeeThat)
+	closemessage
+	applymovement(GIO_ID, ObsidianCity_Movement_GioToRuinsLeftMid)
+	waitmovement(0)
+	removeobject(GIO_ID)
+	setvar(VAR_MAP_SCENE_OBSIDIAN_CITY_EVENTS, 2)
+	releaseall
+	end
+}
+
+script ObsidianCity_EventScript_TriggerRight {
+	lockall
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox(ObsidianCity_Text_OuttaTheWay)
+	closemessage
+	delay(60)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown)
+	applymovement(ROCKET1, ObsidianCity_Movement_Rocket1First)
+	applymovement(ROCKET2, ObsidianCity_Movement_Rocket2First)
+	applymovement(ROCKET3, ObsidianCity_Movement_Rocket3First)
+	applymovement(ROCKET4, ObsidianCity_Movement_Rocket4First)
+	waitmovement(0)
+	applymovement(GIO_ID, ObsidianCity_Movement_GioOuttaWay)
+	applymovement(ROCKET1, ObsidianCity_Movement_Rocket1Second)
+	applymovement(ROCKET2, ObsidianCity_Movement_Rocket2Second)
+	applymovement(ROCKET3, ObsidianCity_Movement_Rocket3Second)
+	applymovement(ROCKET4, ObsidianCity_Movement_Rocket4Second)
+	waitmovement(0)
+	applymovement(GIO_ID, Common_Movement_FaceUp)
+	applymovement(OBJ_EVENT_ID_PLAYER, ObsidianCity_Movement_PlayerLookRocketRight)
+	applymovement(ROCKET1, ObsidianCity_Movement_Rocket1Third)
+	applymovement(ROCKET2, ObsidianCity_Movement_Rocket2Third)
+	applymovement(ROCKET3, ObsidianCity_Movement_Rocket3Third)
+	applymovement(ROCKET4, ObsidianCity_Movement_Rocket4Third)
+	waitmovement(0)
+	delay(30)
+	msgbox(ObsidianCity_Text_RightThing)
+	closemessage
+	applymovement(ROCKET4, ObsidianCity_Movement_Rocket4Fourth)
+	waitmovement(0)
+	delay(30)
+	removeobject(ROCKET1)
+	removeobject(ROCKET2)
+	removeobject(ROCKET3)
+	removeobject(ROCKET4)
+	removeobject(VOLTORB_ID)
+	applymovement(GIO_ID, ObsidianCity_Movement_GioToPlayerRight)
+	waitmovement(0)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown)
+	waitmovement(0)
+	msgbox(ObsidianCity_Text_SeeThat)
+	closemessage
+	applymovement(GIO_ID, ObsidianCity_Movement_GioToRuinsRight)
+	waitmovement(0)
+	removeobject(GIO_ID)
+	setvar(VAR_MAP_SCENE_OBSIDIAN_CITY_EVENTS, 2)
+	releaseall
+	end
+}
+
+text ObsidianCity_Text_OuttaTheWay {
+	"???: Get out of the way!"
+}
+
+text ObsidianCity_Text_RightThing {
+	"???: Killing all those UNOWN...\nWas that really the right thing?"
+}
+
+text ObsidianCity_Text_SeeThat {
+	"GEOFFREY: Yeowch!\nThose people were so dang fast!\pI didn't quite catch what that\nlast person said.\pBut they musta been behind that\nquake earlier!\p...\pOh gosh! I should hurry to the\nRUINS!"
+}
+
+movement ObsidianCity_Movement_Rocket1First {
+	//walk_fast_up * 2
+	//walk_fast_right
+	//walk_fast_up 
+	//walk_fast_up
+}
+
+movement ObsidianCity_Movement_Rocket2First {
+	//walk_fast_up * 3
+	//walk_fast_right
+	//walk_fast_up
+}
+
+movement ObsidianCity_Movement_Rocket3First {
+	//walk_fast_up * 4
+	//walk_fast_up
+}
+
+movement ObsidianCity_Movement_Rocket4First {
+	//walk_fast_up * 4
+	//walk_fast_up
+}
+
+movement ObsidianCity_Movement_GioOuttaWay {
+	walk_fast_up
+	face_down
+	delay_1
+	face_right
+}
+
+movement ObsidianCity_Movement_Rocket1Second {
+	walk_fast_up
+	walk_fast_right
+	walk_fast_up
+	walk_fast_right
+	walk_fast_up * 3
+}
+
+movement ObsidianCity_Movement_Rocket2Second {
+	walk_fast_up * 2
+	walk_fast_right
+	walk_fast_up
+	walk_fast_right
+	walk_fast_up * 2
+}
+
+movement ObsidianCity_Movement_Rocket3Second {
+	walk_fast_up * 3
+	walk_fast_right
+	walk_fast_up
+	walk_fast_right
+	walk_fast_up 
+}
+
+movement ObsidianCity_Movement_Rocket4Second {
+	walk_fast_up * 4
+	walk_fast_right
+	walk_fast_up
+	walk_fast_right
+}
+
+movement ObsidianCity_Movement_Rocket1Third {
+	walk_fast_up * 6
+	walk_fast_left
+	walk_fast_up
+	walk_fast_left * 2
+}
+
+movement ObsidianCity_Movement_Rocket2Third {
+	walk_fast_up * 7
+	walk_fast_left
+	walk_fast_up
+	walk_fast_left
+}
+
+movement ObsidianCity_Movement_Rocket3Third {
+	walk_fast_up * 8
+	walk_fast_left
+	walk_fast_up
+}
+
+movement ObsidianCity_Movement_Rocket4Third {
+	walk_fast_up * 2
+	walk_up * 2
+	walk_slow_up * 2
+	face_up
+	delay_16
+	face_left
+	delay_16
+	face_right
+	delay_16
+	delay_16
+	face_up
+}
+
+movement ObsidianCity_Movement_Rocket4Fourth {
+	walk_up * 3
+	walk_left
+	walk_up
+}
+
+movement ObsidianCity_Movement_PlayerLookRocketLeft {
+	walk_in_place_right
+	walk_in_place_up
+}
+
+movement ObsidianCity_Movement_PlayerLookRocketMid {
+	walk_fast_left
+	walk_in_place_fast_right
+	walk_in_place_up
+}
+
+movement ObsidianCity_Movement_PlayerLookRocketRight {
+	walk_in_place_left
+	walk_in_place_up
+}
+
+movement ObsidianCity_Movement_GioToPlayerLeftMid {
+	walk_right
+	walk_up * 3
+}
+
+movement ObsidianCity_Movement_GioToPlayerRight {
+	walk_right * 3
+	walk_up * 3
+}
+
+movement ObsidianCity_Movement_GioToRuinsLeftMid {
+	walk_down * 4
+	walk_left * 2
+	walk_down * 3
+}
+
+movement ObsidianCity_Movement_GioToRuinsRight {
+	walk_down * 4
+	walk_left * 4
+	walk_down * 3
+}

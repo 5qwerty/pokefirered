@@ -53,7 +53,10 @@ script PalletTown_EventScript_AideIntro {
 	setvar(VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 1)
 	giveitem(ITEM_BICYCLE)
 	setflag(FLAG_GOT_BICYCLE)
-	clearflag(FLAG_HIDE_OAK_IN_HIS_LAB)
+	//Filler
+	setflag(FLAG_HIDE_DAISY_VIRIDIAN)
+	setflag(FLAG_HIDE_GIO_OBSIDIAN)
+	//clearflag(FLAG_HIDE_OAK_IN_HIS_LAB)
 	warp(MAP_PALLET_TOWN_PROFESSOR_OAKS_LAB, 6, 12)
 	waitstate
 	releaseall
@@ -146,4 +149,28 @@ text PalletTown_Text_RivalsHouse {
 
 text PalletTown_Text_TownSign {
 	format("PALLET TOWN\nSplashes of your journey await!")
+}
+
+script PalletTown_EventScript_Lass {
+	msgbox(PalletTown_Text_Lass, MSGBOX_NPC)
+}
+
+script PalletTown_EventScript_FatMan {
+	msgbox(PalletTown_Text_FatMan, MSGBOX_NPC)
+}
+
+script PalletTown_EventScript_Fisher {
+	msgbox(PalletTown_Text_Fisher, MSGBOX_NPC)
+}
+
+text PalletTown_Text_Lass {
+	format("FILL THIS IN")
+}
+
+text PalletTown_Text_FatMan {
+	format("Technology is amazing!\pYou can now compress POKéMON into\ntiny particles of data and send\lthem to your PC!")
+}
+
+text PalletTown_Text_Fisher {
+	format("FILL THIS IN")
 }

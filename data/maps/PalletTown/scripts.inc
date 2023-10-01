@@ -53,7 +53,8 @@ PalletTown_EventScript_AideIntro::
 	setvar VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 1
 	giveitem ITEM_BICYCLE
 	setflag FLAG_GOT_BICYCLE
-	clearflag FLAG_HIDE_OAK_IN_HIS_LAB
+	setflag FLAG_HIDE_DAISY_VIRIDIAN
+	setflag FLAG_HIDE_GIO_OBSIDIAN
 	warp MAP_PALLET_TOWN_PROFESSOR_OAKS_LAB, 6, 12
 	waitstate
 	releaseall
@@ -127,6 +128,21 @@ PalletTown_EventScript_TownSign::
 	end
 
 
+PalletTown_EventScript_Lass::
+	msgbox PalletTown_Text_Lass, MSGBOX_NPC
+	return
+
+
+PalletTown_EventScript_FatMan::
+	msgbox PalletTown_Text_FatMan, MSGBOX_NPC
+	return
+
+
+PalletTown_EventScript_Fisher::
+	msgbox PalletTown_Text_Fisher, MSGBOX_NPC
+	return
+
+
 PalletTown_Text_AideTalk::
 	.string "Ah! {PLAYER}!\n"
 	.string "Please quickly come inside with me!\p"
@@ -145,3 +161,15 @@ PalletTown_Text_RivalsHouse::
 PalletTown_Text_TownSign::
 	.string "PALLET TOWN\n"
 	.string "Splashes of your journey await!$"
+
+PalletTown_Text_Lass::
+	.string "FILL THIS IN$"
+
+PalletTown_Text_FatMan::
+	.string "Technology is amazing!\p"
+	.string "You can now compress POKéMON into\n"
+	.string "tiny particles of data and send\l"
+	.string "them to your PC!$"
+
+PalletTown_Text_Fisher::
+	.string "FILL THIS IN$"

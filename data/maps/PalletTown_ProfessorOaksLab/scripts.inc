@@ -393,8 +393,10 @@ PalletTown_SoakLab_Text_TiredOfWaiting::
 PalletTown_SoakLab_Text_ChooseThree::
 	.string "SOAK: {RIVAL}!\n"
 	.string "Don't be mean, little dude!\p"
-	.string "I had already decided that {PLAYER}\n"
-	.string "would get to choose first today.\p"
+	.string "While both of you would be going\n"
+	.string "on your adventures today, I had\l"
+	.string "already decided that {PLAYER} would\l"
+	.string "get to choose first.\p"
 	.string "Now, {PLAYER}, I have three POKéMON\n"
 	.string "in the POKé BALLS here.\p"
 	.string "You can go ahead and have one!\n"

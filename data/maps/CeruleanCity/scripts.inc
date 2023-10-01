@@ -42,7 +42,7 @@ CeruleanCity_EventScript_RivalTriggerRight::
 
 CeruleanCity_EventScript_Rival::
 	textcolor NPC_TEXT_COLOR_MALE
-	setvar VAR_MAP_SCENE_ROUTE22, 2
+	setvar VAR_TEMP_0, 2
 	playbgm MUS_ENCOUNTER_RIVAL, 0
 	addobject LOCALID_RIVAL
 	applymovement LOCALID_RIVAL, CeruleanCity_Movement_RivalEnter
@@ -60,7 +60,7 @@ CeruleanCity_EventScript_Rival::
 	call_if_eq VAR_TEMP_1, 1, CeruleanCity_EventScript_RivalStartExit
 	call_if_eq VAR_TEMP_1, 2, CeruleanCity_EventScript_RivalStartExitRight
 	msgbox CeruleanCity_Text_OhRightLittlePresentAsFavor
-	setvar VAR_MAP_SCENE_CERULEAN_CITY_RIVAL, 1
+	setvar VAR_TEMP_0, 1
 	setflag FLAG_GOT_FAME_CHECKER
 	giveitem ITEM_FAME_CHECKER
 	msgbox CeruleanCity_Text_ExplainFameCheckerSmellYa
@@ -177,7 +177,7 @@ CeruleanCity_EventScript_Grunt::
 	playbgm MUS_ENCOUNTER_ROCKET, 0
 	waitbuttonpress
 	trainerbattle_no_intro TRAINER_TEAM_ROCKET_GRUNT_5, CeruleanCity_Text_GruntDefeat
-	setvar VAR_MAP_SCENE_CERULEAN_CITY_ROCKET, 1
+	setvar VAR_TEMP_0, 1
 	goto CeruleanCity_EventScript_GruntDefeated
 	end
 
@@ -226,7 +226,7 @@ CeruleanCity_EventScript_GruntTrigger::
 	msgbox CeruleanCity_Text_GruntIntro
 	setvar VAR_LAST_TALKED, LOCALID_GRUNT
 	trainerbattle_no_intro TRAINER_TEAM_ROCKET_GRUNT_5, CeruleanCity_Text_GruntDefeat
-	setvar VAR_MAP_SCENE_CERULEAN_CITY_ROCKET, 1
+	setvar VAR_TEMP_0, 1
 	goto CeruleanCity_EventScript_GruntDefeated
 	end
 
