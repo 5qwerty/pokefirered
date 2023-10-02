@@ -1,6 +1,254 @@
+const AIRIKA_ID = 1
+const ROCKET1_ID = 2
+const ROCKET2_ID = 3
+
+script CeladonCity_EventScript_LeftTrigger {
+	lockall
+	fadenewbgm(MUS_ROCKET_HIDEOUT) //Change later
+	special(SpawnCameraObject)
+	applymovement(OBJ_EVENT_ID_CAMERA, CeladonCity_Movement_ToEventSpotLeft)
+	waitmovement(0)
+	call(CeladonCity_EventScript_MainEvent)
+	fadedefaultbgm
+	applymovement(OBJ_EVENT_ID_CAMERA, CeladonCity_Movement_FromEventSpotLeft)
+	waitmovement(0)
+	special(RemoveCameraObject)
+	setvar(VAR_MAP_SCENE_CELADON_CITY_ROCKET, 2)
+	releaseall
+	end
+}
+
+script CeladonCity_EventScript_RightTrigger1 {
+	lockall
+	fadenewbgm(MUS_ROCKET_HIDEOUT) //Change later
+	special(SpawnCameraObject)
+	applymovement(OBJ_EVENT_ID_CAMERA, CeladonCity_Movement_ToEventSpotRight1)
+	waitmovement(0)
+	call(CeladonCity_EventScript_MainEvent)
+	fadedefaultbgm
+	applymovement(OBJ_EVENT_ID_CAMERA, CeladonCity_Movement_FromEventSpotRight1)
+	waitmovement(0)
+	special(RemoveCameraObject)
+	setvar(VAR_MAP_SCENE_CELADON_CITY_ROCKET, 2)
+	releaseall
+	end
+}
+
+script CeladonCity_EventScript_RightTrigger2 {
+	lockall
+	fadenewbgm(MUS_ROCKET_HIDEOUT) //Change later
+	special(SpawnCameraObject)
+	applymovement(OBJ_EVENT_ID_CAMERA, CeladonCity_Movement_ToEventSpotRight2)
+	waitmovement(0)
+	call(CeladonCity_EventScript_MainEvent)
+	fadedefaultbgm
+	applymovement(OBJ_EVENT_ID_CAMERA, CeladonCity_Movement_FromEventSpotRight2)
+	waitmovement(0)
+	special(RemoveCameraObject)
+	setvar(VAR_MAP_SCENE_CELADON_CITY_ROCKET, 2)
+	releaseall
+	end
+}
+
+script CeladonCity_EventScript_RightTrigger3 {
+	lockall
+	fadenewbgm(MUS_ROCKET_HIDEOUT) //Change later
+	special(SpawnCameraObject)
+	applymovement(OBJ_EVENT_ID_CAMERA, CeladonCity_Movement_ToEventSpotRight3)
+	waitmovement(0)
+	call(CeladonCity_EventScript_MainEvent)
+	fadedefaultbgm
+	applymovement(OBJ_EVENT_ID_CAMERA, CeladonCity_Movement_FromEventSpotRight3)
+	waitmovement(0)
+	special(RemoveCameraObject)
+	setvar(VAR_MAP_SCENE_CELADON_CITY_ROCKET, 2)
+	releaseall
+	end
+}
+
+script CeladonCity_EventScript_MainEvent {
+	opendoor(27, 38)
+	waitdooranim
+	addobject(AIRIKA_ID)
+	applymovement(AIRIKA_ID, Common_Movement_WalkDown)
+	waitmovement(0)
+	closedoor(27, 38)
+	waitdooranim
+	applymovement(AIRIKA_ID, CeladonCity_Movement_AirikaLeft)
+	waitmovement(0)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox(CeladonCity_Text_AirikaWhereAreThey)
+	closemessage
+	delay(30)
+	opendoor(13, 38)
+	waitdooranim
+	addobject(ROCKET1_ID)
+	applymovement(ROCKET1_ID, Common_Movement_WalkDown)
+	waitmovement(0)
+	playse(SE_PIN)
+	applymovement(AIRIKA_ID, Common_Movement_ExclamLeft)
+	applymovement(ROCKET1_ID, Common_Movement_WalkRight)
+	addobject(ROCKET2_ID)
+	applymovement(ROCKET2_ID, Common_Movement_WalkDown)
+	waitmovement(0)
+	closedoor(13, 38)
+	waitdooranim
+	applymovement(AIRIKA_ID, CeladonCity_Movement_AirikaLeft2)
+	applymovement(ROCKET1_ID, CeladonCity_Movement_Rocket1ToAirika)
+	applymovement(ROCKET2_ID, CeladonCity_Movement_Rocket2ToAirika)
+	waitmovement(0)
+	msgbox(CeladonCity_Text_AirikaAboutTime)
+	closemessage
+	delay(30)
+	applymovement(ROCKET1_ID, Common_Movement_WalkInPlaceRight)
+	waitmovement(0)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox(CeladonCity_Text_Rocket1DelayReason)
+	closemessage
+	delay(30)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	applymovement(AIRIKA_ID, Common_Movement_WalkInPlaceLeft)
+	waitmovement(0)
+	msgbox(CeladonCity_Text_AirikaGoodNews)
+	closemessage
+	applymovement(ROCKET1_ID, Common_Movement_WalkInPlaceRight)
+	applymovement(ROCKET2_ID, Common_Movement_WalkInPlaceRight)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox(CeladonCity_Text_YesMaam)
+	closemessage
+	applymovement(ROCKET1_ID, CeladonCity_Movement_Rocket1ToDoor)
+	applymovement(AIRIKA_ID, CeladonCity_Movement_AirikaToDoor)
+	applymovement(ROCKET2_ID, CeladonCity_Movement_Rocket2ToDoor)
+	waitmovement(0)
+	opendoor(13, 38)
+	waitdooranim
+	applymovement(ROCKET1_ID, CeladonCity_Movement_Rocket1EnterDoor)
+	applymovement(AIRIKA_ID, CeladonCity_Movement_AirikaEnterDoor)
+	applymovement(ROCKET2_ID, CeladonCity_Movement_Rocket2EnterDoor)
+	waitmovement(0)
+	closedoor(13, 38)
+	waitdooranim
+	return
+}
+
+text CeladonCity_Text_AirikaWhereAreThey {
+	"AIRIKA: They're late!\nWhat could be keeping them?"
+}
+
+text CeladonCity_Text_AirikaAboutTime {
+	"AIRIKA: It's about time!\nWhat kept you so long?"
+}
+
+text CeladonCity_Text_Rocket1DelayReason {
+	"MAN 1: Well, boss, you see...\nThe protoypes have been completed.\pWe were all watching the new\nlifeforms demonstrate their\labilities."
+}
+
+text CeladonCity_Text_AirikaGoodNews {
+	"AIRIKA: Ah, so the doctor finally\nsucceeded, did he?\pTake me at once! I wish to see one\nof these prototypes for myself.\p"
+	"But make sure to cover your tracks!\nProtect your switches!" //Change this last part
+}
+
+text CeladonCity_Text_YesMaam {
+	"MAN 1 & 2: Yes ma'am!"
+}
+
+movement CeladonCity_Movement_AirikaLeft {
+	walk_left * 7
+	delay_16
+	walk_in_place_down
+	delay_16
+	walk_in_place_right
+	delay_16
+	walk_in_place_left
+	delay_16
+}
+
+movement CeladonCity_Movement_AirikaLeft2 {
+	walk_left * 2
+}
+
+movement CeladonCity_Movement_Rocket1ToAirika {
+	walk_right * 3
+}
+
+movement CeladonCity_Movement_Rocket2ToAirika {
+	walk_down
+	walk_right * 3
+}
+
+movement CeladonCity_Movement_Rocket1ToDoor {
+	walk_left * 4
+}
+
+movement CeladonCity_Movement_AirikaToDoor {
+	walk_left * 4
+}
+
+movement CeladonCity_Movement_Rocket2ToDoor {
+	delay_16
+	delay_16
+	walk_up
+	walk_left 
+}
+
+movement CeladonCity_Movement_Rocket1EnterDoor {
+	walk_up
+	set_invisible
+}
+
+movement CeladonCity_Movement_AirikaEnterDoor {
+	walk_left
+	walk_up
+	set_invisible
+}
+
+movement CeladonCity_Movement_Rocket2EnterDoor {
+	walk_left * 2
+	walk_up
+	set_invisible
+}
+
+movement CeladonCity_Movement_ToEventSpotLeft {
+	walk_right * 13
+	walk_up * 6
+}
+
+movement CeladonCity_Movement_FromEventSpotLeft {
+	walk_down * 6
+	walk_left * 13
+}
+
+movement CeladonCity_Movement_ToEventSpotRight1 {
+	walk_left * 14
+	walk_up * 3
+}
+
+movement CeladonCity_Movement_FromEventSpotRight1 {
+	walk_down * 3
+	walk_right * 14
+}
+
+movement CeladonCity_Movement_ToEventSpotRight2 {
+	walk_left * 14
+	walk_up * 4
+}
+
+movement CeladonCity_Movement_FromEventSpotRight2 {
+	walk_down * 4
+	walk_right * 14
+}
+
+movement CeladonCity_Movement_ToEventSpotRight3 {
+	walk_left * 14
+	walk_up * 5
+}
+
+movement CeladonCity_Movement_FromEventSpotRight3 {
+	walk_down * 5
+	walk_right * 14
+}
+
 raw `
-.set LOCALID_FAT_MAN,   2
-.set LOCALID_POLIWRATH, 3
 
 CeladonCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, CeladonCity_OnTransition
@@ -37,7 +285,7 @@ CeladonCity_EventScript_FatMan::
 	faceplayer
 	msgbox CeladonCity_Text_MyTrustedPalPoliwrath
 	closemessage
-	applymovement LOCALID_FAT_MAN, Common_Movement_FaceOriginalDirection
+	applymovement 1, Common_Movement_FaceOriginalDirection
 	waitmovement 0
 	release
 	end
@@ -50,7 +298,7 @@ CeladonCity_EventScript_Poliwrath::
 	msgbox CeladonCity_Text_Poliwrath
 	closemessage
 	waitmoncry
-	applymovement LOCALID_POLIWRATH, Common_Movement_FaceOriginalDirection
+	applymovement 2, Common_Movement_FaceOriginalDirection
 	waitmovement 0
 	release
 	end

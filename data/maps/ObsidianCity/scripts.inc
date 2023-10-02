@@ -123,6 +123,7 @@ ObsidianCity_EventScript_TriggerLeft::
 	applymovement 3, ObsidianCity_Movement_Rocket3Third
 	applymovement 4, ObsidianCity_Movement_Rocket4Third
 	waitmovement 0
+	delay 30
 	msgbox ObsidianCity_Text_RightThing
 	closemessage
 	applymovement 4, ObsidianCity_Movement_Rocket4Fourth
@@ -171,6 +172,7 @@ ObsidianCity_EventScript_TriggerMid::
 	applymovement 3, ObsidianCity_Movement_Rocket3Third
 	applymovement 4, ObsidianCity_Movement_Rocket4Third
 	waitmovement 0
+	delay 30
 	msgbox ObsidianCity_Text_RightThing
 	closemessage
 	applymovement 4, ObsidianCity_Movement_Rocket4Fourth
@@ -350,6 +352,7 @@ ObsidianCity_Movement_Rocket4Third:
 	walk_up
 	walk_slow_up
 	walk_slow_up
+	face_up
 	delay_16
 	face_left
 	delay_16

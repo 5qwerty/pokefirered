@@ -139,7 +139,7 @@
 #define VAR_MAP_SCENE_VIRIDIAN_CITY_MART                                       0x4057
 #define VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE                                 0x4058
 #define VAR_MAP_SCENE_POKEMON_TOWER_6F                                         0x4059
-#define VAR_MAP_SCENE_VIRIDIAN_CITY_GYM_DOOR                                   0x405A
+#define VAR_MAP_SCENE_CELADON_CITY_ROCKET                                      0x405A
 #define VAR_MAP_SCENE_S_S_ANNE_2F_CORRIDOR                                     0x405B
 #define VAR_MAP_SCENE_SILPH_CO_7F                                              0x405C
 #define VAR_MAP_SCENE_POKEMON_TOWER_2F                                         0x405D
