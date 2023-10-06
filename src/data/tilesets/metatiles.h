@@ -207,3 +207,6 @@ const u32 gMetatileAttributes_gTilesets_General2[] = INCBIN_U32("data/tilesets/p
 
 const u16 gMetatiles_Ruins[] = INCBIN_U16("data/tilesets/secondary/ruins/metatiles.bin");
 const u32 gMetatileAttributes_Ruins[] = INCBIN_U32("data/tilesets/secondary/ruins/metatile_attributes.bin");
+
+const u16 gMetatiles_TurquoiseCity[] = INCBIN_U16("data/tilesets/secondary/turquoise_city/metatiles.bin");
+const u32 gMetatileAttributes_TurquoiseCity[] = INCBIN_U32("data/tilesets/secondary/turquoise_city/metatile_attributes.bin");

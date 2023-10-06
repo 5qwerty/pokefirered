@@ -1,9 +1,11 @@
 CeladonCity_EventScript_LeftTrigger::
 	lockall
+	fadenewbgm MUS_ROCKET_HIDEOUT
 	special SpawnCameraObject
 	applymovement OBJ_EVENT_ID_CAMERA, CeladonCity_Movement_ToEventSpotLeft
 	waitmovement 0
 	call CeladonCity_EventScript_MainEvent
+	fadedefaultbgm
 	applymovement OBJ_EVENT_ID_CAMERA, CeladonCity_Movement_FromEventSpotLeft
 	waitmovement 0
 	special RemoveCameraObject
@@ -483,7 +485,7 @@ CeladonCity_Text_Rocket1DelayReason::
 	.string "MAN 1: Well, boss, you see...\nThe protoypes have been completed.\pWe were all watching the new\nlifeforms demonstrate their\labilities.$"
 
 CeladonCity_Text_AirikaGoodNews::
-	.string "AIRIKA: Ah, so the doctor finally\nsucceeded, did he?\pTake me at once! I wish to see one\nof these prototypes for myself."
+	.string "AIRIKA: Ah, so the doctor finally\nsucceeded, did he?\pTake me at once! I wish to see one\nof these prototypes for myself.\p"
 	.string "But make sure to cover your tracks!\nProtect your switches!$"
 
 CeladonCity_Text_YesMaam::

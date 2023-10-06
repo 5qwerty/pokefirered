@@ -1399,3 +1399,6 @@ Text_TestMsg::
 
 	.include "data/maps/ViridianCity_MaisyHouse/scripts.inc"
 	.include "data/maps/ViridianCity_MaisyHouse/text.inc"
+
+	.include "data/maps/TurquoiseCity/scripts.inc"
+	.include "data/maps/TurquoiseCity/text.inc"

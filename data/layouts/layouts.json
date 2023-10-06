@@ -761,7 +761,7 @@
       "id": "LAYOUT_CERULEAN_CITY",
       "name": "CeruleanCity_Layout",
       "width": 48,
-      "height": 48,
+      "height": 60,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -893,7 +893,7 @@
       "id": "LAYOUT_ROUTE4",
       "name": "Route4_Layout",
       "width": 144,
-      "height": 36,
+      "height": 38,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -1133,7 +1133,7 @@
       "id": "LAYOUT_ROUTE24",
       "name": "Route24_Layout",
       "width": 48,
-      "height": 44,
+      "height": 40,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -1149,7 +1149,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_CeruleanCity",
+      "secondary_tileset": "gTileset_TurquoiseCity",
       "border_filepath": "data/layouts/Route25/border.bin",
       "blockdata_filepath": "data/layouts/Route25/map.bin"
     },
@@ -4493,7 +4493,7 @@
       "id": "LAYOUT_RUINS_OF_OMEG_ROOM1",
       "name": "RuinsOfOmeg_Room1_Layout",
       "width": 25,
-      "height": 40,
+      "height": 44,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -4536,6 +4536,18 @@
       "secondary_tileset": "gTileset_SeaCottage",
       "border_filepath": "data/layouts/ViridianCity_MaisyHouse/border.bin",
       "blockdata_filepath": "data/layouts/ViridianCity_MaisyHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_TURQUOISE_CITY",
+      "name": "TurquoiseCity_Layout",
+      "width": 60,
+      "height": 52,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_TurquoiseCity",
+      "border_filepath": "data/layouts/TurquoiseCity/border.bin",
+      "blockdata_filepath": "data/layouts/TurquoiseCity/map.bin"
     }
   ]
 }

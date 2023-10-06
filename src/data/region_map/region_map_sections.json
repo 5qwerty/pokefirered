@@ -97,6 +97,14 @@
       "height": 1
     },
     {
+      "map_section": "MAPSEC_TURQUOISE_CITY",
+      "name": "TURQUOISE CITY",
+      "x": 12,
+      "y": 2,
+      "width": 1,
+      "height": 1
+    },
+    {
       "map_section": "MAPSEC_ROUTE_4_POKECENTER",
       "name": "ROUTE 4",
       "x": 8,

@@ -38,7 +38,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_HIDE_HELIX_FOSSIL"
+      "flag": "FLAG_HIDE_OBSIDIAN_ROCKETS"
     },
     {
       "type": "object",
@@ -52,7 +52,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_HIDE_HELIX_FOSSIL"
+      "flag": "FLAG_HIDE_OBSIDIAN_ROCKETS"
     },
     {
       "type": "object",
@@ -66,7 +66,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_HIDE_HELIX_FOSSIL"
+      "flag": "FLAG_HIDE_OBSIDIAN_ROCKETS"
     },
     {
       "type": "object",
@@ -80,7 +80,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_HIDE_HELIX_FOSSIL"
+      "flag": "FLAG_HIDE_OBSIDIAN_ROCKETS"
     },
     {
       "type": "object",
@@ -94,7 +94,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_HIDE_HELIX_FOSSIL"
+      "flag": "FLAG_HIDE_OBSIDIAN_ROCKETS"
     },
     {
       "type": "object",

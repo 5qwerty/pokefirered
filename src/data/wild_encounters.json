@@ -21836,7 +21836,7 @@
           "map": "MAP_ROUTE25",
           "base_label": "sRoute25_FireRed",
           "land_mons": {
-            "encounter_rate": 21,
+            "encounter_rate": 0,
             "mons": [
               {
                 "min_level": 8,
@@ -21901,7 +21901,7 @@
             ]
           },
           "water_mons": {
-            "encounter_rate": 2,
+            "encounter_rate": 0,
             "mons": [
               {
                 "min_level": 20,

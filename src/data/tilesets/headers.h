@@ -768,3 +768,14 @@ const struct Tileset gTileset_Ruins =
     .metatileAttributes = gMetatileAttributes_Ruins,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_TurquoiseCity =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_TurquoiseCity,
+    .palettes = gTilesetPalettes_TurquoiseCity,
+    .metatiles = gMetatiles_TurquoiseCity,
+    .metatileAttributes = gMetatileAttributes_TurquoiseCity,
+    .callback = NULL,
+};
