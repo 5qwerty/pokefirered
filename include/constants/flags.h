@@ -59,11 +59,11 @@
 #define FLAG_HIDE_GIO_OBSIDIAN                             0x02B
 #define FLAG_HIDE_DAISY_VIRIDIAN                           0x02C
 #define FLAG_HIDE_RIVAL_IN_LAB                             0x02D
-#define FLAG_HIDE_PEWTER_CITY_GYM_GUIDE                    0x02E
+#define FLAG_HIDE_GIO_GYM                                  0x02E
 #define FLAG_HIDE_GIO_RUINS                                0x02F
 #define FLAG_HIDE_OBSIDIAN_ROCKETS                         0x030
 #define FLAG_HIDE_AIRIKA_CELADON                           0x031
-#define FLAG_HIDE_BILL_CLEFAIRY                            0x032
+#define FLAG_HIDE_RIVAL_ROUTE2                             0x032
 #define FLAG_HIDE_BILL_HUMAN_SEA_COTTAGE                   0x033
 #define FLAG_HIDE_TOWER_FUJI                               0x034
 #define FLAG_HIDE_POKEHOUSE_FUJI                           0x035

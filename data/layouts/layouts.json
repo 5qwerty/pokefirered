@@ -1125,7 +1125,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_ViridianCity",
+      "secondary_tileset": "gTileset_SeviiIslands67",
       "border_filepath": "data/layouts/Route23/border.bin",
       "blockdata_filepath": "data/layouts/Route23/map.bin"
     },
@@ -4420,12 +4420,12 @@
     {
       "id": "LAYOUT_OBSIDIAN_CITY_GYM",
       "name": "ObsidianCity_Gym_Layout",
-      "width": 1,
-      "height": 1,
+      "width": 13,
+      "height": 16,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_ViridianGym",
+      "secondary_tileset": "gTileset_PewterGym",
       "border_filepath": "data/layouts/ObsidianCity_Gym/border.bin",
       "blockdata_filepath": "data/layouts/ObsidianCity_Gym/map.bin"
     },
