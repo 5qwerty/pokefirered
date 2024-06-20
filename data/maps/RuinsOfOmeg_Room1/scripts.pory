@@ -1,1 +1,58 @@
-mapscripts RuinsOfOmeg_Room1_MapScripts {}
+const SCI_GUY1 = 1
+const GIO = 2
+const GIRL = 3
+const SCI_GUY2 = 4
+const HIKER = 5
+const RIVAL = 6
+
+
+mapscripts RuinsOfOmeg_Room1_MapScripts {
+    // MAP_SCRIPT_ON_TRANSITION {
+    //     call_if_eq(VAR_MAP_SCENE_OBSIDIAN_CITY_EVENTS, 2, RuinsOfOmeg_Room1_MoveNPCs)
+    //     call_if_ge(VAR_MAP_SCENE_OBSIDIAN_CITY_EVENTS, 3, RuinsOfOmeg_Room1_MoveSciGuy)
+	// }
+    // MAP_SCRIPT_ON_FRAME_TABLE [
+	// 	VAR_MAP_SCENE_OBSIDIAN_CITY_EVENTS, 2: RuinsOfOmeg_Room1_EnterScript
+	// ]
+}
+
+// script RuinsOfOmeg_Room1_MoveSciGuy {
+//     setobjectxyperm(SCI_GUY1, 22, 37)
+//     setobjectmovementtype(SCI_GUY1, MOVEMENT_TYPE_FACE_DOWN)
+// }
+
+// script RuinsOfOmeg_Room1_MoveNPCs {
+//     setobjectxyperm(GIRL, 5, 39)
+//     setobjectxyperm(HIKER, 5, 40)
+//     setobjectxyperm(SCI_GUY2, 6, 40)
+//     setobjectxyperm(RIVAL, 6, 39)
+//     setobjectxyperm(SCI_GUY1, 13, 39)
+//     setobjectmovementtype(GIRL, MOVEMENT_TYPE_LOOK_AROUND)
+//     setobjectmovementtype(HIKER, MOVEMENT_TYPE_LOOK_AROUND)
+//     setobjectmovementtype(SCI_GUY2, MOVEMENT_TYPE_LOOK_AROUND)
+//     setobjectmovementtype(RIVAL, MOVEMENT_TYPE_FACE_RIGHT)
+//     setobjectmovementtype(SCI_GUY1, MOVEMENT_TYPE_FACE_LEFT)
+// }
+
+// script RuinsOfOmeg_Room1_EnterScript {
+//     lockall
+//     applymovement(GIO, Common_Movement_WalkInPlaceRight)
+//     waitmovement(0)
+//     msgbox(RuinsOfOmeg_Room1_EveryoneSafe)
+//     closemessage
+//     applymovement(SCI_GUY1, Common_Movement_WalkInPlaceLeft)
+//     waitmovement(0)
+//     msgbox(RuinsOfOmeg_Room1_Explosion)
+//     closemessage
+//     addvar(VAR_MAP_SCENE_OBSIDIAN_CITY_EVENTS, 1) //should be 3 after this script
+//     releaseall
+//     end
+// }
+
+// text RuinsOfOmeg_Room1_EveryoneSafe {
+//     format("GEOFFREY: Looks like ev'rybody's\nsafe and accounted for.\pNow tell me, what on earth took\nplace in here?")
+// }
+
+// text RuinsOfOmeg_Room1_Explosion {
+//     format("Sir, we've confirmed that two\nexplosions took place.\pThe first allowed the criminals to\nenter the chamber containing the\lUNOWN.\pThe second was lethal and killed\nall of the UNOWN in the chamber.")
+// }
