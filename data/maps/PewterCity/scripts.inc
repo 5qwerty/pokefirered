@@ -26,7 +26,7 @@ PewterCity_EventScript_GymGuide::
 	waitmovement 0
 	fadedefaultbgm
 	removeobject LOCALID_GYM_GUIDE
-	clearflag 0
+	clearflag FLAG_HIDE_PEWTER_CITY_GYM_GUIDE
 	release
 	end
 
@@ -296,7 +296,7 @@ PewterCity_EventScript_GymGuideTrigger::
 	waitmovement 0
 	fadedefaultbgm
 	removeobject LOCALID_GYM_GUIDE
-	clearflag 0
+	clearflag FLAG_HIDE_PEWTER_CITY_GYM_GUIDE
 	releaseall
 	end
 
@@ -452,7 +452,7 @@ PewterCity_EventScript_MuseumGuide::
 	waitmovement 0
 	fadedefaultbgm
 	removeobject LOCALID_MUSEUM_GUIDE
-	clearflag 0
+	clearflag FLAG_HIDE_PEWTER_MUSEUM_GUIDE
 	release
 	end
 
