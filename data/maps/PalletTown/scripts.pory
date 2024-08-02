@@ -54,6 +54,7 @@ script PalletTown_EventScript_AideIntro {
 	setvar(VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 1)
 	giveitem(ITEM_BICYCLE)
 	setflag(FLAG_GOT_BICYCLE)
+	setflag(FLAG_HIDE_GIO_RUINS)
 	//Filler
 	setflag(FLAG_HIDE_DAISY_VIRIDIAN)
 	setflag(FLAG_HIDE_GIO_OBSIDIAN)

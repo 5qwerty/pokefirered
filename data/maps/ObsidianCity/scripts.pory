@@ -22,10 +22,10 @@ script ObsidianCity_EventScript_OpenHole {
 script ObsidianCity_EventScript_MoveGio {
 	setobjectxyperm(GIO_ID, 21, 22)
 	setobjectmovementtype(GIO_ID, MOVEMENT_TYPE_FACE_DOWN)
-	setobjectxyperm(1, 20, 26)
-	setobjectxyperm(2, 20, 27)
-	setobjectxyperm(4, 20, 28)
-	setobjectxyperm(3, 20, 29)
+	setobjectxyperm(1, 21, 23)
+	setobjectxyperm(2, 21, 24)
+	setobjectxyperm(3, 21, 25)
+	setobjectxyperm(4, 21, 26)
 }
 
 script ObsidianCity_EventScript_GymTrigger {
@@ -247,6 +247,8 @@ script ObsidianCity_EventScript_TriggerRight {
 	applymovement(GIO_ID, ObsidianCity_Movement_GioToRuinsRight)
 	waitmovement(0)
 	removeobject(GIO_ID)
+	clearflag(FLAG_HIDE_GIO_RUINS)
+	setflag(FLAG_HIDE_GIO_GYM)
 	setvar(VAR_MAP_SCENE_OBSIDIAN_CITY_EVENTS, 2)
 	releaseall
 	end

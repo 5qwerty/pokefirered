@@ -1,3 +1,7 @@
+RuinsOfOmeg_Room1_EventScript_HM06::
+	finditem ITEM_HM06
+	end
+
 Route2_EventScript_ItemEther::
 	finditem ITEM_ETHER
 	end
