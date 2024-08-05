@@ -1,41 +1,61 @@
-raw `
-.equ REQUIRED_SEEN_MONS, 10
+const RIVAL = 1
 
-Route2_EastBuilding_MapScripts::
-	.byte 0
+mapscripts Route2_EastBuilding_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_MAP_SCENE_ROUTE2, 0: Route2_EastBuilding_RivalBattle
+	]
+}
 
-Route2_EastBuilding_EventScript_Aide::
-	lock
-	faceplayer
-	call Route2_EastBuilding_EventScript_GetAideRequestInfo
-	goto_if_set FLAG_GOT_HM05, Route2_EastBuilding_EventScript_AlreadyGotHM05
-	msgbox Route2_EastBuilding_Text_GiveHM05IfSeen10Mons, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, Aide_EventScript_DeclineCheckMons
-	setvar VAR_0x8004, 0
-	specialvar VAR_RESULT, GetPokedexCount
-	buffernumberstring STR_VAR_3, VAR_0x8006
-	call Route2_EastBuilding_EventScript_GetAideRequestInfo
-	goto_if_lt VAR_0x8006, REQUIRED_SEEN_MONS, Aide_EventScript_HaventCaughtEnough
-	msgbox Route2_EastBuilding_Text_GreatHereYouGo
-	checkitemspace ITEM_HM05
-	goto_if_eq VAR_RESULT, FALSE, Aide_EventScript_NoRoomForItem
-	giveitem_msg Route2_EastBuilding_Text_ReceivedHM05FromAide, ITEM_HM05
-	setflag FLAG_GOT_HM05
-	msgbox Route2_EastBuilding_Text_ExplainHM05
-	release
+script Route2_EastBuilding_RivalBattle {
+	lockall
+	textcolor(NPC_TEXT_COLOR_MALE)
+	playbgm(MUS_ENCOUNTER_RIVAL, FALSE)
+	delay(30)
+	playse(SE_PIN)
+	applymovement(RIVAL, Common_Movement_ExclamUp)
+	waitmovement(0)
+	msgbox(Route2_EastBuilding_Text_RivalHi)
+	closemessage
+	applymovement(RIVAL, Route2_EastBuilding_Movement_RivalWalkUp)
+	waitmovement(0)
+	msgbox(Route2_EastBuilding_Text_RivalHi2)
+	closemessage
+	trainerbattle_no_intro(TRAINER_RIVAL_ROUTE2, Route2_EastBuilding_Text_RivalLose)
+	msgbox(Route2_EastBuilding_Text_RivalBye)
+	closemessage
+	playbgm(MUS_RIVAL_EXIT, FALSE)
+	applymovement(RIVAL, Route2_EastBuilding_Movement_RivalLeave)
+	waitmovement(0)
+	delay(30)
+    removeobject(RIVAL) 
+    playse(SE_EXIT)
+    waitse()
+	fadedefaultbgm
+	addvar(VAR_MAP_SCENE_ROUTE2, 1) //Should be 1 after this
+	releaseall
 	end
+}
 
-Route2_EastBuilding_EventScript_AlreadyGotHM05::
-	msgbox Route2_EastBuilding_Text_ExplainHM05
-	release
-	end
+text Route2_EastBuilding_Text_RivalHi {
+	format("{RIVAL}: Oh!\nIf it isn't the nerd!")
+}
 
-Route2_EastBuilding_EventScript_GetAideRequestInfo::
-	buffernumberstring STR_VAR_1, REQUIRED_SEEN_MONS
-	bufferitemname STR_VAR_2, ITEM_HM05
-	return
+text Route2_EastBuilding_Text_RivalHi2 {
+	format("{RIVAL}: You actually managed to\nget a BADGE?\pHahahaha!\nYou probably lucked out!\pLet's see if you against me can\nwithout gramps' help!")
+}
 
-Route2_EastBuilding_EventScript_Rocker::
-	msgbox Route2_EastBuilding_Text_CanGetThroughRockTunnel, MSGBOX_NPC
-	end
-`
+text Route2_EastBuilding_Text_RivalLose {
+	format("{RIVAL}: WHAT?\nHow can one be so lucky?!")	
+}
+
+text Route2_EastBuilding_Text_RivalBye {
+	format("{RIVAL}: Tchh...\nWhatever...\pDon't think you're better than me\njust 'cause of one lousy battle.\pSniff ya later, idiot!")
+}
+
+movement Route2_EastBuilding_Movement_RivalWalkUp {
+	walk_up * 2
+}
+
+movement Route2_EastBuilding_Movement_RivalLeave {
+	walk_down * 7
+}

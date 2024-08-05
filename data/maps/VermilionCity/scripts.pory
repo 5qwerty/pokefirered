@@ -1,14 +1,91 @@
+const LT = 2
+
+mapscripts VermilionCity_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setworldmapflag(FLAG_WORLD_MAP_VERMILION_CITY)
+		call_if_set(FLAG_TALKED_TO_OAKS_AIDE_IN_VERMILION, VermilionCity_EventScript_HideOaksAide)
+	}
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_MAP_SCENE_VERMILION_CITY, 2: VermilionCity_EventScript_ExitSSAnne
+	]
+}
+
+script VermilionCity_EventScript_Sergei {
+	lock
+	faceplayer
+	goto_if_eq(VAR_MAP_SCENE_VERMILION_CITY, 1, Vermilion_EventScript_SergeiGave)
+	goto_if_eq(VAR_MAP_SCENE_VERMILION_CITY, 2, Vermilion_EventScript_SergeiReceive)
+	goto_if_ge(VAR_MAP_SCENE_VERMILION_CITY, 3, Vermilion_EventScript_SergeiFixing)
+	msgbox(VermilionCity_Text_SergeiIntro, MSGBOX_NPC)
+	giveitem_msg(VermilionCity_Text_SSTicket, ITEM_SS_TICKET, 1, MUS_OBTAIN_KEY_ITEM)
+	msgbox(VermilionCity_Text_SergeiBye, MSGBOX_NPC)
+	addvar(VAR_MAP_SCENE_VERMILION_CITY, 1) //Should be 1 after this
+	release
+	end
+}
+
+script Vermilion_EventScript_SergeiGave {
+	msgbox(VermilionCity_Text_SergeiBye, MSGBOX_NPC)
+	release
+	end
+}
+
+script Vermilion_EventScript_SergeiReceive {
+	msgbox(VermilionCity_Text_SergeiReceive, MSGBOX_NPC)
+	msgbox(VermilionCity_Text_PlayerGives)
+	playfanfare(MUS_OBTAIN_ITEM)
+	waitfanfare
+	closemessage
+	msgbox(VermilionCity_Text_SergeiFix, MSGBOX_NPC)
+	applymovement(LT, VermilionCity_Movement_SergeiFix)
+	waitmovement(0)
+	release
+	end
+}
+
+script Vermilion_EventScript_SergeiFixing {
+	msgbox(VermilionCity_Text_MustWait, MSGBOX_NPC)
+	applymovement(LT, Common_Movement_FaceUp)
+	waitmovement(0)
+	release
+	end
+}
+
+text VermilionCity_Text_SergeiIntro {
+	format("???: Good day, comrade!\nAh, you are {PLAYER}!\pI hear much from PROF. SOAK about\nyou.\pMe? My name SERGEI, I used to be\nCOMRADE in old country.\pAs you see, my GYM wall is not so\ngood, it needs the fix.\pCan you do me favour and take S.S.\nTICKET and go CINNABAR ISLAND to\lpick up material?")
+}
+
+text VermilionCity_Text_SSTicket {
+	format("{PLAYER} received the S.S. TICKET\nfrom CDE SERGEI!")
+}
+
+text VermilionCity_Text_SergeiBye {
+	format("SERGEI: OK! You go now!\nI stay here to watch over GYM.")
+}
+
+text VermilionCity_Text_SergeiReceive {
+	format("SERGEI: Ah! {PLAYER}!\nYou have returned with material?")
+}
+
+text VermilionCity_Text_PlayerGives {
+	format("{PLAYER} gave the PARCEL to\nCDE SERGEI.")
+}
+
+text VermilionCity_Text_SergeiFix {
+	format("SERGEI: Much thanks, comrade.\nI am go to fix wall now.")
+}
+
+text VermilionCity_Text_MustWait {
+	format("SERGEI: Be patient, my friend.\nFixing wall take time.")
+}
+
+movement VermilionCity_Movement_SergeiFix {
+	walk_right * 2
+	walk_up
+}
+
 raw `
 .equ LOCALID_FERRY_SAILOR, 6
-
-VermilionCity_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, VermilionCity_OnTransition
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, VermilionCity_OnFrame
-	.byte 0
-
-VermilionCity_OnFrame::
-	map_script_2 VAR_MAP_SCENE_VERMILION_CITY, 2, VermilionCity_EventScript_ExitSSAnne
-	.2byte 0
 
 VermilionCity_EventScript_ExitSSAnne::
 	lockall
@@ -22,11 +99,6 @@ VermilionCity_Movement_ExitSSAnne::
 	walk_up
 	walk_up
 	step_end
-
-VermilionCity_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_VERMILION_CITY
-	call_if_set FLAG_TALKED_TO_OAKS_AIDE_IN_VERMILION, VermilionCity_EventScript_HideOaksAide
-	end
 
 VermilionCity_EventScript_HideOaksAide::
 	setflag FLAG_HIDE_VERMILION_CITY_OAKS_AIDE

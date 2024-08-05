@@ -78,15 +78,15 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 30,
-      "y": 17,
+      "x": 62,
+      "y": 27,
       "elevation": 0,
       "dest_map": "MAP_CELADON_CITY_DEPARTMENT_STORE_1F",
       "dest_warp_id": "1"
     },
     {
-      "x": 34,
-      "y": 17,
+      "x": 62,
+      "y": 31,
       "elevation": 0,
       "dest_map": "MAP_CELADON_CITY_DEPARTMENT_STORE_1F",
       "dest_warp_id": "4"
@@ -169,7 +169,7 @@
       "y": 45,
       "elevation": 0,
       "var": "VAR_MAP_SCENE_CELADON_CITY_ROCKET",
-      "var_value": "0",
+      "var_value": "1",
       "script": "CeladonCity_EventScript_LeftTrigger"
     },
     {
@@ -187,7 +187,7 @@
       "y": 43,
       "elevation": 0,
       "var": "VAR_MAP_SCENE_CELADON_CITY_ROCKET",
-      "var_value": "0",
+      "var_value": "1",
       "script": "CeladonCity_EventScript_RightTrigger2"
     },
     {
@@ -196,7 +196,7 @@
       "y": 44,
       "elevation": 0,
       "var": "VAR_MAP_SCENE_CELADON_CITY_ROCKET",
-      "var_value": "0",
+      "var_value": "1",
       "script": "CeladonCity_EventScript_RightTrigger3"
     }
   ],

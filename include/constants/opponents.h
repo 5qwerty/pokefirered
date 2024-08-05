@@ -330,7 +330,7 @@
 #define TRAINER_BLACK_BELT_TAKASHI               324
 #define TRAINER_BLACK_BELT_DAISUKE               325
 #define TRAINER_RIVAL_SOAK_LAB                   326
-#define TRAINER_RIVAL_EMPTY_1                    327
+#define TRAINER_RIVAL_ROUTE2                     327
 #define TRAINER_RIVAL_EMPTY_2                    328
 #define TRAINER_RIVAL_ROUTE22_EARLY_SQUIRTLE     329
 #define TRAINER_RIVAL_ROUTE22_EARLY_BULBASAUR    330

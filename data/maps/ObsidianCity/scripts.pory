@@ -9,6 +9,7 @@ mapscripts ObsidianCity_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setworldmapflag(FLAG_WORLD_MAP_OBSIDIAN_CITY)
 		call_if_eq(VAR_MAP_SCENE_OBSIDIAN_CITY_EVENTS, 1, ObsidianCity_EventScript_MoveGio)
+		call_if_eq(VAR_MAP_SCENE_OBSIDIAN_CITY_EVENTS, 3, ObsidianCity_EventScript_UpVar)
 	}
 	MAP_SCRIPT_ON_LOAD {
 		call_if_ge(VAR_MAP_SCENE_OBSIDIAN_CITY_EVENTS, 1, ObsidianCity_EventScript_OpenHole)
@@ -17,6 +18,10 @@ mapscripts ObsidianCity_MapScripts {
 
 script ObsidianCity_EventScript_OpenHole {
 	setmetatile(17, 28, 0x0A9, 0)
+}
+
+script ObsidianCity_EventScript_UpVar {
+	addvar(VAR_MAP_SCENE_OBSIDIAN_CITY_EVENTS, 1)
 }
 
 script ObsidianCity_EventScript_MoveGio {

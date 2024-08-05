@@ -3725,6 +3725,19 @@ static const struct TrainerMonNoItemDefaultMoves sParty_RivalSoakLab[] = {
     },
 };
 
+static const struct TrainerMonNoItemCustomMoves sParty_RivalRoute2[] = {
+    {
+        .iv = 30,
+        .lvl = 12,
+        .species = SPECIES_NIDORAN_M,
+    },
+    {
+        .iv = 30,
+        .lvl = 14,
+        .species = SPECIES_MUDKIP,
+    },
+};
+
 static const struct TrainerMonNoItemCustomMoves sParty_RivalRoute22EarlySquirtle[] = {
     {
         .iv = 50,

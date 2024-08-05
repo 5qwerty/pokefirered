@@ -9,7 +9,8 @@ const RIVAL = 6
 mapscripts RuinsOfOmeg_Room1_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         call_if_eq(VAR_MAP_SCENE_OBSIDIAN_CITY_EVENTS, 2, RuinsOfOmeg_Room1_MoveNPCs)
-        call_if_ge(VAR_MAP_SCENE_OBSIDIAN_CITY_EVENTS, 3, RuinsOfOmeg_Room1_MoveSciGuy)
+        call_if_eq(VAR_MAP_SCENE_OBSIDIAN_CITY_EVENTS, 3, RuinsOfOmeg_Room1_MoveNPCs)
+        call_if_ge(VAR_MAP_SCENE_OBSIDIAN_CITY_EVENTS, 4, RuinsOfOmeg_Room1_MoveSciGuy)
 	}
     MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_MAP_SCENE_OBSIDIAN_CITY_EVENTS, 2: RuinsOfOmeg_Room1_EnterScript
@@ -39,24 +40,24 @@ script RuinsOfOmeg_Room1_EnterScript {
     applymovement(GIO, Common_Movement_WalkInPlaceRight)
     waitmovement(0)
     textcolor(NPC_TEXT_COLOR_MALE)
-    msgbox(RuinsOfOmeg_Room1_EveryoneSafe)
+    msgbox(RuinsOfOmeg_Room1_Text_EveryoneSafe)
     closemessage
     applymovement(SCI_GUY1, Common_Movement_WalkInPlaceLeft)
     waitmovement(0)
-    msgbox(RuinsOfOmeg_Room1_Explosion)
+    msgbox(RuinsOfOmeg_Room1_Text_Explosion)
     closemessage
     playse(SE_PIN)
     applymovement(GIO, Common_Movement_ExclamRight)
     waitmovement(0)
-    msgbox(RuinsOfOmeg_Room1_WhyBomb)
+    msgbox(RuinsOfOmeg_Room1_Text_WhyBomb)
     closemessage
     applymovement(SCI_GUY1, Common_Movement_WalkInPlaceLeft)
     waitmovement(0)
-    msgbox(RuinsOfOmeg_Room1_Corpse)
+    msgbox(RuinsOfOmeg_Room1_Text_Corpse)
     closemessage
     applymovement(GIO, Common_Movement_WalkInPlaceRight)
     waitmovement(0)
-    msgbox(RuinsOfOmeg_Room1_ContactCinnabar)
+    msgbox(RuinsOfOmeg_Room1_Text_ContactCinnabar)
     closemessage
     applymovement(GIO, Common_Movement_WalkRight)
     waitmovement(0)
@@ -66,23 +67,26 @@ script RuinsOfOmeg_Room1_EnterScript {
     applymovement(GIO, RuinsOfOmeg_Room1_Movement_Gio)
     applymovement(OBJ_EVENT_ID_PLAYER, RuinsOfOmeg_Room1_Movement_Player)
     waitmovement(0)
-    msgbox(RuinsOfOmeg_Room1_Tragedy)
+    msgbox(RuinsOfOmeg_Room1_Text_Tragedy)
     closemessage
     applymovement(GIO, Common_Movement_FaceDown)
     waitmovement(0)
+    delay(30)
+    removeobject(GIO)
     playse(SE_EXIT)
     waitse()
-    removeobject(GIO)
+    delay(30)
     playbgm(MUS_RIVAL_EXIT, 0)
     applymovement(RIVAL, RuinsOfOmeg_Room1_Movement_Rival1)
     waitmovement(0) 
-    msgbox(RuinsOfOmeg_Room1_RivalTalk)
+    msgbox(RuinsOfOmeg_Room1_Text_RivalTalk)
     closemessage
     applymovement(RIVAL, Common_Movement_FaceDown)
-    waitmovement(0) 
+    waitmovement(0)
+    delay(30)
+    removeobject(RIVAL) 
     playse(SE_EXIT)
     waitse()
-    removeobject(RIVAL)
     addvar(VAR_MAP_SCENE_OBSIDIAN_CITY_EVENTS, 1) //should be 3 after this script
     clearflag(FLAG_HIDE_GIO_GYM)
     fadedefaultbgm
@@ -90,31 +94,31 @@ script RuinsOfOmeg_Room1_EnterScript {
     end
 }
 
-text RuinsOfOmeg_Room1_EveryoneSafe {
+text RuinsOfOmeg_Room1_Text_EveryoneSafe {
     format("GEOFFREY: Looks like ev'rybody's\nsafe and accounted for.\pNow tell me, what on earth took\nplace in here?")
 }
 
-text RuinsOfOmeg_Room1_Explosion {
+text RuinsOfOmeg_Room1_Text_Explosion {
     format("Sir, we've confirmed that two\nexplosions took place.\pThe first allowed the criminals to\nenter the chamber containing the\lUNOWN.\pThe second was lethal and killed\nall of the UNOWN in the chamber.")
 }
 
-text RuinsOfOmeg_Room1_WhyBomb {
+text RuinsOfOmeg_Room1_Text_WhyBomb {
     format("GEOFFREY: Kill'n the UNOWN?!\nWhat purpose does that serve?\pUnless...\nThey're after that old myth?\pTell me, is there anything left in\nthat chamber?")
 }
 
-text RuinsOfOmeg_Room1_Corpse {
+text RuinsOfOmeg_Room1_Text_Corpse {
     format("It appears that the remains of the\nUNOWN have been taken by them.")
 }
 
-text RuinsOfOmeg_Room1_ContactCinnabar {
+text RuinsOfOmeg_Room1_Text_ContactCinnabar {
     format("GEOFFREY: Contact CINNABAR ISLAND\nright this moment!\pBesides that, there's ain't much\nwe can do.\pI'm headin' back to the GYM for now.")
 }
 
-text RuinsOfOmeg_Room1_Tragedy {
+text RuinsOfOmeg_Room1_Text_Tragedy {
     format("GEOFFREY: What a needless tragedy.\nWho were those people?\pAn'way, I see that fire in yer\neyes, so you better come down to\lthe GYM, ya hear?")
 }
 
-text RuinsOfOmeg_Room1_RivalTalk {
+text RuinsOfOmeg_Room1_Text_RivalTalk {
     format("{RIVAL}: Taking the corpses of the\nPOKéMON? There is a point in that?\pI wonder what use they have...\nHehehe...\pSniff ya later, dork!")
 }
 

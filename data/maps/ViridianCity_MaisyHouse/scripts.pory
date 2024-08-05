@@ -87,7 +87,6 @@ script MaisyHouse_EventScript_TownMap {
 
 script MaisyHouse_EventScript_TownMap2 {
     removeobject(VAR_LAST_TALKED)
-    //setflag(FLAG_HIDE_TOWN_MAP)
     giveitem_msg(MaisyHouse_Text_ReceivedMap, ITEM_TOWN_MAP, 1, MUS_OBTAIN_KEY_ITEM)
     addvar(VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN, 1)
     call_if_eq(VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN, 3, MaisyHouse_EventScript_MaisyToPlayer)
