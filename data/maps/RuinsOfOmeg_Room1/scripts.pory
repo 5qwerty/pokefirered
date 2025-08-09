@@ -89,6 +89,7 @@ script RuinsOfOmeg_Room1_EnterScript {
     waitse()
     addvar(VAR_MAP_SCENE_OBSIDIAN_CITY_EVENTS, 1) //should be 3 after this script
     clearflag(FLAG_HIDE_GIO_GYM)
+    setflag(FLAG_HIDE_AIRIKA_CELADON)
     fadedefaultbgm
     releaseall
     end

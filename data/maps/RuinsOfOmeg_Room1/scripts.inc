@@ -160,59 +160,61 @@ RuinsOfOmeg_Room1_EnterScript::
 # 91 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
 	clearflag FLAG_HIDE_GIO_GYM
 # 92 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
-	fadedefaultbgm
+	setflag FLAG_HIDE_AIRIKA_CELADON
 # 93 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
+	fadedefaultbgm
+# 94 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
 	releaseall
 	end
 
 
-# 125 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
-RuinsOfOmeg_Room1_Movement_Gio:
 # 126 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
-	walk_down
+RuinsOfOmeg_Room1_Movement_Gio:
 # 127 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
+	walk_down
+# 128 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
 	face_right
 	step_end
 
-# 130 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
-RuinsOfOmeg_Room1_Movement_Player:
 # 131 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
-	walk_right
+RuinsOfOmeg_Room1_Movement_Player:
 # 132 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
+	walk_right
+# 133 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
 	face_left
 	step_end
 
-# 135 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
+# 136 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
 RuinsOfOmeg_Room1_Movement_Rival1:
-# 136 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
-	walk_right
-# 136 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
-	walk_right
-# 136 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
-	walk_right
-# 136 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
-	walk_right
-# 136 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
-	walk_right
-# 136 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
+# 137 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
 	walk_right
 # 137 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
-	walk_down
+	walk_right
 # 137 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
+	walk_right
+# 137 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
+	walk_right
+# 137 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
+	walk_right
+# 137 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
+	walk_right
+# 138 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
 	walk_down
 # 138 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
+	walk_down
+# 139 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
 	face_right
 	step_end
 
 RuinsOfOmeg_Room1_Text_EveryoneSafe::
-# 97 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
+# 98 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
 	.string "GEOFFREY: Looks like ev'rybody's\n"
 	.string "safe and accounted for.\p"
 	.string "Now tell me, what on earth took\n"
 	.string "place in here?$"
 
 RuinsOfOmeg_Room1_Text_Explosion::
-# 101 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
+# 102 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
 	.string "Sir, we've confirmed that two\n"
 	.string "explosions took place.\p"
 	.string "The first allowed the criminals to\n"
@@ -222,7 +224,7 @@ RuinsOfOmeg_Room1_Text_Explosion::
 	.string "all of the UNOWN in the chamber.$"
 
 RuinsOfOmeg_Room1_Text_WhyBomb::
-# 105 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
+# 106 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
 	.string "GEOFFREY: Kill'n the UNOWN?!\n"
 	.string "What purpose does that serve?\p"
 	.string "Unless...\n"
@@ -231,12 +233,12 @@ RuinsOfOmeg_Room1_Text_WhyBomb::
 	.string "that chamber?$"
 
 RuinsOfOmeg_Room1_Text_Corpse::
-# 109 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
+# 110 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
 	.string "It appears that the remains of the\n"
 	.string "UNOWN have been taken by them.$"
 
 RuinsOfOmeg_Room1_Text_ContactCinnabar::
-# 113 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
+# 114 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
 	.string "GEOFFREY: Contact CINNABAR ISLAND\n"
 	.string "right this moment!\p"
 	.string "Besides that, there's ain't much\n"
@@ -244,7 +246,7 @@ RuinsOfOmeg_Room1_Text_ContactCinnabar::
 	.string "I'm headin' back to the GYM for now.$"
 
 RuinsOfOmeg_Room1_Text_Tragedy::
-# 117 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
+# 118 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
 	.string "GEOFFREY: What a needless tragedy.\n"
 	.string "Who were those people?\p"
 	.string "An'way, I see that fire in yer\n"
@@ -252,7 +254,7 @@ RuinsOfOmeg_Room1_Text_Tragedy::
 	.string "the GYM, ya hear?$"
 
 RuinsOfOmeg_Room1_Text_RivalTalk::
-# 121 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
+# 122 "data/maps/RuinsOfOmeg_Room1/scripts.pory"
 	.string "{RIVAL}: Taking the corpses of the\n"
 	.string "POKéMON? There is a point in that?\p"
 	.string "I wonder what use they have...\n"

@@ -154,6 +154,7 @@ script ObsidianCity_EventScript_TriggerLeft {
 	waitmovement(0)
 	removeobject(GIO_ID)
 	setvar(VAR_MAP_SCENE_OBSIDIAN_CITY_EVENTS, 2)
+	clearflag(FLAG_HIDE_GIO_RUINS)
 	releaseall
 	end
 }
@@ -203,6 +204,7 @@ script ObsidianCity_EventScript_TriggerMid {
 	waitmovement(0)
 	removeobject(GIO_ID)
 	setvar(VAR_MAP_SCENE_OBSIDIAN_CITY_EVENTS, 2)
+	clearflag(FLAG_HIDE_GIO_RUINS)
 	releaseall
 	end
 }
@@ -255,6 +257,7 @@ script ObsidianCity_EventScript_TriggerRight {
 	clearflag(FLAG_HIDE_GIO_RUINS)
 	setflag(FLAG_HIDE_GIO_GYM)
 	setvar(VAR_MAP_SCENE_OBSIDIAN_CITY_EVENTS, 2)
+	clearflag(FLAG_HIDE_GIO_RUINS)
 	releaseall
 	end
 }

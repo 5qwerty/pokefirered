@@ -274,521 +274,527 @@ ObsidianCity_EventScript_TriggerLeft::
 # 156 "data/maps/ObsidianCity/scripts.pory"
 	setvar VAR_MAP_SCENE_OBSIDIAN_CITY_EVENTS, 2
 # 157 "data/maps/ObsidianCity/scripts.pory"
+	clearflag FLAG_HIDE_GIO_RUINS
+# 158 "data/maps/ObsidianCity/scripts.pory"
 	releaseall
 	end
 
 
 ObsidianCity_EventScript_TriggerMid::
-# 162 "data/maps/ObsidianCity/scripts.pory"
-	lockall
 # 163 "data/maps/ObsidianCity/scripts.pory"
-	textcolor NPC_TEXT_COLOR_MALE
+	lockall
 # 164 "data/maps/ObsidianCity/scripts.pory"
-	msgbox ObsidianCity_Text_OuttaTheWay
+	textcolor NPC_TEXT_COLOR_MALE
 # 165 "data/maps/ObsidianCity/scripts.pory"
-	closemessage
+	msgbox ObsidianCity_Text_OuttaTheWay
 # 166 "data/maps/ObsidianCity/scripts.pory"
-	delay 60
+	closemessage
 # 167 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 1, ObsidianCity_Movement_Rocket1First
+	delay 60
 # 168 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 2, ObsidianCity_Movement_Rocket2First
+	applymovement 1, ObsidianCity_Movement_Rocket1First
 # 169 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 3, ObsidianCity_Movement_Rocket3First
+	applymovement 2, ObsidianCity_Movement_Rocket2First
 # 170 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 4, ObsidianCity_Movement_Rocket4First
+	applymovement 3, ObsidianCity_Movement_Rocket3First
 # 171 "data/maps/ObsidianCity/scripts.pory"
-	waitmovement 0
+	applymovement 4, ObsidianCity_Movement_Rocket4First
 # 172 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 6, ObsidianCity_Movement_GioOuttaWay
+	waitmovement 0
 # 173 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 1, ObsidianCity_Movement_Rocket1Second
+	applymovement 6, ObsidianCity_Movement_GioOuttaWay
 # 174 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 2, ObsidianCity_Movement_Rocket2Second
+	applymovement 1, ObsidianCity_Movement_Rocket1Second
 # 175 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 3, ObsidianCity_Movement_Rocket3Second
+	applymovement 2, ObsidianCity_Movement_Rocket2Second
 # 176 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 4, ObsidianCity_Movement_Rocket4Second
+	applymovement 3, ObsidianCity_Movement_Rocket3Second
 # 177 "data/maps/ObsidianCity/scripts.pory"
-	waitmovement 0
+	applymovement 4, ObsidianCity_Movement_Rocket4Second
 # 178 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 6, Common_Movement_FaceUp
+	waitmovement 0
 # 179 "data/maps/ObsidianCity/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, ObsidianCity_Movement_PlayerLookRocketMid
+	applymovement 6, Common_Movement_FaceUp
 # 180 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 1, ObsidianCity_Movement_Rocket1Third
+	applymovement OBJ_EVENT_ID_PLAYER, ObsidianCity_Movement_PlayerLookRocketMid
 # 181 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 2, ObsidianCity_Movement_Rocket2Third
+	applymovement 1, ObsidianCity_Movement_Rocket1Third
 # 182 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 3, ObsidianCity_Movement_Rocket3Third
+	applymovement 2, ObsidianCity_Movement_Rocket2Third
 # 183 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 4, ObsidianCity_Movement_Rocket4Third
+	applymovement 3, ObsidianCity_Movement_Rocket3Third
 # 184 "data/maps/ObsidianCity/scripts.pory"
-	waitmovement 0
+	applymovement 4, ObsidianCity_Movement_Rocket4Third
 # 185 "data/maps/ObsidianCity/scripts.pory"
-	delay 30
+	waitmovement 0
 # 186 "data/maps/ObsidianCity/scripts.pory"
-	msgbox ObsidianCity_Text_RightThing
-# 187 "data/maps/ObsidianCity/scripts.pory"
-	closemessage
-# 188 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 4, ObsidianCity_Movement_Rocket4Fourth
-# 189 "data/maps/ObsidianCity/scripts.pory"
-	waitmovement 0
-# 190 "data/maps/ObsidianCity/scripts.pory"
 	delay 30
-# 191 "data/maps/ObsidianCity/scripts.pory"
-	removeobject 1
-# 192 "data/maps/ObsidianCity/scripts.pory"
-	removeobject 2
-# 193 "data/maps/ObsidianCity/scripts.pory"
-	removeobject 3
-# 194 "data/maps/ObsidianCity/scripts.pory"
-	removeobject 4
-# 195 "data/maps/ObsidianCity/scripts.pory"
-	removeobject 5
-# 196 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 6, ObsidianCity_Movement_GioToPlayerLeftMid
-# 197 "data/maps/ObsidianCity/scripts.pory"
-	waitmovement 0
-# 198 "data/maps/ObsidianCity/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
-# 199 "data/maps/ObsidianCity/scripts.pory"
-	waitmovement 0
-# 200 "data/maps/ObsidianCity/scripts.pory"
-	msgbox ObsidianCity_Text_SeeThat
-# 201 "data/maps/ObsidianCity/scripts.pory"
+# 187 "data/maps/ObsidianCity/scripts.pory"
+	msgbox ObsidianCity_Text_RightThing
+# 188 "data/maps/ObsidianCity/scripts.pory"
 	closemessage
-# 202 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 6, ObsidianCity_Movement_GioToRuinsLeftMid
-# 203 "data/maps/ObsidianCity/scripts.pory"
+# 189 "data/maps/ObsidianCity/scripts.pory"
+	applymovement 4, ObsidianCity_Movement_Rocket4Fourth
+# 190 "data/maps/ObsidianCity/scripts.pory"
 	waitmovement 0
+# 191 "data/maps/ObsidianCity/scripts.pory"
+	delay 30
+# 192 "data/maps/ObsidianCity/scripts.pory"
+	removeobject 1
+# 193 "data/maps/ObsidianCity/scripts.pory"
+	removeobject 2
+# 194 "data/maps/ObsidianCity/scripts.pory"
+	removeobject 3
+# 195 "data/maps/ObsidianCity/scripts.pory"
+	removeobject 4
+# 196 "data/maps/ObsidianCity/scripts.pory"
+	removeobject 5
+# 197 "data/maps/ObsidianCity/scripts.pory"
+	applymovement 6, ObsidianCity_Movement_GioToPlayerLeftMid
+# 198 "data/maps/ObsidianCity/scripts.pory"
+	waitmovement 0
+# 199 "data/maps/ObsidianCity/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
+# 200 "data/maps/ObsidianCity/scripts.pory"
+	waitmovement 0
+# 201 "data/maps/ObsidianCity/scripts.pory"
+	msgbox ObsidianCity_Text_SeeThat
+# 202 "data/maps/ObsidianCity/scripts.pory"
+	closemessage
+# 203 "data/maps/ObsidianCity/scripts.pory"
+	applymovement 6, ObsidianCity_Movement_GioToRuinsLeftMid
 # 204 "data/maps/ObsidianCity/scripts.pory"
-	removeobject 6
+	waitmovement 0
 # 205 "data/maps/ObsidianCity/scripts.pory"
-	setvar VAR_MAP_SCENE_OBSIDIAN_CITY_EVENTS, 2
+	removeobject 6
 # 206 "data/maps/ObsidianCity/scripts.pory"
+	setvar VAR_MAP_SCENE_OBSIDIAN_CITY_EVENTS, 2
+# 207 "data/maps/ObsidianCity/scripts.pory"
+	clearflag FLAG_HIDE_GIO_RUINS
+# 208 "data/maps/ObsidianCity/scripts.pory"
 	releaseall
 	end
 
 
 ObsidianCity_EventScript_TriggerRight::
-# 211 "data/maps/ObsidianCity/scripts.pory"
-	lockall
-# 212 "data/maps/ObsidianCity/scripts.pory"
-	textcolor NPC_TEXT_COLOR_MALE
 # 213 "data/maps/ObsidianCity/scripts.pory"
-	msgbox ObsidianCity_Text_OuttaTheWay
+	lockall
 # 214 "data/maps/ObsidianCity/scripts.pory"
-	closemessage
+	textcolor NPC_TEXT_COLOR_MALE
 # 215 "data/maps/ObsidianCity/scripts.pory"
-	delay 60
+	msgbox ObsidianCity_Text_OuttaTheWay
 # 216 "data/maps/ObsidianCity/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
-# 217 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 1, ObsidianCity_Movement_Rocket1First
-# 218 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 2, ObsidianCity_Movement_Rocket2First
-# 219 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 3, ObsidianCity_Movement_Rocket3First
-# 220 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 4, ObsidianCity_Movement_Rocket4First
-# 221 "data/maps/ObsidianCity/scripts.pory"
-	waitmovement 0
-# 222 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 6, ObsidianCity_Movement_GioOuttaWay
-# 223 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 1, ObsidianCity_Movement_Rocket1Second
-# 224 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 2, ObsidianCity_Movement_Rocket2Second
-# 225 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 3, ObsidianCity_Movement_Rocket3Second
-# 226 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 4, ObsidianCity_Movement_Rocket4Second
-# 227 "data/maps/ObsidianCity/scripts.pory"
-	waitmovement 0
-# 228 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 6, Common_Movement_FaceUp
-# 229 "data/maps/ObsidianCity/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, ObsidianCity_Movement_PlayerLookRocketRight
-# 230 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 1, ObsidianCity_Movement_Rocket1Third
-# 231 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 2, ObsidianCity_Movement_Rocket2Third
-# 232 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 3, ObsidianCity_Movement_Rocket3Third
-# 233 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 4, ObsidianCity_Movement_Rocket4Third
-# 234 "data/maps/ObsidianCity/scripts.pory"
-	waitmovement 0
-# 235 "data/maps/ObsidianCity/scripts.pory"
-	delay 30
-# 236 "data/maps/ObsidianCity/scripts.pory"
-	msgbox ObsidianCity_Text_RightThing
-# 237 "data/maps/ObsidianCity/scripts.pory"
 	closemessage
-# 238 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 4, ObsidianCity_Movement_Rocket4Fourth
-# 239 "data/maps/ObsidianCity/scripts.pory"
-	waitmovement 0
-# 240 "data/maps/ObsidianCity/scripts.pory"
-	delay 30
-# 241 "data/maps/ObsidianCity/scripts.pory"
-	removeobject 1
-# 242 "data/maps/ObsidianCity/scripts.pory"
-	removeobject 2
-# 243 "data/maps/ObsidianCity/scripts.pory"
-	removeobject 3
-# 244 "data/maps/ObsidianCity/scripts.pory"
-	removeobject 4
-# 245 "data/maps/ObsidianCity/scripts.pory"
-	removeobject 5
-# 246 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 6, ObsidianCity_Movement_GioToPlayerRight
-# 247 "data/maps/ObsidianCity/scripts.pory"
-	waitmovement 0
-# 248 "data/maps/ObsidianCity/scripts.pory"
+# 217 "data/maps/ObsidianCity/scripts.pory"
+	delay 60
+# 218 "data/maps/ObsidianCity/scripts.pory"
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
+# 219 "data/maps/ObsidianCity/scripts.pory"
+	applymovement 1, ObsidianCity_Movement_Rocket1First
+# 220 "data/maps/ObsidianCity/scripts.pory"
+	applymovement 2, ObsidianCity_Movement_Rocket2First
+# 221 "data/maps/ObsidianCity/scripts.pory"
+	applymovement 3, ObsidianCity_Movement_Rocket3First
+# 222 "data/maps/ObsidianCity/scripts.pory"
+	applymovement 4, ObsidianCity_Movement_Rocket4First
+# 223 "data/maps/ObsidianCity/scripts.pory"
+	waitmovement 0
+# 224 "data/maps/ObsidianCity/scripts.pory"
+	applymovement 6, ObsidianCity_Movement_GioOuttaWay
+# 225 "data/maps/ObsidianCity/scripts.pory"
+	applymovement 1, ObsidianCity_Movement_Rocket1Second
+# 226 "data/maps/ObsidianCity/scripts.pory"
+	applymovement 2, ObsidianCity_Movement_Rocket2Second
+# 227 "data/maps/ObsidianCity/scripts.pory"
+	applymovement 3, ObsidianCity_Movement_Rocket3Second
+# 228 "data/maps/ObsidianCity/scripts.pory"
+	applymovement 4, ObsidianCity_Movement_Rocket4Second
+# 229 "data/maps/ObsidianCity/scripts.pory"
+	waitmovement 0
+# 230 "data/maps/ObsidianCity/scripts.pory"
+	applymovement 6, Common_Movement_FaceUp
+# 231 "data/maps/ObsidianCity/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, ObsidianCity_Movement_PlayerLookRocketRight
+# 232 "data/maps/ObsidianCity/scripts.pory"
+	applymovement 1, ObsidianCity_Movement_Rocket1Third
+# 233 "data/maps/ObsidianCity/scripts.pory"
+	applymovement 2, ObsidianCity_Movement_Rocket2Third
+# 234 "data/maps/ObsidianCity/scripts.pory"
+	applymovement 3, ObsidianCity_Movement_Rocket3Third
+# 235 "data/maps/ObsidianCity/scripts.pory"
+	applymovement 4, ObsidianCity_Movement_Rocket4Third
+# 236 "data/maps/ObsidianCity/scripts.pory"
+	waitmovement 0
+# 237 "data/maps/ObsidianCity/scripts.pory"
+	delay 30
+# 238 "data/maps/ObsidianCity/scripts.pory"
+	msgbox ObsidianCity_Text_RightThing
+# 239 "data/maps/ObsidianCity/scripts.pory"
+	closemessage
+# 240 "data/maps/ObsidianCity/scripts.pory"
+	applymovement 4, ObsidianCity_Movement_Rocket4Fourth
+# 241 "data/maps/ObsidianCity/scripts.pory"
+	waitmovement 0
+# 242 "data/maps/ObsidianCity/scripts.pory"
+	delay 30
+# 243 "data/maps/ObsidianCity/scripts.pory"
+	removeobject 1
+# 244 "data/maps/ObsidianCity/scripts.pory"
+	removeobject 2
+# 245 "data/maps/ObsidianCity/scripts.pory"
+	removeobject 3
+# 246 "data/maps/ObsidianCity/scripts.pory"
+	removeobject 4
+# 247 "data/maps/ObsidianCity/scripts.pory"
+	removeobject 5
+# 248 "data/maps/ObsidianCity/scripts.pory"
+	applymovement 6, ObsidianCity_Movement_GioToPlayerRight
 # 249 "data/maps/ObsidianCity/scripts.pory"
 	waitmovement 0
 # 250 "data/maps/ObsidianCity/scripts.pory"
-	msgbox ObsidianCity_Text_SeeThat
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
 # 251 "data/maps/ObsidianCity/scripts.pory"
-	closemessage
-# 252 "data/maps/ObsidianCity/scripts.pory"
-	applymovement 6, ObsidianCity_Movement_GioToRuinsRight
-# 253 "data/maps/ObsidianCity/scripts.pory"
 	waitmovement 0
+# 252 "data/maps/ObsidianCity/scripts.pory"
+	msgbox ObsidianCity_Text_SeeThat
+# 253 "data/maps/ObsidianCity/scripts.pory"
+	closemessage
 # 254 "data/maps/ObsidianCity/scripts.pory"
-	removeobject 6
+	applymovement 6, ObsidianCity_Movement_GioToRuinsRight
 # 255 "data/maps/ObsidianCity/scripts.pory"
-	clearflag FLAG_HIDE_GIO_RUINS
+	waitmovement 0
 # 256 "data/maps/ObsidianCity/scripts.pory"
-	setflag FLAG_HIDE_GIO_GYM
+	removeobject 6
 # 257 "data/maps/ObsidianCity/scripts.pory"
-	setvar VAR_MAP_SCENE_OBSIDIAN_CITY_EVENTS, 2
+	clearflag FLAG_HIDE_GIO_RUINS
 # 258 "data/maps/ObsidianCity/scripts.pory"
+	setflag FLAG_HIDE_GIO_GYM
+# 259 "data/maps/ObsidianCity/scripts.pory"
+	setvar VAR_MAP_SCENE_OBSIDIAN_CITY_EVENTS, 2
+# 260 "data/maps/ObsidianCity/scripts.pory"
+	clearflag FLAG_HIDE_GIO_RUINS
+# 261 "data/maps/ObsidianCity/scripts.pory"
 	releaseall
 	end
 
 
-# 274 "data/maps/ObsidianCity/scripts.pory"
+# 277 "data/maps/ObsidianCity/scripts.pory"
 ObsidianCity_Movement_Rocket1First:
 	step_end
 
-# 281 "data/maps/ObsidianCity/scripts.pory"
+# 284 "data/maps/ObsidianCity/scripts.pory"
 ObsidianCity_Movement_Rocket2First:
 	step_end
 
-# 287 "data/maps/ObsidianCity/scripts.pory"
+# 290 "data/maps/ObsidianCity/scripts.pory"
 ObsidianCity_Movement_Rocket3First:
 	step_end
 
-# 292 "data/maps/ObsidianCity/scripts.pory"
+# 295 "data/maps/ObsidianCity/scripts.pory"
 ObsidianCity_Movement_Rocket4First:
 	step_end
 
-# 297 "data/maps/ObsidianCity/scripts.pory"
-ObsidianCity_Movement_GioOuttaWay:
-# 298 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 299 "data/maps/ObsidianCity/scripts.pory"
-	face_down
 # 300 "data/maps/ObsidianCity/scripts.pory"
-	delay_1
+ObsidianCity_Movement_GioOuttaWay:
 # 301 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
+# 302 "data/maps/ObsidianCity/scripts.pory"
+	face_down
+# 303 "data/maps/ObsidianCity/scripts.pory"
+	delay_1
+# 304 "data/maps/ObsidianCity/scripts.pory"
 	face_right
 	step_end
 
-# 304 "data/maps/ObsidianCity/scripts.pory"
-ObsidianCity_Movement_Rocket1Second:
-# 305 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 306 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_right
 # 307 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
+ObsidianCity_Movement_Rocket1Second:
 # 308 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
+# 309 "data/maps/ObsidianCity/scripts.pory"
 	walk_fast_right
-# 309 "data/maps/ObsidianCity/scripts.pory"
+# 310 "data/maps/ObsidianCity/scripts.pory"
 	walk_fast_up
-# 309 "data/maps/ObsidianCity/scripts.pory"
+# 311 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_right
+# 312 "data/maps/ObsidianCity/scripts.pory"
 	walk_fast_up
-# 309 "data/maps/ObsidianCity/scripts.pory"
+# 312 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
+# 312 "data/maps/ObsidianCity/scripts.pory"
 	walk_fast_up
 	step_end
 
-# 312 "data/maps/ObsidianCity/scripts.pory"
-ObsidianCity_Movement_Rocket2Second:
-# 313 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 313 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 314 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_right
 # 315 "data/maps/ObsidianCity/scripts.pory"
+ObsidianCity_Movement_Rocket2Second:
+# 316 "data/maps/ObsidianCity/scripts.pory"
 	walk_fast_up
 # 316 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_right
-# 317 "data/maps/ObsidianCity/scripts.pory"
 	walk_fast_up
 # 317 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_right
+# 318 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
+# 319 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_right
+# 320 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
+# 320 "data/maps/ObsidianCity/scripts.pory"
 	walk_fast_up
 	step_end
 
-# 320 "data/maps/ObsidianCity/scripts.pory"
-ObsidianCity_Movement_Rocket3Second:
-# 321 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 321 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 321 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 322 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_right
 # 323 "data/maps/ObsidianCity/scripts.pory"
+ObsidianCity_Movement_Rocket3Second:
+# 324 "data/maps/ObsidianCity/scripts.pory"
 	walk_fast_up
 # 324 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_right
+	walk_fast_up
+# 324 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
 # 325 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_right
+# 326 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
+# 327 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_right
+# 328 "data/maps/ObsidianCity/scripts.pory"
 	walk_fast_up
 	step_end
 
-# 328 "data/maps/ObsidianCity/scripts.pory"
-ObsidianCity_Movement_Rocket4Second:
-# 329 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 329 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 329 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 329 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 330 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_right
 # 331 "data/maps/ObsidianCity/scripts.pory"
+ObsidianCity_Movement_Rocket4Second:
+# 332 "data/maps/ObsidianCity/scripts.pory"
 	walk_fast_up
 # 332 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
+# 332 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
+# 332 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
+# 333 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_right
+# 334 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
+# 335 "data/maps/ObsidianCity/scripts.pory"
 	walk_fast_right
 	step_end
 
-# 335 "data/maps/ObsidianCity/scripts.pory"
-ObsidianCity_Movement_Rocket1Third:
-# 336 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 336 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 336 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 336 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 336 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 336 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 337 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_left
 # 338 "data/maps/ObsidianCity/scripts.pory"
+ObsidianCity_Movement_Rocket1Third:
+# 339 "data/maps/ObsidianCity/scripts.pory"
 	walk_fast_up
 # 339 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_left
+	walk_fast_up
 # 339 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
+# 339 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
+# 339 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
+# 339 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
+# 340 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_left
+# 341 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
+# 342 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_left
+# 342 "data/maps/ObsidianCity/scripts.pory"
 	walk_fast_left
 	step_end
 
-# 342 "data/maps/ObsidianCity/scripts.pory"
-ObsidianCity_Movement_Rocket2Third:
-# 343 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 343 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 343 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 343 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 343 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 343 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 343 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 344 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_left
 # 345 "data/maps/ObsidianCity/scripts.pory"
+ObsidianCity_Movement_Rocket2Third:
+# 346 "data/maps/ObsidianCity/scripts.pory"
 	walk_fast_up
 # 346 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
+# 346 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
+# 346 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
+# 346 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
+# 346 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
+# 346 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
+# 347 "data/maps/ObsidianCity/scripts.pory"
 	walk_fast_left
-	step_end
-
+# 348 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
 # 349 "data/maps/ObsidianCity/scripts.pory"
-ObsidianCity_Movement_Rocket3Third:
-# 350 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 350 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 350 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 350 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 350 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 350 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 350 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 350 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 351 "data/maps/ObsidianCity/scripts.pory"
 	walk_fast_left
+	step_end
+
 # 352 "data/maps/ObsidianCity/scripts.pory"
+ObsidianCity_Movement_Rocket3Third:
+# 353 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
+# 353 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
+# 353 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
+# 353 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
+# 353 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
+# 353 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
+# 353 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
+# 353 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
+# 354 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_left
+# 355 "data/maps/ObsidianCity/scripts.pory"
 	walk_fast_up
 	step_end
 
-# 355 "data/maps/ObsidianCity/scripts.pory"
+# 358 "data/maps/ObsidianCity/scripts.pory"
 ObsidianCity_Movement_Rocket4Third:
-# 356 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 356 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_up
-# 357 "data/maps/ObsidianCity/scripts.pory"
-	walk_up
-# 357 "data/maps/ObsidianCity/scripts.pory"
-	walk_up
-# 358 "data/maps/ObsidianCity/scripts.pory"
-	walk_slow_up
-# 358 "data/maps/ObsidianCity/scripts.pory"
-	walk_slow_up
 # 359 "data/maps/ObsidianCity/scripts.pory"
-	face_up
+	walk_fast_up
+# 359 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_up
 # 360 "data/maps/ObsidianCity/scripts.pory"
-	delay_16
+	walk_up
+# 360 "data/maps/ObsidianCity/scripts.pory"
+	walk_up
 # 361 "data/maps/ObsidianCity/scripts.pory"
-	face_left
+	walk_slow_up
+# 361 "data/maps/ObsidianCity/scripts.pory"
+	walk_slow_up
 # 362 "data/maps/ObsidianCity/scripts.pory"
-	delay_16
+	face_up
 # 363 "data/maps/ObsidianCity/scripts.pory"
-	face_right
-# 364 "data/maps/ObsidianCity/scripts.pory"
 	delay_16
+# 364 "data/maps/ObsidianCity/scripts.pory"
+	face_left
 # 365 "data/maps/ObsidianCity/scripts.pory"
 	delay_16
 # 366 "data/maps/ObsidianCity/scripts.pory"
+	face_right
+# 367 "data/maps/ObsidianCity/scripts.pory"
+	delay_16
+# 368 "data/maps/ObsidianCity/scripts.pory"
+	delay_16
+# 369 "data/maps/ObsidianCity/scripts.pory"
 	face_up
 	step_end
 
-# 369 "data/maps/ObsidianCity/scripts.pory"
-ObsidianCity_Movement_Rocket4Fourth:
-# 370 "data/maps/ObsidianCity/scripts.pory"
-	walk_up
-# 370 "data/maps/ObsidianCity/scripts.pory"
-	walk_up
-# 370 "data/maps/ObsidianCity/scripts.pory"
-	walk_up
-# 371 "data/maps/ObsidianCity/scripts.pory"
-	walk_left
 # 372 "data/maps/ObsidianCity/scripts.pory"
+ObsidianCity_Movement_Rocket4Fourth:
+# 373 "data/maps/ObsidianCity/scripts.pory"
 	walk_up
-	step_end
-
+# 373 "data/maps/ObsidianCity/scripts.pory"
+	walk_up
+# 373 "data/maps/ObsidianCity/scripts.pory"
+	walk_up
+# 374 "data/maps/ObsidianCity/scripts.pory"
+	walk_left
 # 375 "data/maps/ObsidianCity/scripts.pory"
+	walk_up
+	step_end
+
+# 378 "data/maps/ObsidianCity/scripts.pory"
 ObsidianCity_Movement_PlayerLookRocketLeft:
-# 376 "data/maps/ObsidianCity/scripts.pory"
+# 379 "data/maps/ObsidianCity/scripts.pory"
 	walk_in_place_right
-# 377 "data/maps/ObsidianCity/scripts.pory"
-	walk_in_place_up
-	step_end
-
 # 380 "data/maps/ObsidianCity/scripts.pory"
-ObsidianCity_Movement_PlayerLookRocketMid:
-# 381 "data/maps/ObsidianCity/scripts.pory"
-	walk_fast_left
-# 382 "data/maps/ObsidianCity/scripts.pory"
-	walk_in_place_fast_right
+	walk_in_place_up
+	step_end
+
 # 383 "data/maps/ObsidianCity/scripts.pory"
-	walk_in_place_up
-	step_end
-
+ObsidianCity_Movement_PlayerLookRocketMid:
+# 384 "data/maps/ObsidianCity/scripts.pory"
+	walk_fast_left
+# 385 "data/maps/ObsidianCity/scripts.pory"
+	walk_in_place_fast_right
 # 386 "data/maps/ObsidianCity/scripts.pory"
-ObsidianCity_Movement_PlayerLookRocketRight:
-# 387 "data/maps/ObsidianCity/scripts.pory"
-	walk_in_place_left
-# 388 "data/maps/ObsidianCity/scripts.pory"
 	walk_in_place_up
 	step_end
 
+# 389 "data/maps/ObsidianCity/scripts.pory"
+ObsidianCity_Movement_PlayerLookRocketRight:
+# 390 "data/maps/ObsidianCity/scripts.pory"
+	walk_in_place_left
 # 391 "data/maps/ObsidianCity/scripts.pory"
+	walk_in_place_up
+	step_end
+
+# 394 "data/maps/ObsidianCity/scripts.pory"
 ObsidianCity_Movement_GioToPlayerLeftMid:
-# 392 "data/maps/ObsidianCity/scripts.pory"
+# 395 "data/maps/ObsidianCity/scripts.pory"
 	walk_right
-# 393 "data/maps/ObsidianCity/scripts.pory"
-	walk_up
-# 393 "data/maps/ObsidianCity/scripts.pory"
-	walk_up
-# 393 "data/maps/ObsidianCity/scripts.pory"
-	walk_up
-	step_end
-
 # 396 "data/maps/ObsidianCity/scripts.pory"
+	walk_up
+# 396 "data/maps/ObsidianCity/scripts.pory"
+	walk_up
+# 396 "data/maps/ObsidianCity/scripts.pory"
+	walk_up
+	step_end
+
+# 399 "data/maps/ObsidianCity/scripts.pory"
 ObsidianCity_Movement_GioToPlayerRight:
-# 397 "data/maps/ObsidianCity/scripts.pory"
+# 400 "data/maps/ObsidianCity/scripts.pory"
 	walk_right
-# 397 "data/maps/ObsidianCity/scripts.pory"
+# 400 "data/maps/ObsidianCity/scripts.pory"
 	walk_right
-# 397 "data/maps/ObsidianCity/scripts.pory"
+# 400 "data/maps/ObsidianCity/scripts.pory"
 	walk_right
-# 398 "data/maps/ObsidianCity/scripts.pory"
-	walk_up
-# 398 "data/maps/ObsidianCity/scripts.pory"
-	walk_up
-# 398 "data/maps/ObsidianCity/scripts.pory"
-	walk_up
-	step_end
-
 # 401 "data/maps/ObsidianCity/scripts.pory"
+	walk_up
+# 401 "data/maps/ObsidianCity/scripts.pory"
+	walk_up
+# 401 "data/maps/ObsidianCity/scripts.pory"
+	walk_up
+	step_end
+
+# 404 "data/maps/ObsidianCity/scripts.pory"
 ObsidianCity_Movement_GioToRuinsLeftMid:
-# 402 "data/maps/ObsidianCity/scripts.pory"
+# 405 "data/maps/ObsidianCity/scripts.pory"
 	walk_down
-# 402 "data/maps/ObsidianCity/scripts.pory"
+# 405 "data/maps/ObsidianCity/scripts.pory"
 	walk_down
-# 402 "data/maps/ObsidianCity/scripts.pory"
+# 405 "data/maps/ObsidianCity/scripts.pory"
 	walk_down
-# 402 "data/maps/ObsidianCity/scripts.pory"
+# 405 "data/maps/ObsidianCity/scripts.pory"
 	walk_down
-# 403 "data/maps/ObsidianCity/scripts.pory"
+# 406 "data/maps/ObsidianCity/scripts.pory"
 	walk_left
-# 403 "data/maps/ObsidianCity/scripts.pory"
+# 406 "data/maps/ObsidianCity/scripts.pory"
 	walk_left
-# 404 "data/maps/ObsidianCity/scripts.pory"
+# 407 "data/maps/ObsidianCity/scripts.pory"
 	walk_down
-# 404 "data/maps/ObsidianCity/scripts.pory"
+# 407 "data/maps/ObsidianCity/scripts.pory"
 	walk_down
-# 404 "data/maps/ObsidianCity/scripts.pory"
+# 407 "data/maps/ObsidianCity/scripts.pory"
 	walk_down
 	step_end
 
-# 407 "data/maps/ObsidianCity/scripts.pory"
+# 410 "data/maps/ObsidianCity/scripts.pory"
 ObsidianCity_Movement_GioToRuinsRight:
-# 408 "data/maps/ObsidianCity/scripts.pory"
+# 411 "data/maps/ObsidianCity/scripts.pory"
 	walk_down
-# 408 "data/maps/ObsidianCity/scripts.pory"
+# 411 "data/maps/ObsidianCity/scripts.pory"
 	walk_down
-# 408 "data/maps/ObsidianCity/scripts.pory"
+# 411 "data/maps/ObsidianCity/scripts.pory"
 	walk_down
-# 408 "data/maps/ObsidianCity/scripts.pory"
+# 411 "data/maps/ObsidianCity/scripts.pory"
 	walk_down
-# 409 "data/maps/ObsidianCity/scripts.pory"
+# 412 "data/maps/ObsidianCity/scripts.pory"
 	walk_left
-# 409 "data/maps/ObsidianCity/scripts.pory"
+# 412 "data/maps/ObsidianCity/scripts.pory"
 	walk_left
-# 409 "data/maps/ObsidianCity/scripts.pory"
+# 412 "data/maps/ObsidianCity/scripts.pory"
 	walk_left
-# 409 "data/maps/ObsidianCity/scripts.pory"
+# 412 "data/maps/ObsidianCity/scripts.pory"
 	walk_left
-# 410 "data/maps/ObsidianCity/scripts.pory"
+# 413 "data/maps/ObsidianCity/scripts.pory"
 	walk_down
-# 410 "data/maps/ObsidianCity/scripts.pory"
+# 413 "data/maps/ObsidianCity/scripts.pory"
 	walk_down
-# 410 "data/maps/ObsidianCity/scripts.pory"
+# 413 "data/maps/ObsidianCity/scripts.pory"
 	walk_down
 	step_end
 
@@ -805,13 +811,13 @@ ObsidianCity_Text_IGo::
 	.string "GEOFFREY: Gosh dangit!\nSomethin's def'nitely up!\pI'll bet it's at that place!\nThe RUINS OF OMEG!$"
 
 ObsidianCity_Text_OuttaTheWay::
-# 262 "data/maps/ObsidianCity/scripts.pory"
+# 265 "data/maps/ObsidianCity/scripts.pory"
 	.string "???: Get out of the way!$"
 
 ObsidianCity_Text_RightThing::
-# 266 "data/maps/ObsidianCity/scripts.pory"
+# 269 "data/maps/ObsidianCity/scripts.pory"
 	.string "???: Killing all those UNOWN...\nWas that really the right thing?$"
 
 ObsidianCity_Text_SeeThat::
-# 270 "data/maps/ObsidianCity/scripts.pory"
+# 273 "data/maps/ObsidianCity/scripts.pory"
 	.string "GEOFFREY: Yeowch!\nThose people were so dang fast!\pI didn't quite catch what that\nlast person said.\pBut they musta been behind that\nquake earlier!\p...\pOh gosh! I should hurry to the\nRUINS!$"
