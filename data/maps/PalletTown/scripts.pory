@@ -42,18 +42,18 @@ script PalletTown_EventScript_AideIntro {
 	waitdooranim
 	setflag(FLAG_0x200) //Change this later
 	setvar(VAR_0x4029, 1) //Change this later
-	setflag(FLAG_BADGE01_GET)
-	setflag(FLAG_BADGE02_GET)
-	setflag(FLAG_BADGE03_GET)
-	setflag(FLAG_BADGE04_GET)
-	setflag(FLAG_BADGE05_GET)
-	setflag(FLAG_BADGE06_GET)
-	setflag(FLAG_BADGE07_GET)
-	setflag(FLAG_BADGE08_GET)
+	setflag(FLAG_BADGE01_GET) //Remove Later
+	setflag(FLAG_BADGE02_GET) //Remove Later
+	setflag(FLAG_BADGE03_GET) //Remove Later
+	setflag(FLAG_BADGE04_GET) //Remove Later
+	setflag(FLAG_BADGE05_GET) //Remove Later
+	setflag(FLAG_BADGE06_GET) //Remove Later
+	setflag(FLAG_BADGE07_GET) //Remove Later
+	setflag(FLAG_BADGE08_GET) //Remove Later
 	//setflag(FLAG_HIDE_AIRIKA_CELADON)
 	setvar(VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 1)
-	giveitem(ITEM_BICYCLE)
-	setflag(FLAG_GOT_BICYCLE)
+	giveitem(ITEM_BICYCLE) //Remove Later
+	setflag(FLAG_GOT_BICYCLE) //Remove Later
 	setflag(FLAG_HIDE_GIO_RUINS)
 	//Filler
 	setflag(FLAG_HIDE_DAISY_VIRIDIAN)
@@ -166,7 +166,7 @@ script PalletTown_EventScript_Fisher {
 }
 
 text PalletTown_Text_Lass {
-	format("FILL THIS IN")
+	format("PROF. SOAK is a WATER-type POKéMON enthusiast.\pI heard his son-in-law is also one!")
 }
 
 text PalletTown_Text_FatMan {
@@ -174,5 +174,5 @@ text PalletTown_Text_FatMan {
 }
 
 text PalletTown_Text_Fisher {
-	format("FILL THIS IN")
+	format("I wonder if I can swim all the way to CINNABAR ISLAND from here...\pThere are a few islands I could\ntake a break on...")
 }

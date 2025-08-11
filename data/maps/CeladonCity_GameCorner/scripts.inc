@@ -1,931 +1,977 @@
 CeladonCity_GameCorner_MapScripts::
-# 2 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 4 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	map_script MAP_SCRIPT_ON_LOAD, CeladonCity_GameCorner_MapScripts_MAP_SCRIPT_ON_LOAD
 	.byte 0
 
 CeladonCity_GameCorner_MapScripts_MAP_SCRIPT_ON_LOAD:
-# 3 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 5 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	call_if_unset FLAG_OPENED_ROCKET_HIDEOUT, CeladonCity_GameCorner_EventScript_HideRocketHideout
 	return
 
 
 CeladonCity_GameCorner_EventScript_HideRocketHideout::
-# 8 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setmetatile 15, 2, METATILE_GameCorner_Floor_ShadeFull, 0
-# 9 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setmetatile 16, 2, METATILE_GameCorner_Floor_ShadeFull, 0
 # 10 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setmetatile 17, 2, METATILE_GameCorner_Floor_ShadeFull, 0
+	setmetatile 15, 2, METATILE_GameCorner_Floor_ShadeFull, 0
 # 11 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setmetatile 16, 3, METATILE_GameCorner_PurpleWall_Floor, 1
+	setmetatile 16, 2, METATILE_GameCorner_Floor_ShadeFull, 0
 # 12 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	setmetatile 17, 2, METATILE_GameCorner_Floor_ShadeFull, 0
+# 13 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	setmetatile 16, 3, METATILE_GameCorner_PurpleWall_Floor, 1
+# 14 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	setmetatile 17, 3, METATILE_GameCorner_PurpleWall_Floor, 1
 	return
 
 
-# 16 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
-# 17 "data/maps/CeladonCity_GameCorner/scripts.pory"
-.set LOCALID_GRUNT, 11
-# 18 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
-# 19 "data/maps/CeladonCity_GameCorner/scripts.pory"
 CeladonCity_GameCorner_EventScript_InfoClerk::
-# 20 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 19 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	msgbox CeladonCity_GameCorner_Text_CanExchangeCoinsNextDoor, MSGBOX_NPC
-# 21 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
-# 22 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	return
 
-# 23 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
 CeladonCity_GameCorner_EventScript_CoinsClerk::
-# 24 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 23 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	goto_if_questlog EventScript_ReleaseEnd
-# 25 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 24 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	lock
-# 26 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 25 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	faceplayer
-# 27 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 26 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	showmoneybox 0, 0
-# 28 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 27 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	showcoinsbox 0, 5
-# 29 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 28 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	message CeladonCity_GameCorner_Text_WelcomeBuySomeCoins
-# 30 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 29 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	waitmessage
-# 31 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 30 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	multichoice 13, 0, MULTICHOICE_GAME_CORNER_COIN_PURCHASE_COUNTER, FALSE
-# 32 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 31 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	copyvar VAR_0x8009, VAR_RESULT
-# 33 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 32 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	switch VAR_RESULT
+# 33 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	case 0, CeladonCity_GameCorner_EventScript_CoinsClerk_3
 # 34 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	case 0, CeladonCity_GameCorner_EventScript_BuyCoins
+	case 1, CeladonCity_GameCorner_EventScript_CoinsClerk_4
 # 35 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	case 1, CeladonCity_GameCorner_EventScript_BuyCoins
+	case 2, CeladonCity_GameCorner_EventScript_CoinsClerk_5
 # 36 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	case 2, CeladonCity_GameCorner_EventScript_ClerkDeclineBuy
-# 37 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	case 127, CeladonCity_GameCorner_EventScript_ClerkDeclineBuy
-# 38 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	case 127, CeladonCity_GameCorner_EventScript_CoinsClerk_6
+CeladonCity_GameCorner_EventScript_CoinsClerk_1:
 	end
-# 39 "data/maps/CeladonCity_GameCorner/scripts.pory"
 
-# 40 "data/maps/CeladonCity_GameCorner/scripts.pory"
+CeladonCity_GameCorner_EventScript_CoinsClerk_3:
+# 33 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_BuyCoins
+	goto CeladonCity_GameCorner_EventScript_CoinsClerk_1
+
+CeladonCity_GameCorner_EventScript_CoinsClerk_4:
+# 34 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_BuyCoins
+	goto CeladonCity_GameCorner_EventScript_CoinsClerk_1
+
+CeladonCity_GameCorner_EventScript_CoinsClerk_5:
+# 35 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_ClerkDeclineBuy
+	goto CeladonCity_GameCorner_EventScript_CoinsClerk_1
+
+CeladonCity_GameCorner_EventScript_CoinsClerk_6:
+# 36 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_ClerkDeclineBuy
+	goto CeladonCity_GameCorner_EventScript_CoinsClerk_1
+
+
 CeladonCity_GameCorner_EventScript_BuyCoins::
-# 41 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto_if_unset FLAG_GOT_COIN_CASE, CeladonCity_GameCorner_EventScript_ClerkNoCoinCase
 # 42 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto_if_eq VAR_0x8009, 0, CeladonCity_GameCorner_EventScript_Buy50Coins
+	goto_if_unset FLAG_GOT_COIN_CASE, CeladonCity_GameCorner_EventScript_ClerkNoCoinCase
 # 43 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto_if_eq VAR_0x8009, 1, CeladonCity_GameCorner_EventScript_Buy500Coins
+	goto_if_eq VAR_0x8009, 0, CeladonCity_GameCorner_EventScript_Buy50Coins
 # 44 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
-# 45 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto_if_eq VAR_0x8009, 1, CeladonCity_GameCorner_EventScript_Buy500Coins
+	return
 
-# 46 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
 CeladonCity_GameCorner_EventScript_Buy500Coins::
-# 47 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	checkcoins VAR_TEMP_1
 # 48 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto_if_ge VAR_TEMP_1, (MAX_COINS + 1) - 500, CeladonCity_GameCorner_EventScript_ClerkNoRoomForCoins
-# 49 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	checkmoney 10000
-# 50 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto_if_eq VAR_RESULT, FALSE, CeladonCity_GameCorner_EventScript_ClerkNotEnoughMoney
-# 51 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	addcoins 500
-# 52 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	removemoney 10000
-# 53 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_BoughtCoins
-# 54 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
-# 55 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
-# 56 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_Buy50Coins::
-# 57 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	checkcoins VAR_TEMP_1
-# 58 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto_if_ge VAR_TEMP_1, (MAX_COINS + 1) - 50, CeladonCity_GameCorner_EventScript_ClerkNoRoomForCoins
-# 59 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	checkmoney 1000
-# 60 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 49 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto_if_ge VAR_TEMP_1, ( MAX_COINS + 1 ) - 500, CeladonCity_GameCorner_EventScript_ClerkNoRoomForCoins
+# 50 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	checkmoney 10000
+# 51 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	goto_if_eq VAR_RESULT, FALSE, CeladonCity_GameCorner_EventScript_ClerkNotEnoughMoney
-# 61 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	addcoins 50
-# 62 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	removemoney 1000
-# 63 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 52 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	addcoins 500
+# 53 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	removemoney 10000
+# 54 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	goto CeladonCity_GameCorner_EventScript_BoughtCoins
+	end
+
+
+CeladonCity_GameCorner_EventScript_Buy50Coins::
+# 59 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	checkcoins VAR_TEMP_1
+# 60 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto_if_ge VAR_TEMP_1, ( MAX_COINS + 1 ) - 50, CeladonCity_GameCorner_EventScript_ClerkNoRoomForCoins
+# 61 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	checkmoney 1000
+# 62 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto_if_eq VAR_RESULT, FALSE, CeladonCity_GameCorner_EventScript_ClerkNotEnoughMoney
+# 63 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	addcoins 50
 # 64 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
+	removemoney 1000
 # 65 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_BoughtCoins
+	end
 
-# 66 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
 CeladonCity_GameCorner_EventScript_BoughtCoins::
-# 67 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	updatemoneybox
-# 68 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	updatecoinsbox 0, 5
-# 69 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	playse SE_SHOP
 # 70 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	msgbox CeladonCity_GameCorner_Text_HereAreYourCoins
+	updatemoneybox
 # 71 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_ClerkEnd
+	updatecoinsbox 0, 5
 # 72 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
+	playse SE_SHOP
 # 73 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
+	msgbox CeladonCity_GameCorner_Text_HereAreYourCoins
 # 74 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_ClerkEnd::
-# 75 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	hidemoneybox
-# 76 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	hidecoinsbox 0, 5
-# 77 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	release
-# 78 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
-# 79 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
-# 80 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_ClerkDeclineBuy::
-# 81 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	msgbox CeladonCity_GameCorner_Text_ComePlaySometime
-# 82 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	goto CeladonCity_GameCorner_EventScript_ClerkEnd
-# 83 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	end
-# 84 "data/maps/CeladonCity_GameCorner/scripts.pory"
 
-# 85 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_ClerkNoCoinCase::
+
+CeladonCity_GameCorner_EventScript_ClerkEnd::
+# 79 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	hidemoneybox
+# 80 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	hidecoinsbox 0, 5
+# 81 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	release
+	end
+
+
+CeladonCity_GameCorner_EventScript_ClerkDeclineBuy::
 # 86 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	msgbox CeladonCity_GameCorner_Text_SorryDontHaveCoinCase
+	msgbox CeladonCity_GameCorner_Text_ComePlaySometime
 # 87 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	goto CeladonCity_GameCorner_EventScript_ClerkEnd
-# 88 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	end
-# 89 "data/maps/CeladonCity_GameCorner/scripts.pory"
 
-# 90 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_ClerkNoRoomForCoins::
-# 91 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	msgbox CeladonCity_GameCorner_Text_CoinCaseIsFull
+
+CeladonCity_GameCorner_EventScript_ClerkNoCoinCase::
 # 92 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_ClerkEnd
+	msgbox CeladonCity_GameCorner_Text_SorryDontHaveCoinCase
 # 93 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
-# 94 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
-# 95 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_ClerkNotEnoughMoney::
-# 96 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	msgbox CeladonCity_GameCorner_Text_CantAffordCoins
-# 97 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	goto CeladonCity_GameCorner_EventScript_ClerkEnd
+	end
+
+
+CeladonCity_GameCorner_EventScript_ClerkNoRoomForCoins::
 # 98 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
+	msgbox CeladonCity_GameCorner_Text_CoinCaseIsFull
 # 99 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_ClerkEnd
+	end
 
-# 100 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_BaldingMan::
-# 101 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	lock
-# 102 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	faceplayer
-# 103 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	msgbox CeladonCity_GameCorner_Text_RumoredTeamRocketRunsThisPlace
+
+CeladonCity_GameCorner_EventScript_ClerkNotEnoughMoney::
 # 104 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
+	msgbox CeladonCity_GameCorner_Text_CantAffordCoins
 # 105 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_ClerkEnd
 	end
-# 106 "data/maps/CeladonCity_GameCorner/scripts.pory"
 
-# 107 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
 CeladonCity_GameCorner_EventScript_FaceSlotMachine::
-# 108 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	closemessage
-# 109 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
-# 110 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	waitmovement 0
-# 111 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	release
-# 112 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
-# 113 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
-# 114 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_Woman1::
-# 115 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	lock
-# 116 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	faceplayer
-# 117 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	msgbox CeladonCity_GameCorner_Text_ThinkMachinesHaveDifferentOdds
-# 118 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
-# 119 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
-# 120 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
-# 121 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_Fisher::
-# 122 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	lock
-# 123 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	faceplayer
-# 124 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto_if_set FLAG_GOT_10_COINS_FROM_GAMBLER, CeladonCity_GameCorner_EventScript_FisherAlreadyGotCoins
-# 125 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	msgbox CeladonCity_GameCorner_Text_DoYouWantToPlay
-# 126 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto_if_unset FLAG_GOT_COIN_CASE, CeladonCity_GameCorner_EventScript_GamblerNoCoinCase
-# 127 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	checkcoins VAR_TEMP_1
-# 128 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto_if_ge VAR_TEMP_1, (MAX_COINS + 1) - 10, CeladonCity_GameCorner_EventScript_FisherNoRoomForCoins
-# 129 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	addcoins 10
-# 130 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	textcolor NPC_TEXT_COLOR_NEUTRAL
-# 131 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	msgbox CeladonCity_GameCorner_Text_Received10CoinsFromMan
-# 132 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	playse SE_SHOP
-# 133 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	waitse
-# 134 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setflag FLAG_GOT_10_COINS_FROM_GAMBLER
-# 135 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
-# 136 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
-# 137 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
-# 138 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_FisherNoRoomForCoins::
 # 139 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	msgbox CeladonCity_GameCorner_Text_DontNeedMyCoins
+	closemessage
 # 140 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
+	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 # 141 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
+	waitmovement 0
 # 142 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	release
+	end
 
-# 143 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_GamblerNoCoinCase::
-# 144 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	textcolor NPC_TEXT_COLOR_NEUTRAL
-# 145 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	msgbox CeladonCity_GameCorner_Text_DontHaveCoinCase
-# 146 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
+
+CeladonCity_GameCorner_EventScript_BaldingMan::
 # 147 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
+	lock
 # 148 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
+	faceplayer
 # 149 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_FisherAlreadyGotCoins::
+	msgbox CeladonCity_GameCorner_Text_RumoredTeamRocketRunsThisPlace
 # 150 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	msgbox CeladonCity_GameCorner_Text_WinsComeAndGo
-# 151 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
-# 152 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	end
-# 153 "data/maps/CeladonCity_GameCorner/scripts.pory"
 
-# 154 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_GymGuy::
+
+CeladonCity_GameCorner_EventScript_Woman1::
 # 155 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	lock
 # 156 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	faceplayer
 # 157 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto_if_set FLAG_DEFEATED_ERIKA, CeladonCity_GameCorner_EventScript_GymGuyPostVictory
+	msgbox CeladonCity_GameCorner_Text_ThinkMachinesHaveDifferentOdds
 # 158 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	msgbox CeladonCity_GameCorner_Text_GymGuyAdvice
-# 159 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
-# 160 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	end
-# 161 "data/maps/CeladonCity_GameCorner/scripts.pory"
 
-# 162 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_GymGuyPostVictory::
+
+CeladonCity_GameCorner_EventScript_Fisher::
 # 163 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	msgbox CeladonCity_GameCorner_Text_RareMonsForCoins
+	lock
 # 164 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
+	faceplayer
 # 165 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
+	goto_if_set FLAG_GOT_10_COINS_FROM_GAMBLER, CeladonCity_GameCorner_EventScript_FisherAlreadyGotCoins
 # 166 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
+	msgbox CeladonCity_GameCorner_Text_DoYouWantToPlay
 # 167 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_Woman2::
-# 168 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	lock
-# 169 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	faceplayer
-# 170 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	msgbox CeladonCity_GameCorner_Text_WinOrLoseItsOnlyLuck
-# 171 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
-# 172 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
-# 173 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
-# 174 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_OldMan::
-# 175 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	lock
-# 176 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	faceplayer
-# 177 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	msgbox CeladonCity_GameCorner_Text_SoEasyToGetHooked
-# 178 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
-# 179 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
-# 180 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
-# 181 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_Scientist::
-# 182 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	lock
-# 183 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	faceplayer
-# 184 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto_if_set FLAG_GOT_20_COINS_FROM_GAMBLER, CeladonCity_GameCorner_EventScript_ScientistAlreadyGotCoins
-# 185 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	msgbox CeladonCity_GameCorner_Text_WantSomeCoins
-# 186 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	goto_if_unset FLAG_GOT_COIN_CASE, CeladonCity_GameCorner_EventScript_GamblerNoCoinCase
-# 187 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 168 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	checkcoins VAR_TEMP_1
-# 188 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto_if_ge VAR_TEMP_1, (MAX_COINS + 1) - 20, CeladonCity_GameCorner_EventScript_ScientistNoRoomForCoins
-# 189 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	addcoins 20
-# 190 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 169 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto_if_ge VAR_TEMP_1, ( MAX_COINS + 1 ) - 10, CeladonCity_GameCorner_EventScript_FisherNoRoomForCoins
+# 170 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	addcoins 10
+# 171 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	textcolor NPC_TEXT_COLOR_NEUTRAL
-# 191 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	msgbox CeladonCity_GameCorner_Text_Received20CoinsFromNiceGuy
-# 192 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 172 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	msgbox CeladonCity_GameCorner_Text_Received10CoinsFromMan
+# 173 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	playse SE_SHOP
-# 193 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 174 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	waitse
+# 175 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	setflag FLAG_GOT_10_COINS_FROM_GAMBLER
+# 176 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
+	end
+
+
+CeladonCity_GameCorner_EventScript_FisherNoRoomForCoins::
+# 181 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	msgbox CeladonCity_GameCorner_Text_DontNeedMyCoins
+# 182 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
+	end
+
+
+CeladonCity_GameCorner_EventScript_GamblerNoCoinCase::
+# 187 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	textcolor NPC_TEXT_COLOR_NEUTRAL
+# 188 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	msgbox CeladonCity_GameCorner_Text_DontHaveCoinCase
+# 189 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
+	end
+
+
+CeladonCity_GameCorner_EventScript_FisherAlreadyGotCoins::
 # 194 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setflag FLAG_GOT_20_COINS_FROM_GAMBLER
+	msgbox CeladonCity_GameCorner_Text_WinsComeAndGo
 # 195 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
-# 196 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	end
-# 197 "data/maps/CeladonCity_GameCorner/scripts.pory"
 
-# 198 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_ScientistNoRoomForCoins::
-# 199 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	msgbox CeladonCity_GameCorner_Text_YouHaveLotsOfCoins
+
+CeladonCity_GameCorner_EventScript_GymGuy::
 # 200 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
-# 201 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
-# 202 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
-# 203 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_ScientistAlreadyGotCoins::
-# 204 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	msgbox CeladonCity_GameCorner_Text_NeedMoreCoinsForMonIWant
-# 205 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
-# 206 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
-# 207 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
-# 208 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_Gentleman::
-# 209 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	lock
-# 210 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 201 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	faceplayer
-# 211 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto_if_set FLAG_GOT_20_COINS_FROM_GAMBLER_2, CeladonCity_GameCorner_EventScript_GentlemanAlreadyGotCoins
-# 212 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	msgbox CeladonCity_GameCorner_Text_HereAreSomeCoinsShoo
-# 213 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto_if_unset FLAG_GOT_COIN_CASE, CeladonCity_GameCorner_EventScript_GamblerNoCoinCase
-# 214 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	checkcoins VAR_TEMP_1
+# 202 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto_if_set FLAG_DEFEATED_ERIKA, CeladonCity_GameCorner_EventScript_GymGuyPostVictory
+# 203 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	msgbox CeladonCity_GameCorner_Text_GymGuyAdvice
+# 204 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
+	end
+
+
+CeladonCity_GameCorner_EventScript_GymGuyPostVictory::
+# 209 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	msgbox CeladonCity_GameCorner_Text_RareMonsForCoins
+# 210 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
+	end
+
+
+CeladonCity_GameCorner_EventScript_Woman2::
 # 215 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto_if_ge VAR_TEMP_1, (MAX_COINS + 1) - 20, CeladonCity_GameCorner_EventScript_GentlemanNoRoomForCoins
+	lock
 # 216 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	addcoins 20
+	faceplayer
 # 217 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	textcolor NPC_TEXT_COLOR_NEUTRAL
+	msgbox CeladonCity_GameCorner_Text_WinOrLoseItsOnlyLuck
 # 218 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	msgbox CeladonCity_GameCorner_Text_Received20CoinsFromMan
-# 219 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	playse SE_SHOP
-# 220 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	waitse
-# 221 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setflag FLAG_GOT_20_COINS_FROM_GAMBLER_2
-# 222 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
+	end
+
+
+CeladonCity_GameCorner_EventScript_OldMan::
 # 223 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
+	lock
 # 224 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
+	faceplayer
 # 225 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_GentlemanNoRoomForCoins::
+	msgbox CeladonCity_GameCorner_Text_SoEasyToGetHooked
 # 226 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	msgbox CeladonCity_GameCorner_Text_YouveGotPlentyCoins
-# 227 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
-# 228 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	end
-# 229 "data/maps/CeladonCity_GameCorner/scripts.pory"
 
-# 230 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_GentlemanAlreadyGotCoins::
+
+CeladonCity_GameCorner_EventScript_Scientist::
 # 231 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	msgbox CeladonCity_GameCorner_Text_WatchReelsClosely
+	lock
 # 232 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
+	faceplayer
 # 233 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
+	msgbox CeladonCity_GameCorner_Text_WantSomeCoins
 # 234 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
+	end
 
-# 235 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_SlotMachine0::
-# 236 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	lockall
-# 237 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setvar VAR_0x8004, 0
-# 238 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_SlotMachine
+
+CeladonCity_GameCorner_EventScript_Gentleman::
 # 239 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
+	lock
 # 240 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
+	faceplayer
 # 241 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_DontPlaySlotMachine::
+	msgbox CeladonCity_GameCorner_Text_HereAreSomeCoinsShoo
 # 242 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	releaseall
-# 243 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
 	end
-# 244 "data/maps/CeladonCity_GameCorner/scripts.pory"
 
-# 245 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_SlotMachine::
-# 246 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto_if_unset FLAG_GOT_COIN_CASE, CeladonCity_GameCorner_EventScript_SlotMachineNoCoinCase
-# 247 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	msgbox CeladonCity_GameCorner_Text_SlotMachineWantToPlay, MSGBOX_YESNO
-# 248 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto_if_eq VAR_RESULT, NO, CeladonCity_GameCorner_EventScript_DontPlaySlotMachine
-# 249 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setfieldeffectargument 0, OBJ_EVENT_ID_PLAYER
-# 250 "data/maps/CeladonCity_GameCorner/scripts.pory"
-.ifdef BUGFIX
-# 251 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setfieldeffectargument 1, MAP_NUM(CELADON_CITY_GAME_CORNER)
-# 252 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setfieldeffectargument 2, MAP_GROUP(CELADON_CITY_GAME_CORNER)
-# 253 "data/maps/CeladonCity_GameCorner/scripts.pory"
-.else
-# 254 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	@ Map num/group were provided in the wrong order
-# 255 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setfieldeffectargument 1, MAP_GROUP(CELADON_CITY_GAME_CORNER)
-# 256 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setfieldeffectargument 2, MAP_NUM(CELADON_CITY_GAME_CORNER)
-# 257 "data/maps/CeladonCity_GameCorner/scripts.pory"
-.endif
-# 258 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	dofieldeffect FLDEFF_SMILEY_FACE_ICON
-# 259 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	waitfieldeffect FLDEFF_SMILEY_FACE_ICON
-# 260 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	specialvar VAR_RESULT, GetRandomSlotMachineId
-# 261 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	playslotmachine VAR_RESULT
-# 262 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	releaseall
-# 263 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
-# 264 "data/maps/CeladonCity_GameCorner/scripts.pory"
 
-# 265 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_SlotMachine1::
-# 266 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	lockall
-# 267 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setvar VAR_0x8004, 1
-# 268 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_SlotMachine
-# 269 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
-# 270 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
-# 271 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_SlotMachine2::
-# 272 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	lockall
-# 273 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setvar VAR_0x8004, 2
-# 274 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_SlotMachine
-# 275 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
-# 276 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
-# 277 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_SlotMachine3::
-# 278 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	lockall
-# 279 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setvar VAR_0x8004, 3
-# 280 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_SlotMachine
-# 281 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
-# 282 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
-# 283 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_SlotMachine4::
-# 284 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	lockall
-# 285 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setvar VAR_0x8004, 4
-# 286 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_SlotMachine
-# 287 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
-# 288 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
-# 289 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_SlotMachine5::
-# 290 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	lockall
-# 291 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setvar VAR_0x8004, 5
-# 292 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_SlotMachine
-# 293 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
-# 294 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
-# 295 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_SlotMachine6::
-# 296 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	lockall
-# 297 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setvar VAR_0x8004, 6
-# 298 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_SlotMachine
-# 299 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
-# 300 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
-# 301 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_SlotMachine7::
-# 302 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	lockall
-# 303 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setvar VAR_0x8004, 7
-# 304 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_SlotMachine
-# 305 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
-# 306 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
-# 307 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_SlotMachine8::
-# 308 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	lockall
+CeladonCity_GameCorner_EventScript_Poster::
 # 309 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setvar VAR_0x8004, 8
+	msgbox CeladonCity_GameCorner_Text_Poster, MSGBOX_SIGN
 # 310 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_SlotMachine
-# 311 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	closemessage
 	end
-# 312 "data/maps/CeladonCity_GameCorner/scripts.pory"
 
-# 313 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_SlotMachine9::
-# 314 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	lockall
-# 315 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setvar VAR_0x8004, 9
-# 316 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_SlotMachine
-# 317 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
-# 318 "data/maps/CeladonCity_GameCorner/scripts.pory"
 
-# 319 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_SlotMachine10::
+CeladonCity_GameCorner_EventScript_Tree1::
 # 320 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	lockall
 # 321 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setvar VAR_0x8004, 10
+	msgbox CeladonCity_GameCorner_Text_SwitchBehindTreePushIt
 # 322 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_SlotMachine
+	call_if_unset FLAG_GAME_CORNER_SWITCH_1, CeladonCity_GameCorner_EventScript_Switch1
 # 323 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	releaseall
 	end
-# 324 "data/maps/CeladonCity_GameCorner/scripts.pory"
 
-# 325 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_SlotMachine11::
-# 326 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	lockall
-# 327 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setvar VAR_0x8004, 11
+
+CeladonCity_GameCorner_EventScript_Tree2::
 # 328 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_SlotMachine
+	lockall
 # 329 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
+	msgbox CeladonCity_GameCorner_Text_SwitchBehindTreePushIt
 # 330 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
+	call_if_unset FLAG_GAME_CORNER_SWITCH_2, CeladonCity_GameCorner_EventScript_Switch2
 # 331 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_SlotMachine12::
-# 332 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	lockall
-# 333 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setvar VAR_0x8004, 12
-# 334 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_SlotMachine
-# 335 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	releaseall
 	end
+
+
+CeladonCity_GameCorner_EventScript_Switch1::
 # 336 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
+	setflag FLAG_GAME_CORNER_SWITCH_1
 # 337 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_SlotMachine13::
-# 338 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	lockall
-# 339 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setvar VAR_0x8004, 13
-# 340 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_SlotMachine
+	call_if_set FLAG_GAME_CORNER_SWITCH_2, CeladonCity_GameCorner_EventScript_OpenRocketHideout
+	return
+
+
+CeladonCity_GameCorner_EventScript_Switch2::
 # 341 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
+	setflag FLAG_GAME_CORNER_SWITCH_2
 # 342 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	call_if_set FLAG_GAME_CORNER_SWITCH_1, CeladonCity_GameCorner_EventScript_OpenRocketHideout
+	return
 
-# 343 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_SlotMachine14::
-# 344 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	lockall
-# 345 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setvar VAR_0x8004, 14
-# 346 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_SlotMachine
-# 347 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
-# 348 "data/maps/CeladonCity_GameCorner/scripts.pory"
 
-# 349 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_SlotMachine15::
-# 350 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	lockall
-# 351 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setvar VAR_0x8004, 15
-# 352 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_SlotMachine
-# 353 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
-# 354 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
-# 355 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_SlotMachine16::
-# 356 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	lockall
-# 357 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setvar VAR_0x8004, 16
-# 358 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_SlotMachine
-# 359 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
-# 360 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
-# 361 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_SlotMachine17::
-# 362 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	lockall
-# 363 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setvar VAR_0x8004, 17
-# 364 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_SlotMachine
-# 365 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
-# 366 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
-# 367 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_SlotMachine18::
-# 368 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	lockall
-# 369 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setvar VAR_0x8004, 18
-# 370 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_SlotMachine
-# 371 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
-# 372 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
-# 373 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_SlotMachine19::
-# 374 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	lockall
-# 375 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setvar VAR_0x8004, 19
-# 376 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_SlotMachine
-# 377 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
-# 378 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
-# 379 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_SlotMachine20::
-# 380 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	lockall
-# 381 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setvar VAR_0x8004, 20
-# 382 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_SlotMachine
-# 383 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
-# 384 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
-# 385 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_SlotMachine21::
-# 386 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	lockall
-# 387 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	setvar VAR_0x8004, 21
-# 388 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	goto CeladonCity_GameCorner_EventScript_SlotMachine
-# 389 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
-# 390 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
-# 391 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_SlotMachineNoCoinCase::
-# 392 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	msgbox CeladonCity_GameCorner_Text_CoinCaseIsRequired
-# 393 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	releaseall
-# 394 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
-# 395 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
-# 396 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_Poster::
-# 397 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	lockall
-# 398 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	msgbox CeladonCity_GameCorner_Text_SwitchBehindPosterPushIt
-# 399 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	call_if_unset FLAG_OPENED_ROCKET_HIDEOUT, CeladonCity_GameCorner_EventScript_OpenRocketHideout
-# 400 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	releaseall
-# 401 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	end
-# 402 "data/maps/CeladonCity_GameCorner/scripts.pory"
-
-# 403 "data/maps/CeladonCity_GameCorner/scripts.pory"
 CeladonCity_GameCorner_EventScript_OpenRocketHideout::
-# 404 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 352 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	playse SE_UNLOCK
-# 405 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 353 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	setmetatile 15, 2, METATILE_GameCorner_Floor_StairsTop, 0
-# 406 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 354 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	setmetatile 16, 2, METATILE_GameCorner_StairsTop, 1
-# 407 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 355 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	setmetatile 17, 2, METATILE_GameCorner_StairsBottom, 1
-# 408 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 356 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	setmetatile 16, 3, METATILE_GameCorner_PurpleWall_StairsTop, 1
-# 409 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 357 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	setmetatile 17, 3, METATILE_GameCorner_PurpleWall_stairsBottom, 1
-# 410 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 358 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	special DrawWholeMapView
-# 411 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 359 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	setflag FLAG_OPENED_ROCKET_HIDEOUT
-# 412 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	return
-# 413 "data/maps/CeladonCity_GameCorner/scripts.pory"
 
-# 414 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_RocketGrunt::
-# 415 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
+CeladonCity_GameCorner_EventScript_YoungRocketGrunt::
+# 364 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	lock
+# 365 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	faceplayer
+# 366 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto_if_unset FLAG_GAME_CORNER_SWITCH_2, CeladonCity_GameCorner_EventScript_YoungRocketGrunt_BeforeSwitch
+# 367 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	msgbox CeladonCity_GameCorner_Text_YoungGruntAfterSwitch
+# 368 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
+	end
+
+
+CeladonCity_GameCorner_EventScript_YoungRocketGrunt_BeforeSwitch::
+# 373 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	msgbox CeladonCity_GameCorner_Text_YoungGruntBeforeSwitch
+# 374 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
+	end
+
+
+CeladonCity_GameCorner_EventScript_OldRocketGrunt::
+# 389 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	trainerbattle_single TRAINER_TEAM_ROCKET_GRUNT_7, CeladonCity_GameCorner_Text_GruntIntro, CeladonCity_GameCorner_Text_GruntDefeat, CeladonCity_GameCorner_Text_DefeatedGrunt
-# 416 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 390 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	msgbox CeladonCity_GameCorner_Text_GruntPostBattle, MSGBOX_AUTOCLOSE
-# 417 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	end
-# 418 "data/maps/CeladonCity_GameCorner/scripts.pory"
 
-# 419 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
 CeladonCity_GameCorner_Text_DefeatedGrunt::
-# 420 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 395 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	msgbox CeladonCity_GameCorner_Text_GruntPostBattle
-# 421 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 396 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	closemessage
-# 422 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	call_if_eq VAR_FACING, DIR_WEST, CeladonCity_GameCorner_Text_GruntExitWest
-# 423 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	call_if_ne VAR_FACING, DIR_WEST, CeladonCity_GameCorner_Text_GruntExit
-# 424 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	removeobject LOCALID_GRUNT
-# 425 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 397 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	call CeladonCity_GameCorner_Text_GruntExit
+# 398 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	removeobject 3
+# 399 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	release
-# 426 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	end
-# 427 "data/maps/CeladonCity_GameCorner/scripts.pory"
 
-# 428 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_Text_GruntExitWest::
-# 429 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	applymovement LOCALID_GRUNT, CeladonCity_GameCorner_Movement_GruntExitWest
-# 430 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	waitmovement 0
-# 431 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	return
-# 432 "data/maps/CeladonCity_GameCorner/scripts.pory"
 
-# 433 "data/maps/CeladonCity_GameCorner/scripts.pory"
 CeladonCity_GameCorner_Text_GruntExit::
-# 434 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	applymovement LOCALID_GRUNT, CeladonCity_GameCorner_Movement_GruntExit
-# 435 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 404 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, CeladonCity_GameCorner_Movement_Player
+# 405 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	applymovement 3, CeladonCity_GameCorner_Movement_GruntExit
+# 406 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	waitmovement 0
-# 436 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	return
-# 437 "data/maps/CeladonCity_GameCorner/scripts.pory"
 
-# 438 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_Movement_GruntExitWest::
-# 439 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
+# 410 "data/maps/CeladonCity_GameCorner/scripts.pory"
+CeladonCity_GameCorner_Movement_Player:
+# 411 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	walk_right
+# 412 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	face_down
+	step_end
+
+# 415 "data/maps/CeladonCity_GameCorner/scripts.pory"
+CeladonCity_GameCorner_Movement_GruntExit:
+# 416 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	walk_down
-# 440 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 416 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	walk_down
+# 417 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	walk_right
-# 441 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 417 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	walk_right
-# 442 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	walk_up
-# 443 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	walk_right
-# 444 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	walk_right
-# 445 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	walk_right
-# 446 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	walk_right
-# 447 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 418 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	walk_down
+# 418 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	walk_down
+# 418 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	walk_down
+# 418 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	walk_down
+# 418 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	walk_down
 	step_end
-# 448 "data/maps/CeladonCity_GameCorner/scripts.pory"
 
-# 449 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_Movement_GruntExit::
-# 450 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	walk_right
-# 451 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	walk_right
-# 452 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	walk_right
-# 453 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	walk_right
-# 454 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	walk_right
-# 455 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	walk_right
-# 456 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	step_end
-# 457 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 421 "data/maps/CeladonCity_GameCorner/scripts.pory"
 
-# 458 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_UnusableSlotMachine1::
-# 459 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	msgbox CeladonCity_GameCorner_Text_OutOfOrder, MSGBOX_SIGN
-# 460 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 422 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
+# 423 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
+# 424 "data/maps/CeladonCity_GameCorner/scripts.pory"
+CeladonCity_GameCorner_EventScript_SlotMachine0::
+# 425 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	lockall
+# 426 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	setvar VAR_0x8004, 0
+# 427 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_SlotMachine
+# 428 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	end
-# 461 "data/maps/CeladonCity_GameCorner/scripts.pory"
+# 429 "data/maps/CeladonCity_GameCorner/scripts.pory"
 
+# 430 "data/maps/CeladonCity_GameCorner/scripts.pory"
+CeladonCity_GameCorner_EventScript_DontPlaySlotMachine::
+# 431 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	releaseall
+# 432 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	end
+# 433 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
+# 434 "data/maps/CeladonCity_GameCorner/scripts.pory"
+CeladonCity_GameCorner_EventScript_SlotMachine::
+# 435 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto_if_unset FLAG_GOT_COIN_CASE, CeladonCity_GameCorner_EventScript_SlotMachineNoCoinCase
+# 436 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	msgbox CeladonCity_GameCorner_Text_SlotMachineWantToPlay, MSGBOX_YESNO
+# 437 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto_if_eq VAR_RESULT, NO, CeladonCity_GameCorner_EventScript_DontPlaySlotMachine
+# 438 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	setfieldeffectargument 0, OBJ_EVENT_ID_PLAYER
+# 439 "data/maps/CeladonCity_GameCorner/scripts.pory"
+.ifdef BUGFIX
+# 440 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	setfieldeffectargument 1, MAP_NUM(CELADON_CITY_GAME_CORNER)
+# 441 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	setfieldeffectargument 2, MAP_GROUP(CELADON_CITY_GAME_CORNER)
+# 442 "data/maps/CeladonCity_GameCorner/scripts.pory"
+.else
+# 443 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	@ Map num/group were provided in the wrong order
+# 444 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	setfieldeffectargument 1, MAP_GROUP(CELADON_CITY_GAME_CORNER)
+# 445 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	setfieldeffectargument 2, MAP_NUM(CELADON_CITY_GAME_CORNER)
+# 446 "data/maps/CeladonCity_GameCorner/scripts.pory"
+.endif
+# 447 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	dofieldeffect FLDEFF_SMILEY_FACE_ICON
+# 448 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	waitfieldeffect FLDEFF_SMILEY_FACE_ICON
+# 449 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	specialvar VAR_RESULT, GetRandomSlotMachineId
+# 450 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	playslotmachine VAR_RESULT
+# 451 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	releaseall
+# 452 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	end
+# 453 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
+# 454 "data/maps/CeladonCity_GameCorner/scripts.pory"
+CeladonCity_GameCorner_EventScript_SlotMachine1::
+# 455 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	lockall
+# 456 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	setvar VAR_0x8004, 1
+# 457 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_SlotMachine
+# 458 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	end
+# 459 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
+# 460 "data/maps/CeladonCity_GameCorner/scripts.pory"
+CeladonCity_GameCorner_EventScript_SlotMachine2::
+# 461 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	lockall
 # 462 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_UnusableSlotMachine2::
+	setvar VAR_0x8004, 2
 # 463 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	msgbox CeladonCity_GameCorner_Text_OutToLunch, MSGBOX_SIGN
+	goto CeladonCity_GameCorner_EventScript_SlotMachine
 # 464 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	end
 # 465 "data/maps/CeladonCity_GameCorner/scripts.pory"
 
 # 466 "data/maps/CeladonCity_GameCorner/scripts.pory"
-CeladonCity_GameCorner_EventScript_UnusableSlotMachine3::
+CeladonCity_GameCorner_EventScript_SlotMachine3::
 # 467 "data/maps/CeladonCity_GameCorner/scripts.pory"
-	msgbox CeladonCity_GameCorner_Text_SomeonesKeys, MSGBOX_SIGN
+	lockall
 # 468 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	setvar VAR_0x8004, 3
+# 469 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_SlotMachine
+# 470 "data/maps/CeladonCity_GameCorner/scripts.pory"
 	end
+# 471 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
+# 472 "data/maps/CeladonCity_GameCorner/scripts.pory"
+CeladonCity_GameCorner_EventScript_SlotMachine4::
+# 473 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	lockall
+# 474 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	setvar VAR_0x8004, 4
+# 475 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_SlotMachine
+# 476 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	end
+# 477 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
+# 478 "data/maps/CeladonCity_GameCorner/scripts.pory"
+CeladonCity_GameCorner_EventScript_SlotMachine5::
+# 479 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	lockall
+# 480 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	setvar VAR_0x8004, 5
+# 481 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_SlotMachine
+# 482 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	end
+# 483 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
+# 484 "data/maps/CeladonCity_GameCorner/scripts.pory"
+CeladonCity_GameCorner_EventScript_SlotMachine6::
+# 485 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	lockall
+# 486 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	setvar VAR_0x8004, 6
+# 487 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_SlotMachine
+# 488 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	end
+# 489 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
+# 490 "data/maps/CeladonCity_GameCorner/scripts.pory"
+CeladonCity_GameCorner_EventScript_SlotMachine7::
+# 491 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	lockall
+# 492 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	setvar VAR_0x8004, 7
+# 493 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_SlotMachine
+# 494 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	end
+# 495 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
+# 496 "data/maps/CeladonCity_GameCorner/scripts.pory"
+CeladonCity_GameCorner_EventScript_SlotMachine8::
+# 497 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	lockall
+# 498 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	setvar VAR_0x8004, 8
+# 499 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_SlotMachine
+# 500 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	end
+# 501 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
+# 502 "data/maps/CeladonCity_GameCorner/scripts.pory"
+CeladonCity_GameCorner_EventScript_SlotMachine9::
+# 503 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	lockall
+# 504 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	setvar VAR_0x8004, 9
+# 505 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_SlotMachine
+# 506 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	end
+# 507 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
+# 508 "data/maps/CeladonCity_GameCorner/scripts.pory"
+CeladonCity_GameCorner_EventScript_SlotMachine10::
+# 509 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	lockall
+# 510 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	setvar VAR_0x8004, 10
+# 511 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_SlotMachine
+# 512 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	end
+# 513 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
+# 514 "data/maps/CeladonCity_GameCorner/scripts.pory"
+CeladonCity_GameCorner_EventScript_SlotMachine11::
+# 515 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	lockall
+# 516 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	setvar VAR_0x8004, 11
+# 517 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_SlotMachine
+# 518 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	end
+# 519 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
+# 520 "data/maps/CeladonCity_GameCorner/scripts.pory"
+CeladonCity_GameCorner_EventScript_SlotMachine12::
+# 521 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	lockall
+# 522 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	setvar VAR_0x8004, 12
+# 523 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_SlotMachine
+# 524 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	end
+# 525 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
+# 526 "data/maps/CeladonCity_GameCorner/scripts.pory"
+CeladonCity_GameCorner_EventScript_SlotMachine13::
+# 527 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	lockall
+# 528 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	setvar VAR_0x8004, 13
+# 529 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_SlotMachine
+# 530 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	end
+# 531 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
+# 532 "data/maps/CeladonCity_GameCorner/scripts.pory"
+CeladonCity_GameCorner_EventScript_SlotMachine14::
+# 533 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	lockall
+# 534 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	setvar VAR_0x8004, 14
+# 535 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_SlotMachine
+# 536 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	end
+# 537 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
+# 538 "data/maps/CeladonCity_GameCorner/scripts.pory"
+CeladonCity_GameCorner_EventScript_SlotMachine15::
+# 539 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	lockall
+# 540 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	setvar VAR_0x8004, 15
+# 541 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_SlotMachine
+# 542 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	end
+# 543 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
+# 544 "data/maps/CeladonCity_GameCorner/scripts.pory"
+CeladonCity_GameCorner_EventScript_SlotMachine16::
+# 545 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	lockall
+# 546 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	setvar VAR_0x8004, 16
+# 547 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_SlotMachine
+# 548 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	end
+# 549 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
+# 550 "data/maps/CeladonCity_GameCorner/scripts.pory"
+CeladonCity_GameCorner_EventScript_SlotMachine17::
+# 551 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	lockall
+# 552 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	setvar VAR_0x8004, 17
+# 553 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_SlotMachine
+# 554 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	end
+# 555 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
+# 556 "data/maps/CeladonCity_GameCorner/scripts.pory"
+CeladonCity_GameCorner_EventScript_SlotMachine18::
+# 557 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	lockall
+# 558 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	setvar VAR_0x8004, 18
+# 559 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_SlotMachine
+# 560 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	end
+# 561 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
+# 562 "data/maps/CeladonCity_GameCorner/scripts.pory"
+CeladonCity_GameCorner_EventScript_SlotMachine19::
+# 563 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	lockall
+# 564 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	setvar VAR_0x8004, 19
+# 565 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_SlotMachine
+# 566 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	end
+# 567 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
+# 568 "data/maps/CeladonCity_GameCorner/scripts.pory"
+CeladonCity_GameCorner_EventScript_SlotMachine20::
+# 569 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	lockall
+# 570 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	setvar VAR_0x8004, 20
+# 571 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_SlotMachine
+# 572 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	end
+# 573 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
+# 574 "data/maps/CeladonCity_GameCorner/scripts.pory"
+CeladonCity_GameCorner_EventScript_SlotMachine21::
+# 575 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	lockall
+# 576 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	setvar VAR_0x8004, 21
+# 577 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	goto CeladonCity_GameCorner_EventScript_SlotMachine
+# 578 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	end
+# 579 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
+# 580 "data/maps/CeladonCity_GameCorner/scripts.pory"
+CeladonCity_GameCorner_EventScript_SlotMachineNoCoinCase::
+# 581 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	msgbox CeladonCity_GameCorner_Text_CoinCaseIsRequired
+# 582 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	releaseall
+# 583 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	end
+# 584 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
+# 585 "data/maps/CeladonCity_GameCorner/scripts.pory"
+CeladonCity_GameCorner_EventScript_UnusableSlotMachine1::
+# 586 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	msgbox CeladonCity_GameCorner_Text_OutOfOrder, MSGBOX_SIGN
+# 587 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	end
+# 588 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
+# 589 "data/maps/CeladonCity_GameCorner/scripts.pory"
+CeladonCity_GameCorner_EventScript_UnusableSlotMachine2::
+# 590 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	msgbox CeladonCity_GameCorner_Text_OutToLunch, MSGBOX_SIGN
+# 591 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	end
+# 592 "data/maps/CeladonCity_GameCorner/scripts.pory"
+
+# 593 "data/maps/CeladonCity_GameCorner/scripts.pory"
+CeladonCity_GameCorner_EventScript_UnusableSlotMachine3::
+# 594 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	msgbox CeladonCity_GameCorner_Text_SomeonesKeys, MSGBOX_SIGN
+# 595 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	end
+
+CeladonCity_GameCorner_Text_CanExchangeCoinsNextDoor::
+# 109 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	.string "Welcome!\p"
+	.string "You can exchange your COINS for\n"
+	.string "fabulous prizes next door.$"
+
+CeladonCity_GameCorner_Text_WelcomeBuySomeCoins::
+# 113 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	.string "Welcome to ROBOT GAME CORNER!\p"
+	.string "Do you need some game COINS?\n"
+	.string "Would you like to buy some?$"
+
+CeladonCity_GameCorner_Text_ComePlaySometime::
+# 117 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	.string "No?\n"
+	.string "Please come play sometime!$"
+
+CeladonCity_GameCorner_Text_SorryDontHaveCoinCase::
+# 121 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	.string "Oh, I'm sorry.\n"
+	.string "You don't have a COIN CASE.$"
+
+CeladonCity_GameCorner_Text_CoinCaseIsFull::
+# 125 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	.string "Whoops!\n"
+	.string "Your COIN CASE is full.$"
+
+CeladonCity_GameCorner_Text_CantAffordCoins::
+# 129 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	.string "You can't afford the COINS.$"
+
+CeladonCity_GameCorner_Text_HereAreYourCoins::
+# 133 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	.string "Thank you.\n"
+	.string "Here are your COINS!$"
+
+CeladonCity_GameCorner_Text_RumoredTeamRocketRunsThisPlace::
+# 246 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	.string "Keep this quiet.\p"
+	.string "It's rumored that this place is run\n"
+	.string "by TEAM ROCKET.$"
+
+CeladonCity_GameCorner_Text_ThinkMachinesHaveDifferentOdds::
+# 250 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	.string "I think these machines have\n"
+	.string "different odds.$"
+
+CeladonCity_GameCorner_Text_DoYouWantToPlay::
+# 254 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	.string "Kid, do you want to play?$"
+
+CeladonCity_GameCorner_Text_Received10CoinsFromMan::
+# 258 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	.string "{PLAYER} received 10 COINS\n"
+	.string "from the man.$"
+
+CeladonCity_GameCorner_Text_DontNeedMyCoins::
+# 262 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	.string "You don't need my COINS!$"
+
+CeladonCity_GameCorner_Text_WinsComeAndGo::
+# 266 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	.string "Wins seem to come and go.\n"
+	.string "Nothing's a sure thing.$"
+
+CeladonCity_GameCorner_Text_WinOrLoseItsOnlyLuck::
+# 270 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	.string "These slot games…\n"
+	.string "Win or lose, it's only by luck.$"
+
+CeladonCity_GameCorner_Text_GymGuyAdvice::
+# 274 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	.string "Hey!\p"
+	.string "You have better things to do,\n"
+	.string "champ in the making!\p"
+	.string "CELADON GYM's LEADER is ERIKA.\p"
+	.string "She is a user of GRASS-type\n"
+	.string "POKéMON, and at one with nature.\p"
+	.string "She might appear docile because of\n"
+	.string "her flower arranging…\p"
+	.string "But she's not one to be taken\n"
+	.string "lightly!$"
+
+CeladonCity_GameCorner_Text_RareMonsForCoins::
+# 287 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	.string "They offer rare POKéMON that can\n"
+	.string "be exchanged for your COINS.\p"
+	.string "But, I just can't seem to win!$"
+
+CeladonCity_GameCorner_Text_SoEasyToGetHooked::
+# 293 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	.string "Games are scary!\n"
+	.string "It's so easy to get hooked!$"
+
+CeladonCity_GameCorner_Text_WantSomeCoins::
+# 298 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	.string "What's up?\n"
+	.string "Want some COINS?$"
+
+CeladonCity_GameCorner_Text_HereAreSomeCoinsShoo::
+# 303 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	.string "Hey, what? You're throwing me off!\n"
+	.string "Here are some COINS, so shoo!$"
+
+CeladonCity_GameCorner_Text_Poster::
+# 314 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	.string "It's just a normal poster.\n"
+	.string "Did you expect something here?$"
+
+CeladonCity_GameCorner_Text_SwitchBehindTreePushIt::
+# 345 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	.string "Hey!\p"
+	.string "A switch inside the tree!?\n"
+	.string "Gotta push it!$"
+
+CeladonCity_GameCorner_Text_YoungGruntBeforeSwitch::
+# 378 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	.string "Huh? This tree? Ah, yes!\n"
+	.string "This tree is absolutely normal!$"
+
+CeladonCity_GameCorner_Text_YoungGruntAfterSwitch::
+# 383 "data/maps/CeladonCity_GameCorner/scripts.pory"
+	.string "What? Why did you do that?\n"
+	.string "I mean, nothing. Hahaha.$"

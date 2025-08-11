@@ -255,7 +255,9 @@ PalletTown_Text_TownSign::
 
 PalletTown_Text_Lass::
 # 168 "data/maps/PalletTown/scripts.pory"
-	.string "FILL THIS IN$"
+	.string "PROF. SOAK is a WATER-type POKéMON\n"
+	.string "enthusiast.\p"
+	.string "I heard his son-in-law is also one!$"
 
 PalletTown_Text_FatMan::
 # 172 "data/maps/PalletTown/scripts.pory"
@@ -266,4 +268,7 @@ PalletTown_Text_FatMan::
 
 PalletTown_Text_Fisher::
 # 176 "data/maps/PalletTown/scripts.pory"
-	.string "FILL THIS IN$"
+	.string "I wonder if I can swim all the way to\n"
+	.string "CINNABAR ISLAND from here...\p"
+	.string "There are a few islands I could\n"
+	.string "take a break on...$"
