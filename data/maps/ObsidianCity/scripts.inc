@@ -816,7 +816,7 @@ ObsidianCity_Text_OuttaTheWay::
 
 ObsidianCity_Text_RightThing::
 # 269 "data/maps/ObsidianCity/scripts.pory"
-	.string "???: Killing all those UNOWN...\nWas that really the right thing?$"
+	.string "???: Killing all those UNOWN...\nWas that really the right thing to\ldo?$"
 
 ObsidianCity_Text_SeeThat::
 # 273 "data/maps/ObsidianCity/scripts.pory"

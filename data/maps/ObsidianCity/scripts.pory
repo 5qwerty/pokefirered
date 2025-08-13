@@ -267,7 +267,7 @@ text ObsidianCity_Text_OuttaTheWay {
 }
 
 text ObsidianCity_Text_RightThing {
-	"???: Killing all those UNOWN...\nWas that really the right thing?"
+	"???: Killing all those UNOWN...\nWas that really the right thing to\ldo?"
 }
 
 text ObsidianCity_Text_SeeThat {

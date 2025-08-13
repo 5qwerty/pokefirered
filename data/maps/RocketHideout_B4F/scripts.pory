@@ -1,24 +1,293 @@
+const AIRIKA = 4
+const CELIO = 5
+const AIDE1 = 6
+const AIDE2 = 7
+const GOOD_ROCKET = 11
+const VOUCHER = 1
+
+mapscripts RocketHideout_B4F_MapScripts {
+	
+}
+
+script TestScript {
+	setvar(VAR_MAP_SCENE_CELADON_CITY_ROCKET, 2)
+}
+
+script RocketHideout_B4F_EventScript_TriggerLeft {
+	setvar(VAR_TEMP_1, 0)
+	goto(RocketHideout_B4F_EventScript_RocketScene)
+}
+
+script RocketHideout_B4F_EventScript_TriggerMiddle {
+	setvar(VAR_TEMP_1, 1)
+	goto(RocketHideout_B4F_EventScript_RocketScene)
+}
+
+script RocketHideout_B4F_EventScript_TriggerRight {
+	setvar(VAR_TEMP_1, 2)
+	goto(RocketHideout_B4F_EventScript_RocketScene)
+}
+
+script RocketHideout_B4F_EventScript_RocketScene {
+	lock
+	special(SpawnCameraObject)
+	applymovement(OBJ_EVENT_ID_CAMERA, RocketHideout_B4F_Movement_ToScene)
+	waitmovement(0)
+	playse(SE_PIN)
+	applymovement(AIRIKA, Common_Movement_ExclamDown)
+	waitmovement(0)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox(RocketHideout_B4F_Text_Airika1)
+	closemessage
+	applymovement(AIRIKA, Common_Movement_FaceLeft)
+	waitmovement(0)
+	msgbox(RocketHideout_B4F_Text_Airika2)
+	closemessage
+	applymovement(CELIO, Common_Movement_WalkInPlaceDown)
+	waitmovement(0)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox(RocketHideout_B4F_Text_Celio1)
+	closemessage
+	applymovement(AIRIKA, Common_Movement_FaceDown)
+	applymovement(CELIO, RocketHideout_B4F_Movement_Celio1)
+	waitmovement(0)
+	delay(30)
+	playmoncry(SPECIES_ZUBAT, CRY_MODE_NORMAL) 
+	waitmoncry
+	delay(30)
+	playmoncry(SPECIES_ZUBAT, CRY_MODE_FAINT) 
+	waitmoncry
+	delay(30)
+	playmoncry(SPECIES_CROBAT, CRY_MODE_NORMAL) //Change to Zubot
+	waitmoncry
+	applymovement(CELIO, RocketHideout_B4F_Movement_Celio2)
+	waitmovement(0)
+	msgbox(RocketHideout_B4F_Text_Celio2)
+	closemessage
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	message(RocketHideout_B4F_Text_ReceiveZubot)
+	waitmessage
+	playfanfare(MUS_OBTAIN_KEY_ITEM)
+	waitfanfare
+	delay(30)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox(RocketHideout_B4F_Text_Airika3)
+	closemessage
+	applymovement(CELIO, RocketHideout_B4F_Movement_Celio3)
+	applymovement(OBJ_EVENT_ID_CAMERA, RocketHideout_B4F_Movement_ToPlayer)
+	applymovement(AIRIKA, RocketHideout_B4F_Movement_Airika1)
+	waitmovement(0)
+	special(RemoveCameraObject)
+	call_if_eq(VAR_TEMP_1, 0, RocketHideout_B4F_EventScript_AirikaWalk_Left)
+	call_if_eq(VAR_TEMP_1, 1, RocketHideout_B4F_EventScript_AirikaWalk_Middle)
+	msgbox(RocketHideout_B4F_Text_Airika4)
+	waitmessage
+	playbgm(MUS_ENCOUNTER_ROCKET, 0)
+	waitbuttonpress
+	trainerbattle_no_intro(TRAINER_BOSS_GIOVANNI, RocketHideout_B4F_Text_AirikaDefeat)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox(RocketHideout_B4F_Text_Airika5)
+	closemessage
+	applymovement(AIRIKA, Common_Movement_FaceUp)
+	waitmovement(0)
+	msgbox(RocketHideout_B4F_Text_Airika6)
+	fadescreen(FADE_TO_BLACK)
+	closemessage
+	removeobject(AIRIKA)
+	removeobject(CELIO)
+	removeobject(AIDE1)
+	removeobject(AIDE2)
+	addobject(VOUCHER)
+	clearflag(FLAG_HIDE_SILPH_SCOPE)
+	setflag(FLAG_HIDE_CELADON_ROCKETS)
+	addvar(VAR_MAP_SCENE_CELADON_CITY_ROCKET, 1)
+	fadescreen(FADE_FROM_BLACK)
+	applymovement(GOOD_ROCKET, Common_Movement_WalkInPlaceUp)
+	waitmovement(0)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox(RocketHideout_B4F_Text_GoodRocket1)
+	closemessage
+	delay(30)
+	playmoncry(SPECIES_LOTAD, CRY_MODE_FAINT) //Change to Botad
+	waitmoncry
+	delay(30)
+	msgbox(RocketHideout_B4F_Text_GoodRocket2)
+	closemessage
+	applymovement(GOOD_ROCKET, RocketHideout_B4F_Movement_GoodRocket1)
+	waitmovement(0)
+	call_if_eq(VAR_TEMP_1, 0, RocketHideout_B4F_EventScript_GRWalk_Left1)
+	call_if_eq(VAR_TEMP_1, 1, RocketHideout_B4F_EventScript_GRWalk_Middle1)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight)
+	waitmovement(0)
+	msgbox(RocketHideout_B4F_Text_GoodRocket3)
+	closemessage
+	call_if_eq(VAR_TEMP_1, 0, RocketHideout_B4F_EventScript_GRWalk_LeftMiddle)
+	call_if_eq(VAR_TEMP_1, 1, RocketHideout_B4F_EventScript_GRWalk_LeftMiddle)
+	call_if_eq(VAR_TEMP_1, 2, RocketHideout_B4F_EventScript_GRWalk_Right)
+	removeobject(GOOD_ROCKET)
+	release
+}
+
+text RocketHideout_B4F_Text_GoodRocket1 {
+	format("???: Oh you poor thing...\nYou're barely breathing...")
+}
+
+text RocketHideout_B4F_Text_GoodRocket2 {
+	format("???: So you've become a ROBOT\nPOKéMON as well...\pDon't worry, I'll take extra good\ncare of you!")
+}
+
+text RocketHideout_B4F_Text_GoodRocket3 {
+	format("???: I can't take it anymore.\nI quitting TEAM ROBOT!\pWhat they've done to the UNOWN,\nwhat they've done to this LOTAD...\pNone of this is right!")
+}
+
+script RocketHideout_B4F_EventScript_GRWalk_Left1 {
+	applymovement(GOOD_ROCKET, Common_Movement_WalkLeft)
+	waitmovement(0)
+	applymovement(GOOD_ROCKET, Common_Movement_WalkLeft)
+	waitmovement(0)
+	return
+}
+
+script RocketHideout_B4F_EventScript_GRWalk_Middle1 {
+	applymovement(GOOD_ROCKET, Common_Movement_WalkLeft)
+	waitmovement(0)
+	return
+}
+
+script RocketHideout_B4F_EventScript_GRWalk_LeftMiddle {
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown)
+	applymovement(GOOD_ROCKET, RocketHideout_B4F_Movement_GoodRocketGoDown)
+	waitmovement(0)
+	return
+}
+
+script RocketHideout_B4F_EventScript_GRWalk_Right {
+	applymovement(GOOD_ROCKET, Common_Movement_WalkLeft)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft)
+	waitmovement(0)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown)
+	applymovement(GOOD_ROCKET, RocketHideout_B4F_Movement_GoodRocketGoDown)
+	waitmovement(0)
+	return
+}
+
+script RocketHideout_B4F_EventScript_AirikaWalk_Left {
+	applymovement(AIRIKA, RocketHideout_B4F_Movement_AirikaLeft)
+	waitmovement(0)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight)
+	waitmovement(0)
+	return
+}
+
+script RocketHideout_B4F_EventScript_AirikaWalk_Middle {
+	applymovement(AIRIKA, RocketHideout_B4F_Movement_AirikaMiddle)
+	waitmovement(0)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight)
+	waitmovement(0)
+	return
+}
+
+movement RocketHideout_B4F_Movement_AirikaLeft {
+	walk_down
+	walk_left
+}
+
+movement RocketHideout_B4F_Movement_AirikaMiddle {
+	walk_down
+	face_left
+}
+
+movement RocketHideout_B4F_Movement_ToScene {
+	walk_up * 4
+}
+
+movement RocketHideout_B4F_Movement_ToPlayer {
+	walk_down * 4
+}
+
+text RocketHideout_B4F_Text_Airika1 {
+	format("AIRIKA: Oh, it appears as though we have a little mouse among us.")
+}
+
+text RocketHideout_B4F_Text_Airika2 {
+	format("AIRIKA: DR. C! Is my prototype\ncomplete?")
+}
+
+text RocketHideout_B4F_Text_Celio1 {
+	"DR. C: Ah, yes, lady AIRIKA.\n"
+	"It will be, just after this one\l"
+	"final adjustment."
+}
+
+text RocketHideout_B4F_Text_Celio2 {
+	"DR. C: Hyuk hyuk hyuk...\n"
+	"Here you go, lady AIRIKA..."
+}
+
+text RocketHideout_B4F_Text_Airika3 {
+	format("AIRIKA: Ah, dear ZUBAT, so you've\nbecome a ZUBOT...\pTime to see how strong you are!")
+}
+
+text RocketHideout_B4F_Text_AirikaDefeat {
+	format("Not strong enough?\nI'll have DR. C do some more\lmodifications.")
+}
+
+text RocketHideout_B4F_Text_Airika4 {
+	format("AIRIKA: Are you ready, child?\nFeel the power of a ROBOT POKéMON!")
+}
+
+text RocketHideout_B4F_Text_Airika5 {
+	format("AIRIKA: You really think you've won, child?\pThis is just the beginning.")
+}
+
+text RocketHideout_B4F_Text_Airika6 {
+	format("AIRIKA: Gentlemen, grab your things and let's go.\pThere's more work to be done.")
+}
+
+movement RocketHideout_B4F_Movement_Celio1 {
+	walk_down
+	walk_right
+	walk_down * 4
+	walk_right * 3
+	walk_down
+	face_right
+}
+
+movement RocketHideout_B4F_Movement_Celio2 {
+	walk_up * 2
+}
+
+movement RocketHideout_B4F_Movement_Celio3 {
+	walk_right
+	face_left
+}
+
+movement RocketHideout_B4F_Movement_Airika1 {
+	walk_down * 2
+	walk_left * 2
+	walk_down
+}
+
+movement RocketHideout_B4F_Movement_GoodRocket1 {
+	walk_left * 3
+}
+
+movement RocketHideout_B4F_Movement_GoodRocketGoDown {
+	walk_down * 6
+}
+
+text RocketHideout_B4F_Text_ReceiveZubot {
+	format("AIRIKA received the ZUBOT\nfrom DR. C!")
+}
+
+
+
 raw `
 .equ LOCALID_GIOVANNI,    1
 .equ LOCALID_SILPH_SCOPE, 2
 .equ LOCALID_LIFT_KEY,    4
 
 .equ NUM_DOOR_GRUNTS_DEFEATED, VAR_TEMP_1
-
-RocketHideout_B4F_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, RocketHideout_B4F_OnLoad
-	.byte 0
-
-RocketHideout_B4F_OnLoad::
-	setvar NUM_DOOR_GRUNTS_DEFEATED, 0
-	call_if_defeated TRAINER_TEAM_ROCKET_GRUNT_16, RocketHideout_B4F_EventScript_CountGruntDefeated
-	call_if_defeated TRAINER_TEAM_ROCKET_GRUNT_17, RocketHideout_B4F_EventScript_CountGruntDefeated
-	call_if_ne NUM_DOOR_GRUNTS_DEFEATED, 2, RocketHideout_B4F_EventScript_SetBarrier
-	end
-
-RocketHideout_B4F_EventScript_CountGruntDefeated::
-	addvar NUM_DOOR_GRUNTS_DEFEATED, 1
-	return
 
 RocketHideout_B4F_EventScript_Giovanni::
 	lock
@@ -44,84 +313,11 @@ RocketHideout_B4F_EventScript_Giovanni::
 RocketHideout_B4F_EventScript_SilphScope::
 	lock
 	faceplayer
-	removeobject LOCALID_SILPH_SCOPE
-	giveitem ITEM_SILPH_SCOPE
+	removeobject VOUCHER
+	giveitem ITEM_BIKE_VOUCHER
 	goto_if_eq VAR_RESULT, FALSE, EventScript_BagIsFull
 	release
 	end
 
-RocketHideout_B4F_EventScript_Grunt1::
-	trainerbattle_single TRAINER_TEAM_ROCKET_GRUNT_18, RocketHideout_B4F_Text_Grunt1Intro, RocketHideout_B4F_Text_Grunt1Defeat, RocketHideout_B4F_EventScript_DefeatedGrunt1
-	msgbox RocketHideout_B4F_Text_Grunt1PostBattle
-	release
-	end
 
-RocketHideout_B4F_EventScript_DefeatedGrunt1::
-	msgbox RocketHideout_B4F_Text_Grunt1PostBattle
-	addobject LOCALID_LIFT_KEY
-	clearflag FLAG_HIDE_LIFT_KEY
-	release
-	end
-
-RocketHideout_B4F_EventScript_LiftKey::
-	lock
-	faceplayer
-	setflag FLAG_CAN_USE_ROCKET_HIDEOUT_LIFT
-	removeobject LOCALID_LIFT_KEY
-	giveitem ITEM_LIFT_KEY
-	goto_if_eq VAR_RESULT, FALSE, EventScript_BagIsFull
-	release
-	end
-
-RocketHideout_B4F_EventScript_Grunt2::
-	trainerbattle_single TRAINER_TEAM_ROCKET_GRUNT_16, RocketHideout_B4F_Text_Grunt2Intro, RocketHideout_B4F_Text_Grunt2Defeat, RocketHideout_B4F_EventScript_DefeatedGrunt2
-	msgbox RocketHideout_B4F_Text_Grunt2PostBattle, MSGBOX_AUTOCLOSE
-	end
-
-RocketHideout_B4F_EventScript_DefeatedGrunt2::
-	setvar NUM_DOOR_GRUNTS_DEFEATED, 0
-	call_if_defeated TRAINER_TEAM_ROCKET_GRUNT_16, RocketHideout_B4F_EventScript_CountGruntDefeated
-	call_if_defeated TRAINER_TEAM_ROCKET_GRUNT_17, RocketHideout_B4F_EventScript_CountGruntDefeated
-	call_if_eq NUM_DOOR_GRUNTS_DEFEATED, 2, RocketHideout_B4F_EventScript_RemoveBarrier
-	call_if_eq NUM_DOOR_GRUNTS_DEFEATED, 2, RocketHideout_B4F_EventScript_DrawMapForBarrierRemoval
-	release
-	end
-
-RocketHideout_B4F_EventScript_Grunt3::
-	trainerbattle_single TRAINER_TEAM_ROCKET_GRUNT_17, RocketHideout_B4F_Text_Grunt3Intro, RocketHideout_B4F_Text_Grunt3Defeat, RocketHideout_B4F_EventScript_DefeatedGrunt3
-	msgbox RocketHideout_B4F_Text_Grunt3PostBattle, MSGBOX_AUTOCLOSE
-	end
-
-RocketHideout_B4F_EventScript_DefeatedGrunt3::
-	setvar NUM_DOOR_GRUNTS_DEFEATED, 0
-	call_if_defeated TRAINER_TEAM_ROCKET_GRUNT_16, RocketHideout_B4F_EventScript_CountGruntDefeated
-	call_if_defeated TRAINER_TEAM_ROCKET_GRUNT_17, RocketHideout_B4F_EventScript_CountGruntDefeated
-	call_if_eq NUM_DOOR_GRUNTS_DEFEATED, 2, RocketHideout_B4F_EventScript_RemoveBarrier
-	call_if_eq NUM_DOOR_GRUNTS_DEFEATED, 2, RocketHideout_B4F_EventScript_DrawMapForBarrierRemoval
-	release
-	end
-
-RocketHideout_B4F_EventScript_DrawMapForBarrierRemoval::
-	playse SE_UNLOCK
-	special DrawWholeMapView
-	waitse
-	return
-
-RocketHideout_B4F_EventScript_SetBarrier::
-	setmetatile 17, 12, METATILE_SilphCo_HideoutBarrier_TopLeft_Floor, 1
-	setmetatile 18, 12, METATILE_SilphCo_HideoutBarrier_TopRight_Floor, 1
-	setmetatile 17, 13, METATILE_SilphCo_HideoutBarrier_BottomLeft, 1
-	setmetatile 18, 13, METATILE_SilphCo_HideoutBarrier_BottomRight, 1
-	setmetatile 17, 14, METATILE_SilphCo_HideoutFloor_ShadeFull, 0
-	setmetatile 18, 14, METATILE_SilphCo_HideoutFloor_ShadeFull, 0
-	return
-
-RocketHideout_B4F_EventScript_RemoveBarrier::
-	setmetatile 17, 12, METATILE_SilphCo_HideoutFloor_ShadeFull, 0
-	setmetatile 18, 12, METATILE_SilphCo_HideoutFloor, 0
-	setmetatile 17, 13, METATILE_SilphCo_HideoutFloor_ShadeFull, 0
-	setmetatile 18, 13, METATILE_SilphCo_HideoutFloor, 0
-	setmetatile 17, 14, METATILE_SilphCo_HideoutFloor_ShadeFull, 0
-	setmetatile 18, 14, METATILE_SilphCo_HideoutFloor, 0
-	return
 `
