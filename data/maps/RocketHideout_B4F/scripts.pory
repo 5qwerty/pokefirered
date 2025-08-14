@@ -285,7 +285,7 @@ text RocketHideout_B4F_Text_ReceiveZubot {
 raw `
 .equ LOCALID_GIOVANNI,    1
 .equ LOCALID_SILPH_SCOPE, 2
-.equ LOCALID_LIFT_KEY,    4
+.equ VOUCHER,    1
 
 .equ NUM_DOOR_GRUNTS_DEFEATED, VAR_TEMP_1
 

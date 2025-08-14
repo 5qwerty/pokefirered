@@ -429,7 +429,7 @@ RocketHideout_B4F_Movement_GoodRocketGoDown:
 # 287 "data/maps/RocketHideout_B4F/scripts.pory"
 .equ LOCALID_SILPH_SCOPE, 2
 # 288 "data/maps/RocketHideout_B4F/scripts.pory"
-.equ LOCALID_LIFT_KEY,    4
+.equ VOUCHER,    1
 # 289 "data/maps/RocketHideout_B4F/scripts.pory"
 
 # 290 "data/maps/RocketHideout_B4F/scripts.pory"
@@ -485,9 +485,9 @@ RocketHideout_B4F_EventScript_SilphScope::
 # 315 "data/maps/RocketHideout_B4F/scripts.pory"
 	faceplayer
 # 316 "data/maps/RocketHideout_B4F/scripts.pory"
-	removeobject LOCALID_SILPH_SCOPE
+	removeobject VOUCHER
 # 317 "data/maps/RocketHideout_B4F/scripts.pory"
-	giveitem ITEM_SILPH_SCOPE
+	giveitem ITEM_BIKE_VOUCHER
 # 318 "data/maps/RocketHideout_B4F/scripts.pory"
 	goto_if_eq VAR_RESULT, FALSE, EventScript_BagIsFull
 # 319 "data/maps/RocketHideout_B4F/scripts.pory"
