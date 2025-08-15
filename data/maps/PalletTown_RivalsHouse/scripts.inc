@@ -21,9 +21,9 @@ PalletTown_RivalsHouse_MapScripts::
 # 11 "data/maps/PalletTown_RivalsHouse/scripts.pory"
 PalletTown_RivalsHouse_OnTransition::
 # 12 "data/maps/PalletTown_RivalsHouse/scripts.pory"
-	call_if_lt VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE, 2, PalletTown_RivalsHouse_EventScript_MoveDaisyToTable
+	call_if_lt VAR_MAP_SCENE_PALLET_TOWN_OAK, 2, PalletTown_RivalsHouse_EventScript_MoveDaisyToTable
 # 13 "data/maps/PalletTown_RivalsHouse/scripts.pory"
-	call_if_ge VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE, 2, PalletTown_RivalsHouse_EventScript_AlreadyReceivedTownMap
+	call_if_ge VAR_MAP_SCENE_PALLET_TOWN_OAK, 2, PalletTown_RivalsHouse_EventScript_AlreadyReceivedTownMap
 # 14 "data/maps/PalletTown_RivalsHouse/scripts.pory"
 	end
 # 15 "data/maps/PalletTown_RivalsHouse/scripts.pory"
@@ -59,9 +59,9 @@ PalletTown_RivalsHouse_EventScript_Daisy::
 # 30 "data/maps/PalletTown_RivalsHouse/scripts.pory"
 	goto_if_eq RECEIVED_TOWN_MAP, TRUE, PalletTown_RivalsHouse_EventScript_PleaseGiveMonsRest
 # 31 "data/maps/PalletTown_RivalsHouse/scripts.pory"
-	goto_if_eq VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE, 2, PalletTown_RivalsHouse_EventScript_ExplainTownMap
+	goto_if_eq VAR_MAP_SCENE_PALLET_TOWN_OAK, 2, PalletTown_RivalsHouse_EventScript_ExplainTownMap
 # 32 "data/maps/PalletTown_RivalsHouse/scripts.pory"
-	goto_if_eq VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE, 1, PalletTown_RivalsHouse_EventScript_GiveTownMap
+	goto_if_eq VAR_MAP_SCENE_PALLET_TOWN_OAK, 1, PalletTown_RivalsHouse_EventScript_GiveTownMap
 # 33 "data/maps/PalletTown_RivalsHouse/scripts.pory"
 	goto_if_ge VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 1, PalletTown_RivalsHouse_EventScript_HeardBattledRival
 # 34 "data/maps/PalletTown_RivalsHouse/scripts.pory"
@@ -283,7 +283,7 @@ PalletTown_RivalsHouse_EventScript_GiveTownMap::
 # 142 "data/maps/PalletTown_RivalsHouse/scripts.pory"
 	removeobject LOCALID_TOWN_MAP
 # 143 "data/maps/PalletTown_RivalsHouse/scripts.pory"
-	setvar VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE, 2
+	setvar VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 2
 # 144 "data/maps/PalletTown_RivalsHouse/scripts.pory"
 	delay 15
 # 145 "data/maps/PalletTown_RivalsHouse/scripts.pory"

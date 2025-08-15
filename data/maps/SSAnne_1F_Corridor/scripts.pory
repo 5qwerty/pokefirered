@@ -1,7 +1,23 @@
-raw `
-SSAnne_1F_Corridor_MapScripts::
-	.byte 0
+mapscripts SSAnne_1F_Corridor_MapScripts {
+	MAP_SCRIPT_ON_LOAD {
+		call_if_eq(VAR_MAP_SCENE_SS_ANNE_STATE, 0, SSAnne_1F_Corridor_EventScript_SetVermilion)
+		call_if_eq(VAR_MAP_SCENE_SS_ANNE_STATE, 1, SSAnne_1F_Corridor_EventScript_SetCinnabar)
+		call_if_eq(VAR_MAP_SCENE_SS_ANNE_STATE, 2, SSAnne_1F_Corridor_EventScript_SetCinnabar)
+		call_if_eq(VAR_MAP_SCENE_SS_ANNE_STATE, 3, SSAnne_1F_Corridor_EventScript_SetVermilion)
+	}
+}
 
+script SSAnne_1F_Corridor_EventScript_SetVermilion {
+	setdynamicwarp(MAP_SSANNE_EXTERIOR, 255, 32, 14)
+	end
+}
+
+script SSAnne_1F_Corridor_EventScript_SetCinnabar {
+	setdynamicwarp(MAP_CINNABAR_ISLAND, 255, 9, 15)
+	end
+}
+
+raw `
 SSAnne_1F_Corridor_EventScript_WorkerM::
 	msgbox SSAnne_1F_Corridor_Text_LeStrongSilentType, MSGBOX_NPC
 	end

@@ -28,11 +28,7 @@ VermilionCity_Text_SSAnneVisitsOnceAYear::
     .string "The S.S. ANNE is a famous luxury\n"
     .string "cruise ship.\p"
     .string "It visits VERMILION once a year.$"
-
-VermilionCity_Text_CitySign::
-    .string "VERMILION CITY\n"
-    .string "The Port of Exquisite Sunsets$"
-
+    
 VermilionCity_Text_SnorlaxBlockingRoute12::
     .string "NOTICE!\p"
     .string "ROUTE 12 may be blocked off by a\n"
@@ -40,36 +36,6 @@ VermilionCity_Text_SnorlaxBlockingRoute12::
     .string "Detour through ROCK TUNNEL to\n"
     .string "LAVENDER TOWN.\p"
     .string "VERMILION POLICE$"
-
-VermilionCity_Text_PokemonFanClubSign::
-    .string "POKéMON FAN CLUB\n"
-    .string "All POKéMON fans welcome!$"
-
-VermilionCity_Text_GymSign::
-    .string "VERMILION CITY POKéMON GYM\n"
-    .string "LEADER: LT. SURGE\l"
-    .string "The Lightning American!$"
-
-VermilionCity_Text_VermilionHarbor::
-    .string "VERMILION HARBOR$"
-
-VermilionCity_Text_WelcomeToTheSSAnne::
-    .string "Welcome to the S.S. ANNE!$"
-
-VermilionCity_Text_DoYouHaveATicket::
-    .string "Welcome to the S.S. ANNE!\p"
-    .string "Excuse me, do you have a ticket?$"
-
-VermilionCity_Text_FlashedSSTicket::
-    .string "{FONT_NORMAL}{PLAYER} flashed the S.S. TICKET!\p"
-    .string "{FONT_MALE}Great!\n"
-    .string "Welcome to the S.S. ANNE!$"
-
-VermilionCity_Text_DontHaveNeededSSTicket::
-    .string "{FONT_NORMAL}{PLAYER} doesn't have the needed\n"
-    .string "S.S. TICKET.\p"
-    .string "{FONT_MALE}Sorry!\p"
-    .string "You need a ticket to get aboard.$"
 
 VermilionCity_Text_TheShipSetSail::
     .string "The ship set sail.$"

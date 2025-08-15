@@ -1,12 +1,69 @@
-raw `
-SSAnne_2F_Room3_MapScripts::
-	.byte 0
+mapscripts SSAnne_2F_Room3_MapScripts {
+	
+}
 
-SSAnne_2F_Room3_EventScript_Gentleman::
-	msgbox SSAnne_2F_Room3_Text_SeenMonsFerryPeople, MSGBOX_NPC
+script SSAnne_2F_Room3_EventScript_Bed {
+	lock
+	msgbox(SSAnne_2F_Room3_Text_Bed, MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, 1, SSAnne_2F_Room3_EventScript_BedYes)
+	msgbox(SSAnne_2F_Room3_Text_BedNo)
+	closemessage
+	release
 	end
+}
 
-SSAnne_2F_Room3_EventScript_OldMan::
-	msgbox SSAnne_2F_Room3_Text_SomeTreesCanBeCutDown, MSGBOX_NPC
+script SSAnne_2F_Room3_EventScript_BedYes {
+	msgbox(SSAnne_2F_Room3_Text_BedYes)
+	closemessage
+	call(EventScript_OutOfCenterPartyHeal)
+	goto_if_eq(VAR_MAP_SCENE_SS_ANNE_STATE, 0, SSAnne_2F_Room3_EventScript_ArriveCinnabar)
+	goto_if_eq(VAR_MAP_SCENE_SS_ANNE_STATE, 2, SSAnne_2F_Room3_EventScript_ArriveVermilion)
+	release
 	end
-`
+}
+
+script SSAnne_2F_Room3_EventScript_ArriveCinnabar {
+	delay(50)
+	playse(SE_DING_DONG)
+	waitse
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox(SSAnne_2F_Room3_Text_ArriveCinnabar)
+	waitmessage
+	setvar(VAR_MAP_SCENE_SS_ANNE_STATE, 1)
+	setrespawn(SPAWN_CINNABAR_ISLAND)
+	release
+	end
+}
+
+script SSAnne_2F_Room3_EventScript_ArriveVermilion {
+	delay(50)
+	playse(SE_DING_DONG)
+	waitse
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox(SSAnne_2F_Room3_Text_ArriveVermilion)
+	waitmessage
+	setvar(VAR_MAP_SCENE_SS_ANNE_STATE, 3)
+	setrespawn(SPAWN_VERMILION_CITY)
+	release
+	end
+}
+
+text SSAnne_2F_Room3_Text_ArriveCinnabar {
+	format("Attention!\nThis is your CAPTAIN speaking.\pWe have arrived at CINNABAR ISLAND!\nPlease enjoy your visit.")
+}
+
+text SSAnne_2F_Room3_Text_ArriveVermilion {
+	format("Attention!\nThis is your CAPTAIN speaking.\pWe have arrived at VERMILION CITY!\nPlease enjoy your visit.")
+}
+
+text SSAnne_2F_Room3_Text_Bed {
+	format("A comfy bed!\nTake a nap?")
+}
+
+text SSAnne_2F_Room3_Text_BedNo {
+	format("Nah!\nMaybe later!")
+}
+
+text SSAnne_2F_Room3_Text_BedYes {
+	format("Oh yeah!\nTime to hit the sack!")
+}
