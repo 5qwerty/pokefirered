@@ -1,3 +1,5 @@
+const FERRY_GUY = 2
+
 mapscripts CinnabarIsland_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setworldmapflag(FLAG_WORLD_MAP_CINNABAR_ISLAND)
@@ -6,6 +8,9 @@ mapscripts CinnabarIsland_MapScripts {
 		call_if_eq(VAR_MAP_SCENE_SS_ANNE_STATE, 1, CinnabarIsland_EventScript_BlockWater)
 		call_if_eq(VAR_MAP_SCENE_SS_ANNE_STATE, 2, CinnabarIsland_EventScript_BlockWater)
 	}
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_MAP_SCENE_SS_ANNE_STATE, 1: CinnabarIsland_EventScript_PlayerLeaveShip
+	]
 }
 
 script CinnabarIsland_EventScript_BlockWater {
@@ -30,6 +35,112 @@ script CinnabarIsland_EventScript_BlockWater {
 	setmetatile(10, 15, 0x303, 0)
 	end
 }
+
+script CinnabarIsland_EventScript_PlayerLeaveShip {
+	lockall
+	applymovement(OBJ_EVENT_ID_PLAYER, CinnabarIsland_Movement_PlayerLeaveShip)
+	waitmovement(0)
+	setvar(VAR_MAP_SCENE_SS_ANNE_STATE, 2)
+	setvar(VAR_VERMILION_CITY_TICKET_CHECK_TRIGGER, 0)
+	releaseall
+	end
+}
+
+movement CinnabarIsland_Movement_PlayerLeaveShip {
+	walk_up * 4
+}
+
+script CinnabarIsland_EventScript_CheckTicket {
+	lockall
+	textcolor(NPC_TEXT_COLOR_MALE)
+	applymovement (FERRY_GUY, Common_Movement_WalkInPlaceFasterLeft)
+	applymovement (OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight)
+	waitmovement (0)
+	goto_if_eq(VAR_MAP_SCENE_SS_ANNE_STATE, 2, CinnabarIsland_EventScript_SSAnneHere) //SS Anne is at Cinnabar and ready to board
+	msgbox(CinnabarIsland_Text_SSAnneNotHere)
+	closemessage
+	goto(VermilionCity_EventScript_WalkUpPier)
+	end
+}
+
+script CinnabarIsland_EventScript_ExitedTicketCheck {
+	lockall
+	setvar(VAR_VERMILION_CITY_TICKET_CHECK_TRIGGER, 0)
+	releaseall
+	end
+}
+	
+
+script CinnabarIsland_EventScript_SSAnneHere {
+	msgbox(CinnabarIsland_Text_DoYouHaveATicket)
+	checkitem(ITEM_SS_TICKET)
+	goto_if_eq(VAR_RESULT, FALSE, CinnabarIsland_EventScript_DontHaveSSTicket)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(CinnabarIsland_Text_FlashedSSTicket)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox(CinnabarIsland_Text_FlashedSSTicket2)
+	setvar(VAR_VERMILION_CITY_TICKET_CHECK_TRIGGER, 1)
+	releaseall
+}
+
+script CinnabarIsland_EventScript_DontHaveSSTicket {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(CinnabarIsland_Text_DontHaveNeededSSTicket)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox(CinnabarIsland_Text_DontHaveNeededSSTicket2)
+	goto(CinnabarIsland_EventScript_WalkUpPier)
+	end
+}
+
+script CinnabarIsland_EventScript_WalkUpPier {
+	closemessage
+	applymovement(FERRY_GUY, Common_Movement_FaceOriginalDirection)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp)
+	waitmovement(0)
+	releaseall
+	end
+}
+	
+text CinnabarIsland_Text_SSAnneNotHere {
+	format("As you can see, the boat ain't\nhere right now.")
+}
+
+script CinnabarIsland_EventScript_FerrySailor {
+	lock
+	faceplayer
+	msgbox(CinnabarIsland_Text_WelcomeToTheSSAnne)
+	release
+	end 
+}
+
+text CinnabarIsland_Text_DoYouHaveATicket {
+	"This is the dock for the S.S. ANNE.\p"
+	"You got a ticket or something?"
+}
+
+text CinnabarIsland_Text_WelcomeToTheSSAnne {
+	format("Err, hey.\nThis is the dock for the S.S. ANNE.")
+}
+
+text CinnabarIsland_Text_FlashedSSTicket {
+	"{PLAYER} flashed the S.S. TICKET!"
+}
+
+text CinnabarIsland_Text_FlashedSSTicket2 {
+	"Nyeh...\n"
+    "Alright, come on in..."
+}
+
+text CinnabarIsland_Text_DontHaveNeededSSTicket {
+	"{PLAYER} doesn't have the needed\n"
+    "S.S. TICKET."
+}
+
+text CinnabarIsland_Text_DontHaveNeededSSTicket2 {
+	"Get outta here!\p"
+    "Don't you know you need a ticket?"
+}
+
 
 raw `
 

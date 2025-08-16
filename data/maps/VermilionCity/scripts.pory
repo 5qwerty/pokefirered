@@ -5,6 +5,23 @@ mapscripts VermilionCity_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setworldmapflag(FLAG_WORLD_MAP_VERMILION_CITY)
 	}
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_MAP_SCENE_SS_ANNE_STATE, 3: VermilionCity_EventScript_LeaveSSAnne
+	]
+}
+
+script VermilionCity_EventScript_LeaveSSAnne {
+	lockall
+	applymovement(OBJ_EVENT_ID_PLAYER, VermilionCity_Movement_ExitSSAnne)
+	waitmovement(0)
+	setvar(VAR_MAP_SCENE_SS_ANNE_STATE, 0)
+	setvar(VAR_VERMILION_CITY_TICKET_CHECK_TRIGGER, 0)
+	releaseall
+	end
+}
+
+movement VermilionCity_Movement_ExitSSAnne {
+	walk_up * 2
 }
 
 script VermilionCity_EventScript_Sergei {
@@ -87,11 +104,10 @@ script VermilionCity_EventScript_CheckTicket {
 	applymovement (FERRY_GUY, Common_Movement_WalkInPlaceFasterLeft)
 	applymovement (OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight)
 	waitmovement (0)
-	msgbox(VermilionCity_Text_DoYouHaveATicket)
-	goto_if_eq(VAR_MAP_SCENE_SS_ANNE_STATE, 0, VermilionCity_EventScript_SSAnneHere) //SS Anne is at Vermilion, otherwise at Cinnabar
+	goto_if_eq(VAR_MAP_SCENE_SS_ANNE_STATE, 0, VermilionCity_EventScript_SSAnneHere) //SS Anne is at Vermilion and ready to board
 	msgbox(VermilionCity_Text_SSAnneNotHere)
 	closemessage
-	releaseall
+	goto(VermilionCity_EventScript_WalkUpPier)
 	end
 }
 
@@ -104,9 +120,11 @@ script VermilionCity_EventScript_ExitedTicketCheck {
 	
 
 script VermilionCity_EventScript_SSAnneHere {
+	msgbox(VermilionCity_Text_DoYouHaveATicket)
 	checkitem(ITEM_SS_TICKET)
 	goto_if_eq(VAR_RESULT, FALSE, VermilionCity_EventScript_DontHaveSSTicket)
 	//goto_if_unset(FLAG_GOT_SS_TICKET, VermilionCity_EventScript_DontHaveSSTicket)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	msgbox(VermilionCity_Text_FlashedSSTicket)
 	textcolor(NPC_TEXT_COLOR_MALE)
 	msgbox(VermilionCity_Text_FlashedSSTicket2)
@@ -146,7 +164,7 @@ script VermilionCity_EventScript_FerrySailor {
 
 script VermilionCity_EventScript_CitySign {
 	msgbox(VermilionCity_Text_CitySign, MSGBOX_SIGN)
-	clearflag(FLAG_HIDE_SS_ANNE)
+	clearflag(FLAG_HIDE_VERMILION_SS_ANNE)
 	end
 }
 	
@@ -160,7 +178,7 @@ script VermilionCity_EventScript_GymSign {
 	lockall
 	//famechecker FAMECHECKER_LTSURGE, 0
 	msgbox(VermilionCity_Text_GymSign)
-	setflag(FLAG_HIDE_SS_ANNE)
+	setflag(FLAG_HIDE_VERMILION_SS_ANNE)
 	releaseall
 	end
 }

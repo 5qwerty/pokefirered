@@ -52,57 +52,65 @@ SSAnne_2F_Room3_EventScript_ArriveCinnabar::
 # 33 "data/maps/SSAnne_2F_Room3/scripts.pory"
 	setrespawn SPAWN_CINNABAR_ISLAND
 # 34 "data/maps/SSAnne_2F_Room3/scripts.pory"
+	setflag FLAG_HIDE_VERMILION_SS_ANNE
+# 35 "data/maps/SSAnne_2F_Room3/scripts.pory"
+	clearflag FLAG_HIDE_CINNABAR_SS_ANNE
+# 36 "data/maps/SSAnne_2F_Room3/scripts.pory"
 	release
 	end
 
 
 SSAnne_2F_Room3_EventScript_ArriveVermilion::
-# 39 "data/maps/SSAnne_2F_Room3/scripts.pory"
-	delay 50
-# 40 "data/maps/SSAnne_2F_Room3/scripts.pory"
-	playse SE_DING_DONG
 # 41 "data/maps/SSAnne_2F_Room3/scripts.pory"
-	waitse
+	delay 50
 # 42 "data/maps/SSAnne_2F_Room3/scripts.pory"
-	textcolor NPC_TEXT_COLOR_MALE
+	playse SE_DING_DONG
 # 43 "data/maps/SSAnne_2F_Room3/scripts.pory"
-	msgbox SSAnne_2F_Room3_Text_ArriveVermilion
+	waitse
 # 44 "data/maps/SSAnne_2F_Room3/scripts.pory"
-	waitmessage
+	textcolor NPC_TEXT_COLOR_MALE
 # 45 "data/maps/SSAnne_2F_Room3/scripts.pory"
-	setvar VAR_MAP_SCENE_SS_ANNE_STATE, 3
+	msgbox SSAnne_2F_Room3_Text_ArriveVermilion
 # 46 "data/maps/SSAnne_2F_Room3/scripts.pory"
-	setrespawn SPAWN_VERMILION_CITY
+	waitmessage
 # 47 "data/maps/SSAnne_2F_Room3/scripts.pory"
+	setvar VAR_MAP_SCENE_SS_ANNE_STATE, 3
+# 48 "data/maps/SSAnne_2F_Room3/scripts.pory"
+	setrespawn SPAWN_VERMILION_CITY
+# 49 "data/maps/SSAnne_2F_Room3/scripts.pory"
+	setflag FLAG_HIDE_CINNABAR_SS_ANNE
+# 50 "data/maps/SSAnne_2F_Room3/scripts.pory"
+	clearflag FLAG_HIDE_VERMILION_SS_ANNE
+# 51 "data/maps/SSAnne_2F_Room3/scripts.pory"
 	release
 	end
 
 
 SSAnne_2F_Room3_Text_ArriveCinnabar::
-# 51 "data/maps/SSAnne_2F_Room3/scripts.pory"
+# 55 "data/maps/SSAnne_2F_Room3/scripts.pory"
 	.string "Attention!\n"
 	.string "This is your CAPTAIN speaking.\p"
 	.string "We have arrived at CINNABAR ISLAND!\n"
 	.string "Please enjoy your visit.$"
 
 SSAnne_2F_Room3_Text_ArriveVermilion::
-# 55 "data/maps/SSAnne_2F_Room3/scripts.pory"
+# 59 "data/maps/SSAnne_2F_Room3/scripts.pory"
 	.string "Attention!\n"
 	.string "This is your CAPTAIN speaking.\p"
 	.string "We have arrived at VERMILION CITY!\n"
 	.string "Please enjoy your visit.$"
 
 SSAnne_2F_Room3_Text_Bed::
-# 59 "data/maps/SSAnne_2F_Room3/scripts.pory"
+# 63 "data/maps/SSAnne_2F_Room3/scripts.pory"
 	.string "A comfy bed!\n"
 	.string "Take a nap?$"
 
 SSAnne_2F_Room3_Text_BedNo::
-# 63 "data/maps/SSAnne_2F_Room3/scripts.pory"
+# 67 "data/maps/SSAnne_2F_Room3/scripts.pory"
 	.string "Nah!\n"
 	.string "Maybe later!$"
 
 SSAnne_2F_Room3_Text_BedYes::
-# 67 "data/maps/SSAnne_2F_Room3/scripts.pory"
+# 71 "data/maps/SSAnne_2F_Room3/scripts.pory"
 	.string "Oh yeah!\n"
 	.string "Time to hit the sack!$"

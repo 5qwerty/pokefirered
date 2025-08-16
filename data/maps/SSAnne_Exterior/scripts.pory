@@ -4,8 +4,11 @@ const SS_ANNE = 1
 mapscripts SSAnne_Exterior_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION: SSAnne_Exterior_OnTransition
 	MAP_SCRIPT_ON_LOAD {
-		call_if_set(FLAG_HIDE_SS_ANNE, SSAnne_Exterior_ChangeTile)
+		call_if_set(FLAG_HIDE_VERMILION_SS_ANNE, SSAnne_Exterior_ChangeTile)
 	}
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_MAP_SCENE_SS_ANNE_STATE, 3: SSAnne_Exterior_EventScript_PlayerWalk
+	]
 }
 
 script SSAnne_Exterior_OnTransition {
@@ -16,4 +19,16 @@ script SSAnne_Exterior_ChangeTile {
 	setmetatile(32, 14, 0x1C1, 0)
 }
 
-	
+script SSAnne_Exterior_EventScript_PlayerWalk {
+	lockall
+	applymovement(OBJ_EVENT_ID_PLAYER, SSAnne_Exterior_Movement_PlayerLeave)
+	waitmovement(0)
+	warp(MAP_VERMILION_CITY, 11, 45)
+	waitstate
+	releaseall
+	end
+}	
+
+movement SSAnne_Exterior_Movement_PlayerLeave {
+	walk_up*9
+}

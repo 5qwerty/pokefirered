@@ -31,6 +31,8 @@ script SSAnne_2F_Room3_EventScript_ArriveCinnabar {
 	waitmessage
 	setvar(VAR_MAP_SCENE_SS_ANNE_STATE, 1)
 	setrespawn(SPAWN_CINNABAR_ISLAND)
+	setflag(FLAG_HIDE_VERMILION_SS_ANNE)
+	clearflag(FLAG_HIDE_CINNABAR_SS_ANNE)
 	release
 	end
 }
@@ -44,6 +46,8 @@ script SSAnne_2F_Room3_EventScript_ArriveVermilion {
 	waitmessage
 	setvar(VAR_MAP_SCENE_SS_ANNE_STATE, 3)
 	setrespawn(SPAWN_VERMILION_CITY)
+	setflag(FLAG_HIDE_CINNABAR_SS_ANNE)
+	clearflag(FLAG_HIDE_VERMILION_SS_ANNE)
 	release
 	end
 }
