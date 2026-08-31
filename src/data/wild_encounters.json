@@ -2328,7 +2328,7 @@
           "map": "MAP_POKEMON_MANSION_1F",
           "base_label": "sPokemonMansion1F_FireRed",
           "land_mons": {
-            "encounter_rate": 7,
+            "encounter_rate": 0,
             "mons": [
               {
                 "min_level": 28,
@@ -2466,7 +2466,7 @@
           "map": "MAP_POKEMON_MANSION_2F",
           "base_label": "sPokemonMansion2F_FireRed",
           "land_mons": {
-            "encounter_rate": 7,
+            "encounter_rate": 0,
             "mons": [
               {
                 "min_level": 28,
@@ -2604,7 +2604,7 @@
           "map": "MAP_POKEMON_MANSION_3F",
           "base_label": "sPokemonMansion3F_FireRed",
           "land_mons": {
-            "encounter_rate": 7,
+            "encounter_rate": 0,
             "mons": [
               {
                 "min_level": 28,
@@ -2742,7 +2742,7 @@
           "map": "MAP_POKEMON_MANSION_B1F",
           "base_label": "sPokemonMansionB1F_FireRed",
           "land_mons": {
-            "encounter_rate": 5,
+            "encounter_rate": 0,
             "mons": [
               {
                 "min_level": 28,
