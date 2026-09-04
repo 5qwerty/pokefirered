@@ -10,7 +10,6 @@
 #include "berry_powder.h"
 #include "overworld.h"
 #include "quest_log.h"
-#include "sloopsvc.h"
 
 #define SAVEBLOCK_MOVE_RANGE    128
 
@@ -38,10 +37,10 @@ EWRAM_DATA struct LoadedSaveData gLoadedSaveData = {0};
 EWRAM_DATA u32 gLastEncryptionKey = 0;
 
 // IWRAM common
-COMMON_DATA bool32 gFlashMemoryPresent = 0;
-COMMON_DATA struct SaveBlock1 *gSaveBlock1Ptr = NULL;
-COMMON_DATA struct SaveBlock2 *gSaveBlock2Ptr = NULL;
-COMMON_DATA struct PokemonStorage *gPokemonStoragePtr = NULL;
+bool32 gFlashMemoryPresent;
+struct SaveBlock1 *gSaveBlock1Ptr;
+struct SaveBlock2 *gSaveBlock2Ptr;
+struct PokemonStorage *gPokemonStoragePtr;
 
 void CheckForFlashMemory(void)
 {
@@ -126,9 +125,6 @@ void MoveSaveBlocks_ResetHeap(void)
     encryptionKey = (Random() << 0x10) + (Random());
     ApplyNewEncryptionKeyToAllEncryptedData(encryptionKey);
     gSaveBlock2Ptr->encryptionKey = encryptionKey;
-#if REVISION >= 0xA
-    svc_SetSaveBlock2(gSaveBlock2Ptr);
-#endif
 }
 
 u32 UseContinueGameWarp(void)

@@ -4,7 +4,7 @@ CeruleanCity_PokemonCenter_1F_MapScripts::
 	.byte 0
 
 CeruleanCity_PokemonCenter_1F_OnTransition::
-	setrespawn HEAL_LOCATION_CERULEAN_CITY
+	setrespawn SPAWN_CERULEAN_CITY
 	end
 
 CeruleanCity_PokemonCenter_1F_EventScript_Nurse::

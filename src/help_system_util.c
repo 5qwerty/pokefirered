@@ -10,7 +10,7 @@
 
 #define ZERO 0
 
-COMMON_DATA bool8 gHelpSystemEnabled = 0;
+bool8 gHelpSystemEnabled;
 
 struct HelpSystemVideoState
 {

@@ -21,7 +21,7 @@ void ChoosePartyMon(void)
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
 }
 
-void ChooseMonForMoveRelearner(void)
+void SelectMoveTutorMon(void)
 {
     u8 taskId;
 

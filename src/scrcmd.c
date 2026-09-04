@@ -37,7 +37,6 @@
 #include "constants/event_objects.h"
 #include "constants/maps.h"
 #include "constants/sound.h"
-#include "sloopsvc.h"
 
 extern u16 (*const gSpecials[])(void);
 extern u16 (*const gSpecialsEnd[])(void);
@@ -55,8 +54,8 @@ static EWRAM_DATA u16 sMovingNpcMapGroup = 0;
 static EWRAM_DATA u16 sMovingNpcMapNum = 0;
 static EWRAM_DATA u16 sFieldEffectScriptId = 0;
 
-COMMON_DATA struct ScriptContext * sQuestLogScriptContextPtr = NULL;
-COMMON_DATA u8 gSelectedObjectEvent = 0;
+struct ScriptContext * sQuestLogScriptContextPtr;
+u8 gSelectedObjectEvent;
 
 // This is defined in here so the optimizer can't see its value when compiling
 // script.c.
@@ -766,7 +765,7 @@ bool8 ScrCmd_warphole(struct ScriptContext * ctx)
     u16 y;
 
     PlayerGetDestCoords(&x, &y);
-    if (mapGroup == MAP_GROUP(MAP_UNDEFINED) && mapNum == MAP_NUM(MAP_UNDEFINED))
+    if (mapGroup == MAP_GROUP(UNDEFINED) && mapNum == MAP_NUM(UNDEFINED))
         SetWarpDestinationToFixedHoleWarp(x - MAP_OFFSET, y - MAP_OFFSET);
     else
         SetWarpDestination(mapGroup, mapNum, WARP_ID_NONE, x - MAP_OFFSET, y - MAP_OFFSET);
@@ -1011,7 +1010,7 @@ bool8 ScrCmd_waitmovement(struct ScriptContext * ctx)
 {
     u16 localId = VarGet(ScriptReadHalfword(ctx));
 
-    if (localId != LOCALID_NONE)
+    if (localId != 0)
         sMovingNpcId = localId;
     sMovingNpcMapGroup = gSaveBlock1Ptr->location.mapGroup;
     sMovingNpcMapNum = gSaveBlock1Ptr->location.mapNum;
@@ -1025,7 +1024,7 @@ bool8 ScrCmd_waitmovementat(struct ScriptContext * ctx)
     u8 mapBank;
     u8 mapId;
 
-    if (localId != LOCALID_NONE)
+    if (localId != 0)
         sMovingNpcId = localId;
     mapBank = ScriptReadByte(ctx);
     mapId = ScriptReadByte(ctx);
@@ -1233,7 +1232,7 @@ bool8 ScrCmd_releaseall(struct ScriptContext * ctx)
     u8 playerObjectId;
 
     HideFieldMessageBox();
-    playerObjectId = GetObjectEventIdByLocalIdAndMap(LOCALID_PLAYER, 0, 0);
+    playerObjectId = GetObjectEventIdByLocalIdAndMap(OBJ_EVENT_ID_PLAYER, 0, 0);
     ObjectEventClearHeldMovementIfFinished(&gObjectEvents[playerObjectId]);
     ScriptMovement_UnfreezeObjectEvents();
     UnfreezeObjectEvents();
@@ -1247,7 +1246,7 @@ bool8 ScrCmd_release(struct ScriptContext * ctx)
     HideFieldMessageBox();
     if (gObjectEvents[gSelectedObjectEvent].active)
         ObjectEventClearHeldMovementIfFinished(&gObjectEvents[gSelectedObjectEvent]);
-    playerObjectId = GetObjectEventIdByLocalIdAndMap(LOCALID_PLAYER, 0, 0);
+    playerObjectId = GetObjectEventIdByLocalIdAndMap(OBJ_EVENT_ID_PLAYER, 0, 0);
     ObjectEventClearHeldMovementIfFinished(&gObjectEvents[playerObjectId]);
     ScriptMovement_UnfreezeObjectEvents();
     UnfreezeObjectEvents();
@@ -1733,24 +1732,12 @@ bool8 ScrCmd_bufferboxname(struct ScriptContext * ctx)
 
 bool8 ScrCmd_givemon(struct ScriptContext * ctx)
 {
-    u16 species;
-    u8 level;
-    u16 item;
-    u32 unkParam1;
-    u32 unkParam2;
-    u8 unkParam3;
-    species = VarGet(ScriptReadHalfword(ctx));
-#if REVISION >= 0xA
-    // If the player party count is zero, this "must" be giving the starter.
-    // Notify the emulator of what starter was picked, for telemetry purposes.
-    if (gSaveBlock1Ptr->playerPartyCount == 0)
-        svc_SetStarter(species);
-#endif
-    level = ScriptReadByte(ctx);
-    item = VarGet(ScriptReadHalfword(ctx));
-    unkParam1 = ScriptReadWord(ctx);
-    unkParam2 = ScriptReadWord(ctx);
-    unkParam3 = ScriptReadByte(ctx);
+    u16 species = VarGet(ScriptReadHalfword(ctx));
+    u8 level = ScriptReadByte(ctx);
+    u16 item = VarGet(ScriptReadHalfword(ctx));
+    u32 unkParam1 = ScriptReadWord(ctx);
+    u32 unkParam2 = ScriptReadWord(ctx);
+    u8 unkParam3 = ScriptReadByte(ctx);
 
     gSpecialVar_Result = ScriptGiveMon(species, level, item, unkParam1, unkParam2, unkParam3);
     return FALSE;

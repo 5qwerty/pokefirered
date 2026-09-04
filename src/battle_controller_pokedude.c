@@ -2424,7 +2424,7 @@ static const struct PokedudeBattlePartyInfo *const sPokedudeBattlePartyPointers[
     [TTVSCR_CATCHING] = sParties_Catching,
 };
 
-COMMON_DATA struct PokedudeBattlerState *gPokedudeBattlerStates[MAX_BATTLERS_COUNT] = {0};
+struct PokedudeBattlerState *gPokedudeBattlerStates[MAX_BATTLERS_COUNT];
 
 static void PokedudeSimulateInputChooseAction(void)
 {

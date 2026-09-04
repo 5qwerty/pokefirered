@@ -1,8 +1,8 @@
 #include "global.h"
 #include "gflib.h"
 
-COMMON_DATA u8 gWindowClearTile = {0};
-COMMON_DATA void *gWindowBgTilemapBuffers[4] = {0};
+u8 gWindowClearTile;
+void *gWindowBgTilemapBuffers[4];
 
 EWRAM_DATA struct Window gWindows[WINDOWS_MAX] = {0};
 

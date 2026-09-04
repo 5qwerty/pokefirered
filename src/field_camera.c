@@ -37,9 +37,9 @@ static s16 sVerticalCameraPan;
 static u8 sBikeCameraPanFlag;
 static void (*sFieldCameraPanningCallback)(void);
 
-COMMON_DATA struct CameraObject gFieldCamera = {0};
-COMMON_DATA u16 gTotalCameraPixelOffsetY = 0;
-COMMON_DATA u16 gTotalCameraPixelOffsetX = 0;
+struct CameraObject gFieldCamera;
+u16 gTotalCameraPixelOffsetY;
+u16 gTotalCameraPixelOffsetX;
 
 // text
 static void move_tilemap_camera_to_upper_left_corner_(struct FieldCameraOffset *cameraOffset)

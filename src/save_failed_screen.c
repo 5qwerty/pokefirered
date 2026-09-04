@@ -7,7 +7,7 @@
 #include "save.h"
 #include "strings.h"
 
-COMMON_DATA bool32 sIsInSaveFailedScreen = 0;
+bool32 sIsInSaveFailedScreen;
 
 static EWRAM_DATA u16 sSaveType = SAVE_NORMAL;
 static EWRAM_DATA u16 sUnused = 0;

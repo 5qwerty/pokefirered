@@ -10,8 +10,8 @@ static u16 sLastTextBgColor;
 static u16 sLastTextFgColor;
 static u16 sLastTextShadowColor;
 
-COMMON_DATA const struct FontInfo *gFonts = NULL;
-COMMON_DATA struct GlyphInfo gGlyphInfo = {0};
+const struct FontInfo *gFonts;
+struct GlyphInfo gGlyphInfo;
 
 static const u8 sFontHalfRowOffsets[] =
 {

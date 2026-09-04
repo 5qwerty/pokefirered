@@ -27,7 +27,7 @@
 #include "constants/field_weather.h"
 #include "constants/maps.h"
 
-COMMON_DATA u32 UnusedVarNeededToMatch[8] = {0};
+u32 UnusedVarNeededToMatch[8];
 
 static void Task_LinkupStart(u8 taskId);
 static void Task_LinkupAwaitConnection(u8 taskId);
@@ -718,9 +718,6 @@ static void Task_StartWirelessCableClubBattle(u8 taskId)
             tState = 5;
         break;
     case 5:
-#if REVISION >= 0xA
-        if (!IsLinkTaskFinished()) break;
-#endif
         SetLinkStandbyCallback();
         tState = 6;
         break;
@@ -923,9 +920,6 @@ static void Task_StartWirelessTrade(u8 taskId)
             tState++;
         break;
     case 2:
-#if REVISION >= 0xA
-        if (!IsLinkTaskFinished()) break;
-#endif
         gSelectedTradeMonPositions[TRADE_PLAYER] = 0;
         gSelectedTradeMonPositions[TRADE_PARTNER] = 0;
         m4aMPlayAllStop();
@@ -1002,11 +996,7 @@ bool32 GetSeeingLinkPlayerCardMsg(u8 linkPlayerIndex)
 void Task_WaitForLinkPlayerConnection(u8 taskId)
 {
     struct Task *task = &gTasks[taskId];
-#if REVISION >= 0xA
-    if (++task->tTimer > 480)
-#else
     if (++task->tTimer > 300)
-#endif
     {
         CloseLink();
         SetMainCallback2(CB2_LinkError);
